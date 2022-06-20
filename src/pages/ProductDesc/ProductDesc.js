@@ -1,5 +1,5 @@
 import React from "react";
-import "./productDesc.scss";
+import "./ProductDesc.scss";
 
 const ProductDesc = () => {
   return <div>ProductDesc입니다.</div>;
