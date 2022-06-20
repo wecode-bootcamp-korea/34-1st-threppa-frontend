@@ -5,8 +5,8 @@ import Login from "./pages/Login/Login";
 import ProductList from "./pages/ProductList/ProductList";
 import ProductDesc from "./pages/ProductDesc/ProductDesc";
 import Signup from "./pages/Signup/Signup";
-import Nav from "./common/Nav/Nav";
-import Footer from "./common/Footer/Footer";
+import Nav from "./components/Nav/Nav";
+import Footer from "./components/Footer/Footer";
 
 export default function Router() {
   return (
