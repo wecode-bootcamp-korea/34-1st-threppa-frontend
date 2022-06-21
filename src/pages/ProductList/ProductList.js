@@ -8,8 +8,8 @@ const ProductList = () => {
       <div className="listNav">
         <div className="listNavSmallLeft">
           <i class="fas fa-home leftSmallBtn"></i>
-          <div>
-            <a class="leftSmallBtn">여성 X</a>
+          <div class="leftSmallCategory">
+            <a>여성 X</a>
           </div>
         </div>
         <div className="listNavSmallRight">
@@ -37,6 +37,7 @@ const ProductList = () => {
             <ul>
               <li className="style">
                 스타일
+                <i class="fas fa-plus stylePlus"></i>
                 <ul className="styleUl">
                   <li>
                     <i class="fas fa-shoe-prints"></i>클로그
@@ -71,6 +72,7 @@ const ProductList = () => {
               </li>
               <li className="size">
                 사이즈
+                <i class="fas fa-plus sizePlus"></i>
                 <ul className="sizeUl">
                   <li>210</li>
                   <li>220</li>
@@ -86,6 +88,7 @@ const ProductList = () => {
               </li>
               <li className="color">
                 색상
+                <i class="fas fa-plus colorPlus"></i>
                 <ul className="colorUl">
                   <li>
                     <div>색 원</div>
@@ -146,7 +149,10 @@ const ProductList = () => {
 
         <section className="rightSection">
           <div className="dropdownMenu">
-            <button className="sortBtn">베스트매치</button>
+            <button className="sortBtn">
+              베스트매치
+              <i class="fas fa-angle-down arrowBtn"></i>
+            </button>
           </div>
           <div>
             <ul className="productInfoList">
@@ -164,7 +170,132 @@ const ProductList = () => {
                         className="productImg"
                       ></img>
                     </div>
-                    <p className="productName">상품 이름</p>
+                    <p className="productName">클래식 코지 샌들</p>
+                    <p className="productRate">⭑⭑⭑⭑⭑ 5</p>
+                    <div className="productPrice">₩69,000</div>
+                    <div className="productColorNav">
+                      <div className="colorCircle"></div>
+                      <div className="colorCircle"></div>
+                      <div className="colorCircle"></div>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div className="productInfo">
+                  <div className="productInfoTopNav">
+                    <i class="far fa-heart"></i>
+                    <span>세일정보</span>
+                  </div>
+                  <div className="productInfoDetail">
+                    <div>
+                      <img
+                        alt="shoes"
+                        src="https://cdn.pixabay.com/photo/2013/07/12/18/20/shoes-153310_960_720.png"
+                        className="productImg"
+                      ></img>
+                    </div>
+                    <p className="productName">클래식 코지 샌들</p>
+                    <p className="productRate">⭑⭑⭑⭑⭑ 5</p>
+                    <div className="productPrice">₩69,000</div>
+                    <div className="productColorNav">
+                      <div className="colorCircle"></div>
+                      <div className="colorCircle"></div>
+                      <div className="colorCircle"></div>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div className="productInfo">
+                  <div className="productInfoTopNav">
+                    <i class="far fa-heart"></i>
+                    <span>세일정보</span>
+                  </div>
+                  <div className="productInfoDetail">
+                    <div>
+                      <img
+                        alt="shoes"
+                        src="https://cdn.pixabay.com/photo/2013/07/12/18/20/shoes-153310_960_720.png"
+                        className="productImg"
+                      ></img>
+                    </div>
+                    <p className="productName">클래식 코지 샌들</p>
+                    <p className="productRate">⭑⭑⭑⭑⭑ 5</p>
+                    <div className="productPrice">₩69,000</div>
+                    <div className="productColorNav">
+                      <div className="colorCircle"></div>
+                      <div className="colorCircle"></div>
+                      <div className="colorCircle"></div>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div className="productInfo">
+                  <div className="productInfoTopNav">
+                    <i class="far fa-heart"></i>
+                    <span>세일정보</span>
+                  </div>
+                  <div className="productInfoDetail">
+                    <div>
+                      <img
+                        alt="shoes"
+                        src="https://cdn.pixabay.com/photo/2013/07/12/18/20/shoes-153310_960_720.png"
+                        className="productImg"
+                      ></img>
+                    </div>
+                    <p className="productName">클래식 코지 샌들</p>
+                    <p className="productRate">⭑⭑⭑⭑⭑ 5</p>
+                    <div className="productPrice">₩69,000</div>
+                    <div className="productColorNav">
+                      <div className="colorCircle"></div>
+                      <div className="colorCircle"></div>
+                      <div className="colorCircle"></div>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div className="productInfo">
+                  <div className="productInfoTopNav">
+                    <i class="far fa-heart"></i>
+                    <span>세일정보</span>
+                  </div>
+                  <div className="productInfoDetail">
+                    <div>
+                      <img
+                        alt="shoes"
+                        src="https://cdn.pixabay.com/photo/2013/07/12/18/20/shoes-153310_960_720.png"
+                        className="productImg"
+                      ></img>
+                    </div>
+                    <p className="productName">클래식 코지 샌들</p>
+                    <p className="productRate">⭑⭑⭑⭑⭑ 5</p>
+                    <div className="productPrice">₩69,000</div>
+                    <div className="productColorNav">
+                      <div className="colorCircle"></div>
+                      <div className="colorCircle"></div>
+                      <div className="colorCircle"></div>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div className="productInfo">
+                  <div className="productInfoTopNav">
+                    <i class="far fa-heart"></i>
+                    <span>세일정보</span>
+                  </div>
+                  <div className="productInfoDetail">
+                    <div>
+                      <img
+                        alt="shoes"
+                        src="https://cdn.pixabay.com/photo/2013/07/12/18/20/shoes-153310_960_720.png"
+                        className="productImg"
+                      ></img>
+                    </div>
+                    <p className="productName">클래식 코지 샌들</p>
                     <p className="productRate">⭑⭑⭑⭑⭑ 5</p>
                     <div className="productPrice">₩69,000</div>
                     <div className="productColorNav">
@@ -178,17 +309,17 @@ const ProductList = () => {
             </ul>
           </div>
           <div className="moreProduct">
-            <div>
+            <div className="showMoreBtn">
               <a>더보기</a>
             </div>
-            <div>
-              <a>모두보기</a>
+            <div className="showAllBtn">
+              <a>모두보기(127)</a>
             </div>
           </div>
-          <h2>
+          <p class="categoryComment">
             스타일리시하면서도 편안한 크록스 여성 슈즈.(각각 카테고리에 맞는
             서술)
-          </h2>
+          </p>
         </section>
       </div>
     </div>

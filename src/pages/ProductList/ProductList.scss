@@ -18,6 +18,9 @@
 
   .listTitle {
     font-size: 28px;
+    font-weight: bold;
+    margin-top: 30px;
+    margin-bottom: 50px;
   }
 
   .listNav {
@@ -32,8 +35,16 @@
 
       .leftSmallBtn {
         background-color: #d3d3d3;
-        padding: 4px;
-        margin: 5px;
+        border-radius: 5px;
+        text-align: center;
+        padding: 5px;
+        margin-right: 5px;
+      }
+      .leftSmallCategory {
+        background-color: #d3d3d3;
+        border-radius: 5px;
+        margin: auto;
+        padding: 5px;
       }
     }
     .listNavSmallRight {
@@ -69,15 +80,29 @@
           padding-left: 0px;
         }
         .style {
-          padding: 15px;
+          position: relative;
+          padding: 20px;
           border-bottom: 1px solid black;
+          .stylePlus {
+            position: absolute;
+            right: 0;
+            bottom: 30;
+            margin-right: 10px;
+          }
           .styleUl {
             display: none;
           }
         }
         .size {
-          padding: 15px;
+          position: relative;
+          padding: 20px;
           border-bottom: 1px solid black;
+          .sizePlus {
+            position: absolute;
+            right: 0;
+            bottom: 30;
+            margin-right: 10px;
+          }
           .sizeUl {
             display: none;
             // display: grid;
@@ -86,8 +111,15 @@
         }
 
         .color {
-          padding: 15px;
+          position: relative;
+          padding: 20px;
           // border-bottom: 1px solid black;
+          .colorPlus {
+            position: absolute;
+            right: 0;
+            bottom: 30;
+            margin-right: 10px;
+          }
           .colorUl {
             display: none;
             // display: grid;
@@ -102,13 +134,22 @@
     }
 
     .rightSection {
+      position: relative;
       width: 75%;
       padding-left: 30px;
       .dropdownMenu {
         text-align: right;
         padding: 20px;
         .sortBtn {
-          padding: 10px;
+          position: relative;
+          .arrowBtn {
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            padding: 15px;
+          }
+          text-align: left;
+          padding: 15px;
           width: 16vw;
           font-size: 16px;
           font-weight: bold;
@@ -126,6 +167,7 @@
         box-shadow: 0.3px 0.3px 0.3px 0.3px #d3d3d3;
         border-radius: 3px;
         .productInfoTopNav {
+          font-size: 13px;
           padding: 5px;
           display: flex;
           justify-content: space-between !important;
@@ -135,6 +177,7 @@
           flex-direction: column;
           align-items: center;
           .productName {
+            font-size: 13px;
             margin: 15px;
           }
           .productRate {
@@ -159,6 +202,28 @@
         display: flex;
         flex-direction: row;
         justify-content: center;
+      }
+
+      .showMoreBtn {
+        background-color: black;
+        color: white;
+        width: 5vw;
+        padding: 20px;
+        margin: 20px;
+      }
+      .showAllBtn {
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+
+        width: 7vw;
+        padding: 5px;
+        margin: auto 5px;
+      }
+      .categoryComment {
+        position: absolute;
+        left: 30;
+        bottom: 0;
       }
     }
   }
