@@ -11,54 +11,56 @@ const Nav = () => {
         </Link>
         <ul className="menuMain">
           <li className="menuTap">
-            <a className="menuColor">여성</a>
+            <a href="#" className="menuColor">
+              여성
+            </a>
             <div className="menuSub">
               <div className="subColumn">
                 <h2>슈즈 종류</h2>
                 <ul>
                   <li>
-                    <a>
+                    <a href="#">
                       <i class="fas fa-hand-point-right" />
                       클로그
                     </a>
                   </li>
                   <li>
-                    <a>
+                    <a href="#">
                       <i class="fas fa-hand-point-right" />
                       샌들 / 웨지
                     </a>
                   </li>
                   <li>
-                    <a>
+                    <a href="#">
                       <i class="fas fa-hand-point-right" />
                       플립 / 슬라이드
                     </a>
                   </li>
                   <li>
-                    <a>
+                    <a href="#">
                       <i class="fas fa-hand-point-right" />
                       플랫 / 로퍼
                     </a>
                   </li>
                   <li>
-                    <a>
+                    <a href="#">
                       <i class="fas fa-hand-point-right" />
                       부츠
                     </a>
                   </li>
                   <li>
-                    <a>
+                    <a href="#">
                       <i class="fas fa-hand-point-right" />털 안감 겨울 클로그
                     </a>
                   </li>
                   <li>
-                    <a>
+                    <a href="#">
                       <i class="fas fa-hand-point-right" />
                       지비츠 참
                     </a>
                   </li>
                   <li>
-                    <a>
+                    <a href="#">
                       <i class="fas fa-hand-point-right" />
                       양말
                     </a>
@@ -98,54 +100,56 @@ const Nav = () => {
             </div>
           </li>
           <li className="menuTap">
-            <a className="menuColor">남성</a>
+            <a href="#" className="menuColor">
+              남성
+            </a>
             <div className="menuSub">
               <div className="subColumn">
                 <h2>슈즈 종류</h2>
                 <ul>
                   <li>
-                    <a>
+                    <a href="#">
                       <i class="fas fa-hand-point-right" />
                       클로그
                     </a>
                   </li>
                   <li>
-                    <a>
+                    <a href="#">
                       <i class="fas fa-hand-point-right" />
                       샌들
                     </a>
                   </li>
                   <li>
-                    <a>
+                    <a href="#">
                       <i class="fas fa-hand-point-right" />
                       플립 / 슬라이드
                     </a>
                   </li>
                   <li>
-                    <a>
+                    <a href="#">
                       <i class="fas fa-hand-point-right" />
                       로퍼 / 슬라이드
                     </a>
                   </li>
                   <li>
-                    <a>
+                    <a href="#">
                       <i class="fas fa-hand-point-right" />
                       로퍼 / 슬립온
                     </a>
                   </li>
                   <li>
-                    <a>
+                    <a href="#">
                       <i class="fas fa-hand-point-right" />털 안감 겨울 클로그
                     </a>
                   </li>
                   <li>
-                    <a>
+                    <a href="#">
                       <i class="fas fa-hand-point-right" />
                       지비츠 참
                     </a>
                   </li>
                   <li>
-                    <a>
+                    <a href="#">
                       <i class="fas fa-hand-point-right" />
                       양말
                     </a>
@@ -185,33 +189,35 @@ const Nav = () => {
             </div>
           </li>
           <li className="menuTap">
-            <a className="menuColor">키즈</a>
+            <a href="#" className="menuColor">
+              키즈
+            </a>
             <div className="menuSub">
               <div className="subColumn">
                 <h2>토글러(165MM이하)</h2>
                 <ul>
                   <li>
-                    <a>
+                    <a href="#">
                       <i class="fas fa-hand-point-right" />
                       클로그
                     </a>
                   </li>
                   <li>
-                    <a>
+                    <a href="#">
                       <i class="fas fa-hand-point-right" />
                       샌들
                     </a>
                   </li>
 
                   <li>
-                    <a>
+                    <a href="#">
                       <i class="fas fa-hand-point-right" />
                       부츠 / 레인부츠
                     </a>
                   </li>
 
                   <li>
-                    <a>
+                    <a href="#">
                       <i class="fas fa-hand-point-right" />
                       양말
                     </a>
@@ -252,7 +258,9 @@ const Nav = () => {
             </div>
           </li>
           <li className="menuTap">
-            <a className="menuColor">워크 슈즈</a>
+            <a href="#" className="menuColor">
+              워크 슈즈
+            </a>
             <div className="menuSub">
               <div className="subColumn">
                 <div className="columnUnders workShoes">
@@ -281,54 +289,56 @@ const Nav = () => {
             </div>
           </li>
           <li className="menuTap">
-            <a className="menuColor">지비츠 참</a>
+            <a href="#" className="menuColor">
+              지비츠 참
+            </a>
             <div className="menuSub">
               <div className="subColumn">
                 <h2>슈즈 종류</h2>
                 <ul>
                   <li>
-                    <a>
+                    <a href="#">
                       <i class="fas fa-hand-point-right" />
                       클로그
                     </a>
                   </li>
                   <li>
-                    <a>
+                    <a href="#">
                       <i class="fas fa-hand-point-right" />
                       샌들 / 웨지
                     </a>
                   </li>
                   <li>
-                    <a>
+                    <a href="#">
                       <i class="fas fa-hand-point-right" />
                       플립 / 슬라이드
                     </a>
                   </li>
                   <li>
-                    <a>
+                    <a href="#">
                       <i class="fas fa-hand-point-right" />
                       플랫 / 로퍼
                     </a>
                   </li>
                   <li>
-                    <a>
+                    <a href="#">
                       <i class="fas fa-hand-point-right" />
                       부츠
                     </a>
                   </li>
                   <li>
-                    <a>
+                    <a href="#">
                       <i class="fas fa-hand-point-right" />털 안감 겨울 클로그
                     </a>
                   </li>
                   <li>
-                    <a>
+                    <a href="#">
                       <i class="fas fa-hand-point-right" />
                       지비츠 참
                     </a>
                   </li>
                   <li>
-                    <a>
+                    <a href="#">
                       <i class="fas fa-hand-point-right" />
                       양말
                     </a>
@@ -368,7 +378,9 @@ const Nav = () => {
             </div>
           </li>
           <li className="menuTap">
-            <a className="menuColor">세일</a>
+            <a href="#" className="menuColor">
+              세일
+            </a>
             <div className="menuSub">
               <div className="subColumn">
                 <ul className="saleTapSub">
@@ -402,26 +414,52 @@ const Nav = () => {
         <div className="navRight">
           <p className="navRightTap">
             <i class="fas fa-heart heart">
-              <a>
+              <a href="#">
                 <span>1</span>
               </a>
             </i>
           </p>
           <p className="navRightTap">
-            <a>
+            <a href="#">
               <i class="fas fa-shopping-cart cart" />
             </a>
           </p>
+          {/* 3단 메뉴 */}
           <p className="navRightTap">
-            <Link to="/login">
-              <a>로그인</a>
-            </Link>
+            <div className="barBtn">
+              <i class="fas fa-bars bars" />
+              <ul className="menuBar">
+                <Link to="/login">
+                  <li>로그인 </li>
+                </Link>
+
+                <Link to="/signup">
+                  {" "}
+                  <li>회원가입</li>
+                </Link>
+
+                <li>주문내역조회</li>
+                <li>반품</li>
+                <li>고객 서비스</li>
+              </ul>
+            </div>
+          </p>
+
+          {/* <p className="navRightTap">
+            <Link to="/login">로그인</Link>
           </p>
           <p className="navRightTap">
-            <Link to="/signup">
-              <a>회원가입</a>
-            </Link>
+            <Link to="/signup">회원가입</Link>
           </p>
+          <p className="navRightTap">
+            <i class="fas fa-bars bars" />
+            <ul className="menuBar">
+              <li>위시리스트</li>
+              <li>주문내역조회</li>
+              <li>반품</li>
+              <li>고객 서비스</li>
+            </ul>
+          </p> */}
         </div>
       </div>
     </nav>
