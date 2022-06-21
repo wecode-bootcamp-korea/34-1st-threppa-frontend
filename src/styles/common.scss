@@ -1,9 +1,18 @@
 * {
   box-sizing: border-box;
 }
+// 1. 기본 폰트
+@font-face {
+  font-family: "HallymGothic-Regular";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2204@1.0/HallymGothic-Regular.woff2")
+    format("woff2");
+  font-weight: 400;
+  font-style: normal;
+}
 
+html {
+  font-family: "HallymGothic-Regular";
+}
+// 2. 로고 폰트
 @import url("https://fonts.googleapis.com/css2?family=Lobster&display=swap");
-// font-family: 'Lobster', cursive;
-
-@import url("https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap");
-// font-family: 'Nanum Gothic', sans-serif;
+// font-family: ‘Lobster’, cursive;

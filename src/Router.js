@@ -8,7 +8,7 @@ import Signup from "./pages/Signup/Signup";
 import Nav from "./components/Nav/Nav";
 import Footer from "./components/Footer/Footer";
 
-export default function Router() {
+function Router() {
   return (
     <BrowserRouter>
       <Nav />
@@ -23,3 +23,5 @@ export default function Router() {
     </BrowserRouter>
   );
 }
+
+export default Router;
