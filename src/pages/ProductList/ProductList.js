@@ -1,14 +1,56 @@
 import React from "react";
+import { useState } from "react";
 import "./ProductList.scss";
 
 const ProductList = () => {
+  const [styleState, setStyleState] = useState(false);
+  const [sizeState, setSizeState] = useState(false);
+  const [colorState, setColorState] = useState(false);
+
+  const [modalState, setModalState] = useState(false);
+  const styleMenuOpen = () => {
+    {
+      styleState ? setStyleState(false) : setStyleState(true);
+    }
+  };
+  const sizeMenuOpen = () => {
+    {
+      sizeState ? setSizeState(false) : setSizeState(true);
+    }
+  };
+  const colorMenuOpen = () => {
+    {
+      colorState ? setColorState(false) : setColorState(true);
+    }
+  };
+
+  const onClickSortModal = () => {
+    {
+      modalState ? setModalState(false) : setModalState(true);
+    }
+  };
+  const SortModal = () => {
+    return (
+      <div className="modal" style={{ display: modalState ? "block" : "none" }}>
+        <ul>
+          <li>베스트 매치</li>
+          <li>베스트 셀러</li>
+          <li>높은 평점</li>
+          <li>추천순</li>
+          <li>최저가 - 최고가</li>
+          <li>최고가 - 최저가</li>
+        </ul>
+      </div>
+    );
+  };
+
   return (
     <div className="wrap">
       <p className="listTitle">크록스 여성 슈즈</p>
       <div className="listNav">
         <div className="listNavSmallLeft">
-          <i class="fas fa-home leftSmallBtn"></i>
-          <div class="leftSmallCategory">
+          <i className="fas fa-home leftSmallBtn"></i>
+          <div className="leftSmallCategory">
             <a>여성 X</a>
           </div>
         </div>
@@ -27,7 +69,7 @@ const ProductList = () => {
             <ul>
               <li>신상품</li>
               <li>베스트셀러</li>
-              <li>5만원 이하 여셩 슈즈</li>
+              <li>5만원 이하 여성 슈즈</li>
               <li>Classic Crocs</li>
               <li>모두 보기</li>
             </ul>
@@ -37,43 +79,103 @@ const ProductList = () => {
             <ul>
               <li className="style">
                 스타일
-                <i class="fas fa-plus stylePlus"></i>
-                <ul className="styleUl">
+                <i
+                  className="fas fa-plus stylePlus"
+                  onClick={styleMenuOpen}
+                ></i>
+                <ul
+                  className="styleUl"
+                  style={{
+                    display: styleState ? "block" : "none",
+                  }}
+                >
                   <li>
-                    <i class="fas fa-shoe-prints"></i>클로그
+                    <div>
+                      <i className="fas fa-shoe-prints"></i>
+                      클로그
+                    </div>
+                    <input type="checkbox"></input>
                   </li>
                   <li>
-                    <i class="fas fa-shoe-prints"></i>샌들
+                    <div>
+                      <i className="fas fa-shoe-prints"></i>
+                      샌들
+                    </div>
+                    <input type="checkbox"></input>
                   </li>
                   <li>
-                    <i class="fas fa-shoe-prints"></i>슬라이즈
-                  </li>
-                  <li>의류</li>
-                  <li>
-                    <i class="fas fa-shoe-prints"></i>플립
-                  </li>
-                  <li>힐과 웨지</li>
-                  <li>
-                    <i class="fas fa-shoe-prints"></i>털 안감
+                    <div>
+                      <i className="fas fa-shoe-prints"></i>
+                      슬라이드
+                    </div>
+                    <input type="checkbox"></input>
                   </li>
                   <li>
-                    <i class="fas fa-shoe-prints"></i>플랫
+                    <div>
+                      <i className="fas fa-shoe-prints"></i>
+                      의류
+                    </div>
+                    <input type="checkbox"></input>
                   </li>
                   <li>
-                    <i class="fas fa-shoe-prints"></i>단화 / 슬립온
+                    <div>
+                      <i className="fas fa-shoe-prints"></i>
+                      플립
+                    </div>
+                    <input type="checkbox"></input>
                   </li>
                   <li>
-                    <i class="fas fa-shoe-prints"></i>스니커즈
+                    <div>
+                      <i className="fas fa-shoe-prints"></i>
+                      힐과 웨지
+                    </div>
+                    <input type="checkbox"></input>
                   </li>
                   <li>
-                    <i class="fas fa-shoe-prints"></i>슬리퍼
+                    <div>
+                      <i className="fas fa-shoe-prints"></i>털 안감
+                    </div>
+                    <input type="checkbox"></input>
+                  </li>
+                  <li>
+                    <div>
+                      <i className="fas fa-shoe-prints"></i>
+                      플랫
+                    </div>
+                    <input type="checkbox"></input>
+                  </li>
+                  <li>
+                    <div>
+                      <i className="fas fa-shoe-prints"></i>
+                      단화 / 슬립온
+                    </div>
+                    <input type="checkbox"></input>
+                  </li>
+                  <li>
+                    <div>
+                      <i className="fas fa-shoe-prints"></i>
+                      스니커즈
+                    </div>
+                    <input type="checkbox"></input>
+                  </li>
+                  <li>
+                    <div>
+                      <i className="fas fa-shoe-prints"></i>
+                      슬리퍼
+                    </div>
+                    <input type="checkbox"></input>
                   </li>
                 </ul>
               </li>
               <li className="size">
                 사이즈
-                <i class="fas fa-plus sizePlus"></i>
-                <ul className="sizeUl">
+                <i className="fas fa-plus sizePlus" onClick={sizeMenuOpen}></i>
+                <ul
+                  className="sizeUl"
+                  style={{
+                    display: sizeState ? "grid" : "none",
+                  }}
+                >
                   <li>210</li>
                   <li>220</li>
                   <li>230</li>
@@ -88,50 +190,58 @@ const ProductList = () => {
               </li>
               <li className="color">
                 색상
-                <i class="fas fa-plus colorPlus"></i>
-                <ul className="colorUl">
+                <i
+                  className="fas fa-plus colorPlus"
+                  onClick={colorMenuOpen}
+                ></i>
+                <ul
+                  className="colorUl"
+                  style={{
+                    display: colorState ? "grid" : "none",
+                  }}
+                >
                   <li>
-                    <div>색 원</div>
+                    <div className="colorCircle"></div>
                     <span>블랙</span>
                   </li>
                   <li>
-                    <div>색 원</div>
+                    <div className="colorCircle"></div>
                     <span>블랙</span>
                   </li>
                   <li>
-                    <div>색 원</div>
+                    <div className="colorCircle"></div>
                     <span>블랙</span>
                   </li>
                   <li>
-                    <div>색 원</div>
+                    <div className="colorCircle"></div>
                     <span>블랙</span>
                   </li>
                   <li>
-                    <div>색 원</div>
+                    <div className="colorCircle"></div>
                     <span>블랙</span>
                   </li>
                   <li>
-                    <div>색 원</div>
+                    <div className="colorCircle"></div>
                     <span>블랙</span>
                   </li>
                   <li>
-                    <div>색 원</div>
+                    <div className="colorCircle"></div>
                     <span>블랙</span>
                   </li>
                   <li>
-                    <div>색 원</div>
+                    <div className="colorCircle"></div>
                     <span>블랙</span>
                   </li>
                   <li>
-                    <div>색 원</div>
+                    <div className="colorCircle"></div>
                     <span>블랙</span>
                   </li>
                   <li>
-                    <div>색 원</div>
+                    <div className="colorCircle"></div>
                     <span>블랙</span>
                   </li>
                   <li>
-                    <div>색 원</div>
+                    <div className="colorCircle"></div>
                     <span>블랙</span>
                   </li>
                 </ul>
@@ -149,17 +259,18 @@ const ProductList = () => {
 
         <section className="rightSection">
           <div className="dropdownMenu">
-            <button className="sortBtn">
+            <button className="sortBtn" onClick={onClickSortModal}>
               베스트매치
-              <i class="fas fa-angle-down arrowBtn"></i>
+              <i className="fas fa-angle-down arrowBtn"></i>
             </button>
+            <SortModal></SortModal>
           </div>
           <div>
             <ul className="productInfoList">
               <li>
                 <div className="productInfo">
                   <div className="productInfoTopNav">
-                    <i class="far fa-heart"></i>
+                    <i className="far fa-heart"></i>
                     <span>세일정보</span>
                   </div>
                   <div className="productInfoDetail">
@@ -184,7 +295,7 @@ const ProductList = () => {
               <li>
                 <div className="productInfo">
                   <div className="productInfoTopNav">
-                    <i class="far fa-heart"></i>
+                    <i className="far fa-heart"></i>
                     <span>세일정보</span>
                   </div>
                   <div className="productInfoDetail">
@@ -209,7 +320,7 @@ const ProductList = () => {
               <li>
                 <div className="productInfo">
                   <div className="productInfoTopNav">
-                    <i class="far fa-heart"></i>
+                    <i className="far fa-heart"></i>
                     <span>세일정보</span>
                   </div>
                   <div className="productInfoDetail">
@@ -234,7 +345,7 @@ const ProductList = () => {
               <li>
                 <div className="productInfo">
                   <div className="productInfoTopNav">
-                    <i class="far fa-heart"></i>
+                    <i className="far fa-heart"></i>
                     <span>세일정보</span>
                   </div>
                   <div className="productInfoDetail">
@@ -259,7 +370,7 @@ const ProductList = () => {
               <li>
                 <div className="productInfo">
                   <div className="productInfoTopNav">
-                    <i class="far fa-heart"></i>
+                    <i className="far fa-heart"></i>
                     <span>세일정보</span>
                   </div>
                   <div className="productInfoDetail">
@@ -284,7 +395,7 @@ const ProductList = () => {
               <li>
                 <div className="productInfo">
                   <div className="productInfoTopNav">
-                    <i class="far fa-heart"></i>
+                    <i className="far fa-heart"></i>
                     <span>세일정보</span>
                   </div>
                   <div className="productInfoDetail">
@@ -316,7 +427,7 @@ const ProductList = () => {
               <a>모두보기(127)</a>
             </div>
           </div>
-          <p class="categoryComment">
+          <p className="categoryComment">
             스타일리시하면서도 편안한 크록스 여성 슈즈.(각각 카테고리에 맞는
             서술)
           </p>
