@@ -14,7 +14,7 @@
     padding: 20px 25px;
     display: flex;
     position: relative;
-    z-index: 99;
+    z-index: 10;
 
     .logo {
       font-family: "Lobster", cursive;
@@ -35,21 +35,20 @@
 
         .menuSub {
           position: absolute;
+          top: 100px;
+          left: 0;
           border-bottom: 1px solid black;
           background-color: white;
-          padding: 0px 40px;
+          padding: 0px 140px;
           display: grid;
           grid-template-columns: repeat(4, 1fr);
           width: 100%;
           height: 0px; // <메뉴바>
-          // height: 400px; // 임시 높이
           overflow: hidden;
-          top: 100px;
-          left: 0;
-          transition: height 0.1s ease-in-out; // [1-1] all
+          transition: height 0.1s ease-in-out;
 
           .subColumn {
-            padding: 25px 0;
+            padding-top: 35px;
 
             h2 {
               font-weight: 800;
@@ -60,6 +59,7 @@
             ul li {
               font-size: 16px;
               margin-bottom: 16px;
+
               i {
                 margin-right: 20px;
                 font-size: 24px;
@@ -68,26 +68,15 @@
 
             .columnUnders {
               margin-top: 90px;
+
               .columnUnder {
                 text-decoration: underline;
                 margin-bottom: 30px;
               }
+
               .red {
                 color: rgb(180, 1, 1);
               }
-            }
-
-            .workShoes {
-              margin-top: 0;
-
-              h2 {
-                margin-top: 10px;
-                font-size: 16px;
-              }
-            }
-
-            .kids {
-              margin-top: 50px;
             }
 
             .navImg {
@@ -111,22 +100,38 @@
               }
             }
 
+            .kids {
+              margin-top: 50px;
+            }
+
+            .workShoes {
+              margin-top: 30px;
+              margin-left: 20px;
+
+              h2 {
+                margin-top: 20px;
+                font-size: 16px;
+              }
+            }
+
             .saleTapSub {
               margin-top: 10px;
+
               li {
                 padding-top: 10px;
                 text-decoration: underline;
               }
+
               .saleAll {
                 margin-top: 40px;
                 font-size: 18px;
               }
             }
+            .price {
+              margin-top: 16px;
+            }
 
             .salePrice {
-              .price {
-                margin-top: 16px;
-              }
               li {
                 text-decoration: none;
               }
@@ -134,15 +139,15 @@
           }
 
           .workShoesImg {
-            margin-top: 30px;
+            margin-top: 0px;
           }
         }
       }
 
       // <메뉴바>
       .menuTap:hover .menuSub {
-        height: 400px;
-        transition: height 0.4s ease-in-out; // [1-2] all
+        height: 430px;
+        transition: height 0.5s ease-in-out;
       }
 
       .menuTap:hover .menuColor {
@@ -182,6 +187,27 @@
           }
         }
 
+        .cart {
+          font-size: 32px;
+          position: relative;
+
+          .cartNum {
+            position: absolute;
+            top: -10px;
+            right: -7px;
+            line-height: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 16px;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: rgb(49, 101, 206);
+            color: white;
+          }
+        }
+
         .barBtn {
           background-color: inherit;
           border: none;
@@ -193,13 +219,8 @@
           }
         }
 
-        .barBtn:hover .menuBar {
-          position: absolute;
-          left: -168px;
-        }
-
         .menuBar {
-          z-index: 98;
+          z-index: 9;
           position: absolute;
           top: 75px;
           left: 75px;
@@ -221,10 +242,11 @@
             padding-left: 20px;
           }
         }
-      }
 
-      .cart {
-        font-size: 32px;
+        .barBtn:hover .menuBar {
+          position: absolute;
+          left: -168px;
+        }
       }
     }
   }

@@ -258,9 +258,9 @@ const Nav = () => {
             </div>
           </li>
           <li className="menuTap">
-            <a href="#" className="menuColor">
+            <p href="#" className="menuColor">
               워크 슈즈
-            </a>
+            </p>
             <div className="menuSub">
               <div className="subColumn">
                 <div className="columnUnders workShoes">
@@ -268,7 +268,13 @@ const Nav = () => {
                   <h2 className="columnUnder">워크 슈즈 모두 보기</h2>
                 </div>
               </div>
-              <div className="subColumn" />
+              <div className="subColumn">
+                <div className="columnUnders workShoes">
+                  <h2>워크 슈즈</h2>
+                  <h2 className="columnUnder">워크 슈즈 모두 보기</h2>
+                </div>
+              </div>
+
               <div className="subColumn workShoesImg">
                 <div className="navImg ">
                   <img src="./images/NavImgs/shoes1.jpg" alt="shoes1" />
@@ -277,6 +283,7 @@ const Nav = () => {
                   <img src="./images/NavImgs/shoes2.jpeg" alt="shoes2" />
                 </div>
               </div>
+
               <div className="subColumn workShoesImg">
                 <div className="navImg workShoesImg">
                   <img
@@ -289,98 +296,9 @@ const Nav = () => {
             </div>
           </li>
           <li className="menuTap">
-            <a href="#" className="menuColor">
-              지비츠 참
-            </a>
-            <div className="menuSub">
-              <div className="subColumn">
-                <h2>슈즈 종류</h2>
-                <ul>
-                  <li>
-                    <a href="#">
-                      <i class="fas fa-hand-point-right" />
-                      클로그
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      <i class="fas fa-hand-point-right" />
-                      샌들 / 웨지
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      <i class="fas fa-hand-point-right" />
-                      플립 / 슬라이드
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      <i class="fas fa-hand-point-right" />
-                      플랫 / 로퍼
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      <i class="fas fa-hand-point-right" />
-                      부츠
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      <i class="fas fa-hand-point-right" />털 안감 겨울 클로그
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      <i class="fas fa-hand-point-right" />
-                      지비츠 참
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      <i class="fas fa-hand-point-right" />
-                      양말
-                    </a>
-                  </li>
-                </ul>
-              </div>
-              <div className="subColumn">
-                <h2>여성 컬렉션</h2>
-                <ul>
-                  <li>클래식</li>
-                  <li>타이다이</li>
-                  <li>라이트라이드</li>
-                  <li>바야밴드</li>
-                  <li>크록밴드</li>
-                </ul>
-                <div className="columnUnders">
-                  <h2 className="columnUnder">여성용 슈즈 모두 보기</h2>
-                  <h2 className="columnUnder red">세일</h2>
-                </div>
-              </div>
-              <div className="subColumn">
-                <div className="navImg">
-                  <img src="./images/NavImgs/shoes1.jpg" alt="shoes1" />
-                  <p className="navImgTitle">신상품</p>
-                </div>
-                <div className="navImg">
-                  <img src="./images/NavImgs/shoes2.jpeg" alt="shoes2" />
-                  <p className="navImgTitle">베스트셀러</p>
-                </div>
-              </div>
-              <div className="subColumn">
-                <div className="navImg">
-                  <img src="./images/NavImgs/shoes2.jpeg" alt="shoes2" />
-                  <p className="navImgTitle">크록스 삭스</p>
-                </div>
-              </div>
-            </div>
-          </li>
-          <li className="menuTap">
-            <a href="#" className="menuColor">
+            <p href="#" className="menuColor">
               세일
-            </a>
+            </p>
             <div className="menuSub">
               <div className="subColumn">
                 <ul className="saleTapSub">
@@ -414,15 +332,19 @@ const Nav = () => {
         <div className="navRight">
           <p className="navRightTap">
             <i class="fas fa-heart heart">
-              <a href="#">
-                <span>1</span>
-              </a>
+              <p href="#">
+                <span>0</span>
+              </p>
             </i>
           </p>
           <p className="navRightTap">
-            <a href="#">
-              <i class="fas fa-shopping-cart cart" />
-            </a>
+            <p href="#">
+              <i class="fas fa-shopping-cart cart">
+                <p href="#">
+                  <span className="cartNum">0</span>
+                </p>
+              </i>
+            </p>
           </p>
           {/* 3단 메뉴 */}
           <p className="navRightTap">
@@ -432,34 +354,15 @@ const Nav = () => {
                 <Link to="/login">
                   <li>로그인 </li>
                 </Link>
-
                 <Link to="/signup">
-                  {" "}
                   <li>회원가입</li>
                 </Link>
-
                 <li>주문내역조회</li>
                 <li>반품</li>
                 <li>고객 서비스</li>
               </ul>
             </div>
           </p>
-
-          {/* <p className="navRightTap">
-            <Link to="/login">로그인</Link>
-          </p>
-          <p className="navRightTap">
-            <Link to="/signup">회원가입</Link>
-          </p>
-          <p className="navRightTap">
-            <i class="fas fa-bars bars" />
-            <ul className="menuBar">
-              <li>위시리스트</li>
-              <li>주문내역조회</li>
-              <li>반품</li>
-              <li>고객 서비스</li>
-            </ul>
-          </p> */}
         </div>
       </div>
     </nav>
