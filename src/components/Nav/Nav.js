@@ -20,48 +20,49 @@ const Nav = () => {
                 <ul>
                   <li>
                     <a href="#">
-                      <i class="fas fa-hand-point-right" />
+                      <i className="fas fa-hand-point-right" />
                       클로그
                     </a>
                   </li>
                   <li>
                     <a href="#">
-                      <i class="fas fa-hand-point-right" />
+                      <i className="fas fa-hand-point-right" />
                       샌들 / 웨지
                     </a>
                   </li>
                   <li>
                     <a href="#">
-                      <i class="fas fa-hand-point-right" />
+                      <i className="fas fa-hand-point-right" />
                       플립 / 슬라이드
                     </a>
                   </li>
                   <li>
                     <a href="#">
-                      <i class="fas fa-hand-point-right" />
+                      <i className="fas fa-hand-point-right" />
                       플랫 / 로퍼
                     </a>
                   </li>
                   <li>
                     <a href="#">
-                      <i class="fas fa-hand-point-right" />
+                      <i className="fas fa-hand-point-right" />
                       부츠
                     </a>
                   </li>
                   <li>
                     <a href="#">
-                      <i class="fas fa-hand-point-right" />털 안감 겨울 클로그
+                      <i className="fas fa-hand-point-right" />털 안감 겨울
+                      클로그
                     </a>
                   </li>
                   <li>
                     <a href="#">
-                      <i class="fas fa-hand-point-right" />
+                      <i className="fas fa-hand-point-right" />
                       지비츠 참
                     </a>
                   </li>
                   <li>
                     <a href="#">
-                      <i class="fas fa-hand-point-right" />
+                      <i className="fas fa-hand-point-right" />
                       양말
                     </a>
                   </li>
@@ -109,48 +110,49 @@ const Nav = () => {
                 <ul>
                   <li>
                     <a href="#">
-                      <i class="fas fa-hand-point-right" />
+                      <i className="fas fa-hand-point-right" />
                       클로그
                     </a>
                   </li>
                   <li>
                     <a href="#">
-                      <i class="fas fa-hand-point-right" />
+                      <i className="fas fa-hand-point-right" />
                       샌들
                     </a>
                   </li>
                   <li>
                     <a href="#">
-                      <i class="fas fa-hand-point-right" />
+                      <i className="fas fa-hand-point-right" />
                       플립 / 슬라이드
                     </a>
                   </li>
                   <li>
                     <a href="#">
-                      <i class="fas fa-hand-point-right" />
+                      <i className="fas fa-hand-point-right" />
                       로퍼 / 슬라이드
                     </a>
                   </li>
                   <li>
                     <a href="#">
-                      <i class="fas fa-hand-point-right" />
+                      <i className="fas fa-hand-point-right" />
                       로퍼 / 슬립온
                     </a>
                   </li>
                   <li>
                     <a href="#">
-                      <i class="fas fa-hand-point-right" />털 안감 겨울 클로그
+                      <i className="fas fa-hand-point-right" />털 안감 겨울
+                      클로그
                     </a>
                   </li>
                   <li>
                     <a href="#">
-                      <i class="fas fa-hand-point-right" />
+                      <i className="fas fa-hand-point-right" />
                       지비츠 참
                     </a>
                   </li>
                   <li>
                     <a href="#">
-                      <i class="fas fa-hand-point-right" />
+                      <i className="fas fa-hand-point-right" />
                       양말
                     </a>
                   </li>
@@ -198,27 +200,27 @@ const Nav = () => {
                 <ul>
                   <li>
                     <a href="#">
-                      <i class="fas fa-hand-point-right" />
+                      <i className="fas fa-hand-point-right" />
                       클로그
                     </a>
                   </li>
                   <li>
                     <a href="#">
-                      <i class="fas fa-hand-point-right" />
+                      <i className="fas fa-hand-point-right" />
                       샌들
                     </a>
                   </li>
 
                   <li>
                     <a href="#">
-                      <i class="fas fa-hand-point-right" />
+                      <i className="fas fa-hand-point-right" />
                       부츠 / 레인부츠
                     </a>
                   </li>
 
                   <li>
                     <a href="#">
-                      <i class="fas fa-hand-point-right" />
+                      <i className="fas fa-hand-point-right" />
                       양말
                     </a>
                   </li>
@@ -330,26 +332,24 @@ const Nav = () => {
           </li>
         </ul>
         <div className="navRight">
-          <p className="navRightTap">
-            <i class="fas fa-heart heart">
+          <div className="navRightTap">
+            <i className="fas fa-heart heart">
               <p href="#">
                 <span>0</span>
               </p>
             </i>
-          </p>
-          <p className="navRightTap">
+          </div>
+          <div className="navRightTap">
             <p href="#">
-              <i class="fas fa-shopping-cart cart">
-                <p href="#">
-                  <span className="cartNum">0</span>
-                </p>
+              <i className="fas fa-shopping-cart cart">
+                <span className="cartNum">0</span>
               </i>
             </p>
-          </p>
+          </div>
           {/* 3단 메뉴 */}
-          <p className="navRightTap">
+          <div className="navRightTap">
             <div className="barBtn">
-              <i class="fas fa-bars bars" />
+              <i className="fas fa-bars bars" />
               <ul className="menuBar">
                 <Link to="/login">
                   <li>로그인 </li>
@@ -362,7 +362,7 @@ const Nav = () => {
                 <li>고객 서비스</li>
               </ul>
             </div>
-          </p>
+          </div>
         </div>
       </div>
     </nav>
