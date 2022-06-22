@@ -95,7 +95,7 @@
 
     .asideRight {
       width: 500px;
-      height: 1600px;
+      height: 1500px;
       .stickyBox {
         position: sticky;
         top: 3%;
@@ -127,6 +127,40 @@
             font-size: 15px;
             span {
               font-weight: 700;
+            }
+          }
+          .colorList {
+            margin-top: 20px;
+            ul {
+              display: flex;
+              gap: 10px;
+            }
+            .black {
+              width: 80px;
+              height: 30px;
+              padding-top: 7px;
+              border-radius: 5px;
+              text-align: center;
+              background-color: black;
+              color: #ffffff;
+            }
+            .white {
+              width: 80px;
+              height: 30px;
+              padding-top: 7px;
+              border-radius: 5px;
+              text-align: center;
+              background-color: rgb(164, 164, 164);
+              color: #ffffff;
+            }
+            .blue {
+              width: 80px;
+              height: 30px;
+              padding-top: 7px;
+              border-radius: 5px;
+              text-align: center;
+              background-color: royalblue;
+              color: #ffffff;
             }
           }
           .colorImages {
@@ -204,62 +238,5 @@
     height: auto;
     margin: 0px auto;
     background-color: #ffffff;
-    .bottomRecommendedProduct {
-      @include bottomProducts;
-      .recommendedTitle {
-        @include bottomProductTitleFont;
-      }
-      .recommendItemsCarousel {
-        @include bottomItemCarousel;
-        .carouselBox {
-          @include carouselBox;
-          .recommendItem {
-            @include productItem;
-            .itemImage {
-              @include itemImage;
-            }
-            .itemContents {
-              margin-top: 50px;
-
-              .pContent {
-                @include pContent;
-              }
-              .hContent {
-                @include hContent;
-              }
-            }
-          }
-        }
-      }
-    }
-    .bottomNewProduct {
-      @include bottomProducts;
-      margin-top: 20px;
-      .newTitle {
-        @include bottomProductTitleFont;
-      }
-      .newItemsCarousel {
-        @include bottomItemCarousel;
-        .carouselBox {
-          @include carouselBox;
-          .newItem {
-            @include productItem;
-            .itemImage {
-              @include itemImage;
-            }
-            .itemContents {
-              margin-top: 50px;
-
-              .pContent {
-                @include pContent;
-              }
-              .hContent {
-                @include hContent;
-              }
-            }
-          }
-        }
-      }
-    }
   }
 }

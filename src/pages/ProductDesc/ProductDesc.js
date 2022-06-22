@@ -1,22 +1,28 @@
 import React from "react";
 import "./ProductDesc.scss";
+import { useState, useEffect } from "react";
+import RecommendProducts from "./components/RecommendProducts/RecommendProducts";
+import NewProducts from "./components/NewProducts/NewProducts";
 
 const ProductDesc = () => {
+  const [recommendProductsData, setRecommendProductsData] = useState([]);
+  useEffect(() => {
+    fetch("/datas/RECOMMENDPRODUCTS_DATA.json", {
+      method: "GET",
+    })
+      .then(res => res.json())
+      .then(RECOMMENDPRODUCTS_DATA => {
+        setRecommendProductsData(RECOMMENDPRODUCTS_DATA);
+      });
+  }, []);
+
   return (
     <div className="productDescPage">
       <main className="container">
         <div className="asideLeft">
           <div className="leftImageAndHeart">
-            <img className="image" src="/images/crocs_01.jpg" alt="nono!" />
+            <img className="image" src="/images/crocs_01.png" alt="nono!" />
             <i class="fa-regular fa-heart heart" />
-          </div>
-          <div className="asideLeftItemImages">
-            <img className="ItemImage" src="/images/crocs_01.jpg" alt="no" />
-            <img className="ItemImage" src="/images/crocs_01.jpg" alt="no" />
-            <img className="ItemImage" src="/images/crocs_01.jpg" alt="no" />
-            <img className="ItemImage" src="/images/crocs_01.jpg" alt="no" />
-            <img className="ItemImage" src="/images/crocs_01.jpg" alt="no" />
-            <img className="ItemImage" src="/images/crocs_01.jpg" alt="no" />
           </div>
           <img
             className="asideLeftContent"
@@ -34,6 +40,13 @@ const ProductDesc = () => {
             <div className="slippersColor">
               <div className="colorTitle">
                 <span>색상 :</span> 화이트
+              </div>
+              <div className="colorList">
+                <ul>
+                  <li className="black">black</li>
+                  <li className="white">white</li>
+                  <li className="blue">blue</li>
+                </ul>
               </div>
               <div className="colorImages" />
             </div>
@@ -64,212 +77,8 @@ const ProductDesc = () => {
         </div>
       </main>
       <footer className="bottomContainer">
-        <div className="bottomRecommendedProduct">
-          <h4 className="recommendedTitle">추천 제품</h4>
-          <div className="recommendItemsCarousel">
-            <ul className="carouselBox">
-              <li className="recommendItem">
-                <img
-                  className="itemImage"
-                  src="/images/crocs_01.jpg"
-                  alt="nono"
-                />
-                <div className="itemContents">
-                  <p className="pContent">20색</p>
-                  <h4 className="hContent">클래식 플랫폼 클로그 우먼</h4>
-                  <p className="pContent">₩69,900</p>
-                </div>
-              </li>
-              <li className="recommendItem">
-                <img
-                  className="itemImage"
-                  src="/images/crocs_01.jpg"
-                  alt="nono"
-                />
-                <div className="itemContents">
-                  <p className="pContent">20색</p>
-                  <h4 className="hContent">클래식 플랫폼 클로그 우먼</h4>
-                  <p className="pContent">₩69,900</p>
-                </div>
-              </li>
-              <li className="recommendItem">
-                <img
-                  className="itemImage"
-                  src="/images/crocs_01.jpg"
-                  alt="nono"
-                />
-                <div className="itemContents">
-                  <p className="pContent">20색</p>
-                  <h4 className="hContent">클래식 플랫폼 클로그 우먼</h4>
-                  <p className="pContent">₩69,900</p>
-                </div>
-              </li>
-              <li className="recommendItem">
-                <img
-                  className="itemImage"
-                  src="/images/crocs_01.jpg"
-                  alt="nono"
-                />
-                <div className="itemContents">
-                  <p className="pContent">20색</p>
-                  <h4 className="hContent">클래식 플랫폼 클로그 우먼</h4>
-                  <p className="pContent">₩69,900</p>
-                </div>
-              </li>
-              <li className="recommendItem">
-                <img
-                  className="itemImage"
-                  src="/images/crocs_01.jpg"
-                  alt="nono"
-                />
-                <div className="itemContents">
-                  <p className="pContent">20색</p>
-                  <h4 className="hContent">클래식 플랫폼 클로그 우먼</h4>
-                  <p className="pContent">₩69,900</p>
-                </div>
-              </li>
-              <li className="recommendItem">
-                <img
-                  className="itemImage"
-                  src="/images/crocs_01.jpg"
-                  alt="nono"
-                />
-                <div className="itemContents">
-                  <p className="pContent">20색</p>
-                  <h4 className="hContent">클래식 플랫폼 클로그 우먼</h4>
-                  <p className="pContent">₩69,900</p>
-                </div>
-              </li>
-              <li className="recommendItem">
-                <img
-                  className="itemImage"
-                  src="/images/crocs_01.jpg"
-                  alt="nono"
-                />
-                <div className="itemContents">
-                  <p className="pContent">20색</p>
-                  <h4 className="hContent">클래식 플랫폼 클로그 우먼</h4>
-                  <p className="pContent">₩69,900</p>
-                </div>
-              </li>
-              <li className="recommendItem">
-                <img
-                  className="itemImage"
-                  src="/images/crocs_01.jpg"
-                  alt="nono"
-                />
-                <div className="itemContents">
-                  <p className="pContent">20색</p>
-                  <h4 className="hContent">클래식 플랫폼 클로그 우먼</h4>
-                  <p className="pContent">₩69,900</p>
-                </div>
-              </li>
-            </ul>
-          </div>
-        </div>
-        <div className="bottomNewProduct">
-          <h4 className="newTitle">신제품 소식</h4>
-          <div className="newItemsCarousel">
-            <ul className="carouselBox">
-              <li className="newItem">
-                <img
-                  className="itemImage"
-                  src="/images/crocs_01.jpg"
-                  alt="nono!!"
-                />
-                <div className="itemContents">
-                  <p className="pContent">20색</p>
-                  <h4 className="hContent">클래식 플랫폼 클로그 우먼</h4>
-                  <p className="pContent">₩69,900</p>
-                </div>
-              </li>
-              <li className="newItem">
-                <img
-                  className="itemImage"
-                  src="/images/crocs_01.jpg"
-                  alt="nono!!"
-                />
-                <div className="itemContents">
-                  <p className="pContent">20색</p>
-                  <h4 className="hContent">클래식 플랫폼 클로그 우먼</h4>
-                  <p className="pContent">₩69,900</p>
-                </div>
-              </li>
-              <li className="newItem">
-                <img
-                  className="itemImage"
-                  src="/images/crocs_01.jpg"
-                  alt="nono!!"
-                />
-                <div className="itemContents">
-                  <p className="pContent">20색</p>
-                  <h4 className="hContent">클래식 플랫폼 클로그 우먼</h4>
-                  <p className="pContent">₩69,900</p>
-                </div>
-              </li>
-              <li className="newItem">
-                <img
-                  className="itemImage"
-                  src="/images/crocs_01.jpg"
-                  alt="nono!!"
-                />
-                <div className="itemContents">
-                  <p className="pContent">20색</p>
-                  <h4 className="hContent">클래식 플랫폼 클로그 우먼</h4>
-                  <p className="pContent">₩69,900</p>
-                </div>
-              </li>
-              <li className="newItem">
-                <img
-                  className="itemImage"
-                  src="/images/crocs_01.jpg"
-                  alt="nono!!"
-                />
-                <div className="itemContents">
-                  <p className="pContent">20색</p>
-                  <h4 className="hContent">클래식 플랫폼 클로그 우먼</h4>
-                  <p className="pContent">₩69,900</p>
-                </div>
-              </li>
-              <li className="newItem">
-                <img
-                  className="itemImage"
-                  src="/images/crocs_01.jpg"
-                  alt="nono!!"
-                />
-                <div className="itemContents">
-                  <p className="pContent">20색</p>
-                  <h4 className="hContent">클래식 플랫폼 클로그 우먼</h4>
-                  <p className="pContent">₩69,900</p>
-                </div>
-              </li>
-              <li className="newItem">
-                <img
-                  className="itemImage"
-                  src="/images/crocs_01.jpg"
-                  alt="nono!!"
-                />
-                <div className="itemContents">
-                  <p className="pContent">20색</p>
-                  <h4 className="hContent">클래식 플랫폼 클로그 우먼</h4>
-                  <p className="pContent">₩69,900</p>
-                </div>
-              </li>
-              <li className="newItem">
-                <img
-                  className="itemImage"
-                  src="/images/crocs_01.jpg"
-                  alt="nono!!"
-                />
-                <div className="itemContents">
-                  <p className="pContent">20색</p>
-                  <h4 className="hContent">클래식 플랫폼 클로그 우먼</h4>
-                  <p className="pContent">₩69,900</p>
-                </div>
-              </li>
-            </ul>
-          </div>
-        </div>
+        <RecommendProducts reco={recommendProductsData} />
+        <NewProducts reco={recommendProductsData} />
       </footer>
     </div>
   );
