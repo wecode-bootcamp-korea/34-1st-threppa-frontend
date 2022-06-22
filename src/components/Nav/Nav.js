@@ -83,17 +83,17 @@ const Nav = () => {
               </div>
               <div className="subColumn">
                 <div className="navImg">
-                  <img src="./images/NavImgs/shoes1.jpg" alt="shoes1" />
+                  <img src="images/NavImgs/shoes1.jpg" alt="shoes1" />
                   <p className="navImgTitle">신상품</p>
                 </div>
                 <div className="navImg">
-                  <img src="./images/NavImgs/shoes2.jpeg" alt="shoes2" />
+                  <img src="images/NavImgs/shoes2.jpeg" alt="shoes2" />
                   <p className="navImgTitle">베스트셀러</p>
                 </div>
               </div>
               <div className="subColumn">
                 <div className="navImg">
-                  <img src="./images/NavImgs/shoes2.jpeg" alt="shoes2" />
+                  <img src="images/NavImgs/shoes2.jpeg" alt="shoes2" />
                   <p className="navImgTitle">크록스 삭스</p>
                 </div>
               </div>
@@ -172,17 +172,17 @@ const Nav = () => {
               </div>
               <div className="subColumn">
                 <div className="navImg">
-                  <img src="./images/NavImgs/shoes1.jpg" alt="shoes1" />
+                  <img src="images/NavImgs/shoes1.jpg" alt="shoes1" />
                   <p className="navImgTitle">신상품</p>
                 </div>
                 <div className="navImg">
-                  <img src="./images/NavImgs/shoes2.jpeg" alt="shoes2" />
+                  <img src="images/NavImgs/shoes2.jpeg" alt="shoes2" />
                   <p className="navImgTitle">베스트셀러</p>
                 </div>
               </div>
               <div className="subColumn">
                 <div className="navImg">
-                  <img src="./images/NavImgs/shoes2.jpeg" alt="shoes2" />
+                  <img src="images/NavImgs/shoes2.jpeg" alt="shoes2" />
                   <p className="navImgTitle">크록스 삭스</p>
                 </div>
               </div>
@@ -241,17 +241,17 @@ const Nav = () => {
               </div>
               <div className="subColumn">
                 <div className="navImg">
-                  <img src="./images/NavImgs/shoes1.jpg" alt="shoes1" />
+                  <img src="images/NavImgs/shoes1.jpg" alt="shoes1" />
                   <p className="navImgTitle">신상품</p>
                 </div>
                 <div className="navImg">
-                  <img src="./images/NavImgs/shoes2.jpeg" alt="shoes2" />
+                  <img src="images/NavImgs/shoes2.jpeg" alt="shoes2" />
                   <p className="navImgTitle">베스트셀러</p>
                 </div>
               </div>
               <div className="subColumn">
                 <div className="navImg">
-                  <img src="./images/NavImgs/shoes2.jpeg" alt="shoes2" />
+                  <img src="images/NavImgs/shoes2.jpeg" alt="shoes2" />
                   <p className="navImgTitle">크록스 삭스</p>
                 </div>
               </div>
@@ -277,17 +277,17 @@ const Nav = () => {
 
               <div className="subColumn workShoesImg">
                 <div className="navImg ">
-                  <img src="./images/NavImgs/shoes1.jpg" alt="shoes1" />
+                  <img src="images/NavImgs/shoes1.jpg" alt="shoes1" />
                 </div>
                 <div className="navImg">
-                  <img src="./images/NavImgs/shoes2.jpeg" alt="shoes2" />
+                  <img src="images/NavImgs/shoes2.jpeg" alt="shoes2" />
                 </div>
               </div>
 
               <div className="subColumn workShoesImg">
                 <div className="navImg workShoesImg">
                   <img
-                    src="./images/NavImgs/shoes2.jpeg"
+                    src="images/NavImgs/shoes2.jpeg"
                     alt="shoes2"
                     style={{ height: "260px" }}
                   />
@@ -321,7 +321,7 @@ const Nav = () => {
               <div className="subColumn" />
               <div className="subColumn">
                 <img
-                  src="./images/NavImgs/shoes2.jpeg"
+                  src="images/NavImgs/shoes2.jpeg"
                   alt="shoes2"
                   style={{ width: "400px", marginTop: "70px" }}
                 />
@@ -330,6 +330,9 @@ const Nav = () => {
           </li>
         </ul>
         <div className="navRight">
+          <p className="navRightTap">
+            <span>안녕하세요 지현님 :&#41;</span>
+          </p>
           <p className="navRightTap">
             <i class="fas fa-heart heart">
               <p href="#">

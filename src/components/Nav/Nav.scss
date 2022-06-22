@@ -2,48 +2,48 @@
   position: fixed;
 
   a {
-    text-decoration: none;
     color: inherit;
+    text-decoration: none;
   }
 
   #navWrapper {
-    border-bottom: 1px solid black;
-    background-color: rgb(195, 171, 217);
+    display: flex;
+    position: relative;
     width: 100vw;
     height: 100px;
     padding: 20px 25px;
-    display: flex;
-    position: relative;
+    background-color: rgb(195, 171, 217);
+    border-bottom: 1px solid black;
     z-index: 10;
 
     .logo {
+      margin-right: 20px;
       font-family: "Lobster", cursive;
       font-size: 50px;
-      margin-right: 20px;
     }
 
     .menuMain {
       display: flex;
 
       .menuTap {
-        width: 80px;
-        height: 55px;
         display: flex;
         justify-content: center;
         align-items: center;
+        width: 80px;
+        height: 55px;
         font-weight: bold;
 
         .menuSub {
           position: absolute;
           top: 100px;
           left: 0;
-          border-bottom: 1px solid black;
-          background-color: white;
-          padding: 0px 140px;
           display: grid;
           grid-template-columns: repeat(4, 1fr);
           width: 100%;
           height: 0px; // <메뉴바>
+          padding: 0px 140px;
+          border-bottom: 1px solid black;
+          background-color: white;
           overflow: hidden;
           transition: height 0.1s ease-in-out;
 
@@ -51,14 +51,14 @@
             padding-top: 35px;
 
             h2 {
+              margin-bottom: 18px;
               font-weight: 800;
               font-size: 20px;
-              margin-bottom: 18px;
             }
 
             ul li {
-              font-size: 16px;
               margin-bottom: 16px;
+              font-size: 16px;
 
               i {
                 margin-right: 20px;
@@ -70,8 +70,8 @@
               margin-top: 90px;
 
               .columnUnder {
-                text-decoration: underline;
                 margin-bottom: 30px;
+                text-decoration: underline;
               }
 
               .red {
@@ -80,11 +80,11 @@
             }
 
             .navImg {
-              width: 100%;
-              margin-bottom: 20px;
               display: flex;
               flex-direction: column;
               align-items: center;
+              margin-bottom: 20px;
+              width: 100%;
 
               img {
                 width: 90%;
@@ -92,10 +92,10 @@
               }
 
               .navImgTitle {
-                width: 100%;
-                text-align: center;
                 margin-top: 10px;
+                width: 100%;
                 color: rgb(88, 85, 85);
+                text-align: center;
                 text-decoration: underline;
               }
             }
@@ -156,8 +156,8 @@
     }
 
     .shoeIcon {
-      font-size: 100px;
       width: 100px;
+      font-size: 100px;
     }
 
     .navRight {
@@ -169,49 +169,49 @@
       align-items: center;
 
       .navRightTap {
+        position: relative;
         margin-right: 20px;
         font-weight: bold;
-        position: relative;
 
         .heart {
-          font-size: 34px;
           position: relative;
+          font-size: 34px;
 
           span {
-            font-size: 15px;
-            color: white;
             position: absolute;
             inset: 0;
-            text-align: center;
             line-height: 31px;
+            color: white;
+            font-size: 15px;
+            text-align: center;
           }
         }
 
         .cart {
-          font-size: 32px;
           position: relative;
+          font-size: 32px;
 
           .cartNum {
             position: absolute;
             top: -10px;
             right: -7px;
-            line-height: 20px;
             display: flex;
             justify-content: center;
             align-items: center;
-            font-size: 16px;
+            line-height: 20px;
             width: 20px;
             height: 20px;
             border-radius: 50%;
             background-color: rgb(49, 101, 206);
             color: white;
+            font-size: 16px;
           }
         }
 
         .barBtn {
+          padding: 10px;
           background-color: inherit;
           border: none;
-          padding: 10px;
           cursor: pointer;
 
           .bars {
@@ -220,26 +220,26 @@
         }
 
         .menuBar {
-          z-index: 9;
           position: absolute;
           top: 75px;
           left: 75px;
-          transition: left 0.5s ease-in-out;
-          border: 1px solid black;
-          width: 240px;
-          height: 300px;
           display: grid;
           grid-template-rows: repeat(5, 1fr);
+          width: 240px;
+          height: 300px;
+          border: 1px solid black;
+          transition: left 0.5s ease-in-out;
+          z-index: 9;
 
           li {
-            width: 100%;
-            height: 100%;
-            background-color: white;
-            border: 1px solid rgb(128, 128, 128, 0.4);
             display: flex;
             justify-content: start;
             align-items: center;
             padding-left: 20px;
+            width: 100%;
+            height: 100%;
+            background-color: white;
+            border: 1px solid rgb(128, 128, 128, 0.4);
           }
         }
 
