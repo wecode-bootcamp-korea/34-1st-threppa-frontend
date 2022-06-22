@@ -1,0 +1,102 @@
+[
+  {
+    "id": 1,
+    "productImg": "https://cdn.pixabay.com/photo/2016/06/03/17/35/shoes-1433925_1280.jpg",
+    "productRate": 3,
+    "title": "1ejfieaj",
+    "color": "red",
+    "price": "60000",
+    "imageId": 1,
+    "productColor": ["black", "white", "blue"]
+  },
+  {
+    "id": 2,
+    "productImg": "https://cdn.pixabay.com/photo/2016/06/03/17/35/shoes-1433925_1280.jpg",
+    "productRate": 3,
+    "title": "2bjfieaj",
+    "color": "red",
+    "price": "60000",
+    "imageId": 2,
+    "productColor": ["black", "white", "blue"]
+  },
+  {
+    "id": 3,
+    "productImg": "https://cdn.pixabay.com/photo/2016/06/03/17/35/shoes-1433925_1280.jpg",
+    "productRate": 3,
+    "title": "3yughfhh",
+    "color": "red",
+    "price": "60000",
+    "imageId": 3,
+    "productColor": ["black", "white", "blue"]
+  },
+  {
+    "id": 4,
+    "productImg": "https://cdn.pixabay.com/photo/2016/06/03/17/35/shoes-1433925_1280.jpg",
+    "productRate": 3,
+    "title": "4tuthgh",
+    "color": "red",
+    "price": "60000",
+    "imageId": 4,
+    "productColor": ["black", "white", "blue"]
+  },
+  {
+    "id": 5,
+    "productImg": "https://cdn.pixabay.com/photo/2016/06/03/17/35/shoes-1433925_1280.jpg",
+    "productRate": 3,
+    "title": "5ziejfj",
+    "color": "red",
+    "price": "60000",
+    "imageId": 5,
+    "productColor": ["black", "white", "blue"]
+  },
+  {
+    "id": 6,
+    "productImg": "https://cdn.pixabay.com/photo/2016/06/03/17/35/shoes-1433925_1280.jpg",
+    "productRate": 3,
+    "title": "6hhehwa",
+    "color": "red",
+    "price": "60000",
+    "imageId": 6,
+    "productColor": ["black", "white", "blue"]
+  },
+  {
+    "id": 7,
+    "productImg": "https://cdn.pixabay.com/photo/2016/06/03/17/35/shoes-1433925_1280.jpg",
+    "productRate": 3,
+    "title": "7ttthg",
+    "color": "red",
+    "price": "60000",
+    "imageId": 7,
+    "productColor": ["black", "white", "blue"]
+  },
+  {
+    "id": 8,
+    "productImg": "https://cdn.pixabay.com/photo/2016/06/03/17/35/shoes-1433925_1280.jpg",
+    "productRate": 3,
+    "title": "8tuyii",
+    "color": "red",
+    "price": "60000",
+    "imageId": 8,
+    "productColor": ["black", "white", "blue"]
+  },
+  {
+    "id": 9,
+    "productImg": "https://cdn.pixabay.com/photo/2016/06/03/17/35/shoes-1433925_1280.jpg",
+    "productRate": 3,
+    "title": "9gjajfjf",
+    "color": "red",
+    "price": "60000",
+    "imageId": 9,
+    "productColor": ["black", "white", "blue"]
+  },
+  {
+    "id": 10,
+    "productImg": "https://cdn.pixabay.com/photo/2016/06/03/17/35/shoes-1433925_1280.jpg",
+    "productRate": 3,
+    "title": "10vmbmmejwi",
+    "color": "red",
+    "price": "60000",
+    "imageId": 10,
+    "productColor": ["black", "white", "blue"]
+  }
+]

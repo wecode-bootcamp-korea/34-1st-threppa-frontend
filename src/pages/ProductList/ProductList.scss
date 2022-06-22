@@ -10,18 +10,23 @@
   border: 1px solid black;
   margin: 3px;
 }
+.colorCircle:hover {
+  border: 2px solid yellow;
+  padding: 1px;
+}
 
 .modal {
+  position: absolute;
   border: 1px solid black;
   background-color: white;
   display: block;
-  width: 260px;
+  width: 18vw;
   height: 350px;
   position: absolute;
-  top: 55px;
+  top: 50px;
   bottom: 0;
   right: 0;
-  left: 748px;
+  left: 0;
   li {
     text-align: left;
     padding: 20px;
@@ -30,7 +35,7 @@
 }
 
 .wrap {
-  padding: 3vw;
+  padding: 3vw 13vw;
   width: 100vw;
   align-items: center;
 
@@ -135,7 +140,7 @@
             grid-template-columns: repeat(auto-fill, minmax(7ch, 1fr));
             margin-top: 20px;
             li {
-              border: 1px solid black;
+              border: 1px solid lightgray;
               border-radius: 3px;
               margin: 3px;
               padding: 7px;
@@ -169,8 +174,7 @@
         }
       }
       .adImg {
-        // margin: 10px;
-        width: 23vw;
+        width: 17vw;
       }
     }
 
@@ -201,7 +205,7 @@
       }
       .productInfoList {
         display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(15vw, 1fr));
+        grid-template-columns: repeat(auto-fill, minmax(13vw, 1fr));
       }
       .productInfo {
         border: 1px solid #d3d3d3;
@@ -234,8 +238,26 @@
             display: flex;
             flex-direction: row;
           }
+          .lookClose {
+            display: none;
+            background-color: #005c8a;
+            border-style: none;
+            color: white;
+            width: 12vw;
+            height: 5vh;
+            margin: 3vh;
+            font-size: 17px;
+          }
         }
       }
+
+      .productInfo:hover {
+        box-shadow: 2px 2px 2px 2px #d3d3d3;
+        .lookClose {
+          display: block;
+        }
+      }
+
       .productImg {
         width: 120px;
         height: 134px;

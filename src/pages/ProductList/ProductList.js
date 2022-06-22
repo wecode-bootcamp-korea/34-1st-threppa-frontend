@@ -1,5 +1,5 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./ProductList.scss";
 
 const ProductList = () => {
@@ -7,18 +7,34 @@ const ProductList = () => {
   const [sizeState, setSizeState] = useState(false);
   const [colorState, setColorState] = useState(false);
 
+  // 백엔드에 좋아요 데이터 전송 시
+  // const [likeState,setLikeState] = useState(false);
+
   const [modalState, setModalState] = useState(false);
+
+  const [colorHoverState, setColorHoverState] = useState(false);
+
+  const [sizeFilterState, setSizeFilterState] = useState(false);
+
+  const [dataList, setDataList] = useState([]);
+
   const styleMenuOpen = () => {
+    setSizeState(false);
+    setColorState(false);
     {
       styleState ? setStyleState(false) : setStyleState(true);
     }
   };
   const sizeMenuOpen = () => {
+    setStyleState(false);
+    setColorState(false);
     {
       sizeState ? setSizeState(false) : setSizeState(true);
     }
   };
   const colorMenuOpen = () => {
+    setStyleState(false);
+    setSizeState(false);
     {
       colorState ? setColorState(false) : setColorState(true);
     }
@@ -29,6 +45,7 @@ const ProductList = () => {
       modalState ? setModalState(false) : setModalState(true);
     }
   };
+
   const SortModal = () => {
     return (
       <div className="modal" style={{ display: modalState ? "block" : "none" }}>
@@ -43,6 +60,43 @@ const ProductList = () => {
       </div>
     );
   };
+
+  //<i class="fas fa-heart"></i>
+  const clickLike = e => {
+    {
+      e.target.className =
+        e.target.className === "fas fa-heart" ? "far fa-heart" : "fas fa-heart";
+    }
+  };
+
+  const hoverColor = e => {
+    if (e.target.className.includes("black")) {
+      e.target.parentNode.parentNode.firstChild.firstChild.src =
+        "https://cdn.pixabay.com/photo/2016/06/03/17/35/shoes-1433925_960_720.jpg";
+    } else if (e.target.className.includes("white")) {
+      e.target.parentNode.parentNode.firstChild.firstChild.src =
+        "https://cdn.pixabay.com/photo/2016/09/02/11/10/boots-1638873_960_720.jpg";
+    } else if (e.target.className.includes("blue")) {
+      e.target.parentNode.parentNode.firstChild.firstChild.src =
+        "https://cdn.pixabay.com/photo/2014/01/22/19/38/boot-250012_960_720.jpg";
+    }
+  };
+
+  const onClickSize = e => {
+    {
+      sizeFilterState ? setSizeFilterState(false) : setSizeFilterState(true);
+    }
+  };
+
+  useEffect(() => {
+    fetch("/data/ProductData.json")
+      .then(res => res.json())
+      .then(res => {
+        setDataList(res);
+      });
+  }, []);
+
+  console.log(dataList);
 
   return (
     <div className="wrap">
@@ -176,7 +230,16 @@ const ProductList = () => {
                     display: sizeState ? "grid" : "none",
                   }}
                 >
-                  <li>210</li>
+                  <li
+                    onClick={onClickSize}
+                    style={{
+                      border: sizeFilterState
+                        ? "1px solid black"
+                        : "1px solid lightgray",
+                    }}
+                  >
+                    210
+                  </li>
                   <li>220</li>
                   <li>230</li>
                   <li>240</li>
@@ -212,38 +275,6 @@ const ProductList = () => {
                     <div className="colorCircle"></div>
                     <span>블랙</span>
                   </li>
-                  <li>
-                    <div className="colorCircle"></div>
-                    <span>블랙</span>
-                  </li>
-                  <li>
-                    <div className="colorCircle"></div>
-                    <span>블랙</span>
-                  </li>
-                  <li>
-                    <div className="colorCircle"></div>
-                    <span>블랙</span>
-                  </li>
-                  <li>
-                    <div className="colorCircle"></div>
-                    <span>블랙</span>
-                  </li>
-                  <li>
-                    <div className="colorCircle"></div>
-                    <span>블랙</span>
-                  </li>
-                  <li>
-                    <div className="colorCircle"></div>
-                    <span>블랙</span>
-                  </li>
-                  <li>
-                    <div className="colorCircle"></div>
-                    <span>블랙</span>
-                  </li>
-                  <li>
-                    <div className="colorCircle"></div>
-                    <span>블랙</span>
-                  </li>
                 </ul>
               </li>
             </ul>
@@ -262,15 +293,15 @@ const ProductList = () => {
             <button className="sortBtn" onClick={onClickSortModal}>
               베스트매치
               <i className="fas fa-angle-down arrowBtn"></i>
+              <SortModal></SortModal>
             </button>
-            <SortModal></SortModal>
           </div>
           <div>
             <ul className="productInfoList">
               <li>
                 <div className="productInfo">
                   <div className="productInfoTopNav">
-                    <i className="far fa-heart"></i>
+                    <i className="far fa-heart" onClick={clickLike}></i>
                     <span>세일정보</span>
                   </div>
                   <div className="productInfoDetail">
@@ -285,135 +316,20 @@ const ProductList = () => {
                     <p className="productRate">⭑⭑⭑⭑⭑ 5</p>
                     <div className="productPrice">₩69,000</div>
                     <div className="productColorNav">
-                      <div className="colorCircle"></div>
-                      <div className="colorCircle"></div>
-                      <div className="colorCircle"></div>
+                      <div
+                        className="colorCircle black"
+                        onMouseOver={hoverColor}
+                      ></div>
+                      <div
+                        className="colorCircle white"
+                        onMouseOver={hoverColor}
+                      ></div>
+                      <div
+                        className="colorCircle blue"
+                        onMouseOver={hoverColor}
+                      ></div>
                     </div>
-                  </div>
-                </div>
-              </li>
-              <li>
-                <div className="productInfo">
-                  <div className="productInfoTopNav">
-                    <i className="far fa-heart"></i>
-                    <span>세일정보</span>
-                  </div>
-                  <div className="productInfoDetail">
-                    <div>
-                      <img
-                        alt="shoes"
-                        src="https://cdn.pixabay.com/photo/2013/07/12/18/20/shoes-153310_960_720.png"
-                        className="productImg"
-                      ></img>
-                    </div>
-                    <p className="productName">클래식 코지 샌들</p>
-                    <p className="productRate">⭑⭑⭑⭑⭑ 5</p>
-                    <div className="productPrice">₩69,000</div>
-                    <div className="productColorNav">
-                      <div className="colorCircle"></div>
-                      <div className="colorCircle"></div>
-                      <div className="colorCircle"></div>
-                    </div>
-                  </div>
-                </div>
-              </li>
-              <li>
-                <div className="productInfo">
-                  <div className="productInfoTopNav">
-                    <i className="far fa-heart"></i>
-                    <span>세일정보</span>
-                  </div>
-                  <div className="productInfoDetail">
-                    <div>
-                      <img
-                        alt="shoes"
-                        src="https://cdn.pixabay.com/photo/2013/07/12/18/20/shoes-153310_960_720.png"
-                        className="productImg"
-                      ></img>
-                    </div>
-                    <p className="productName">클래식 코지 샌들</p>
-                    <p className="productRate">⭑⭑⭑⭑⭑ 5</p>
-                    <div className="productPrice">₩69,000</div>
-                    <div className="productColorNav">
-                      <div className="colorCircle"></div>
-                      <div className="colorCircle"></div>
-                      <div className="colorCircle"></div>
-                    </div>
-                  </div>
-                </div>
-              </li>
-              <li>
-                <div className="productInfo">
-                  <div className="productInfoTopNav">
-                    <i className="far fa-heart"></i>
-                    <span>세일정보</span>
-                  </div>
-                  <div className="productInfoDetail">
-                    <div>
-                      <img
-                        alt="shoes"
-                        src="https://cdn.pixabay.com/photo/2013/07/12/18/20/shoes-153310_960_720.png"
-                        className="productImg"
-                      ></img>
-                    </div>
-                    <p className="productName">클래식 코지 샌들</p>
-                    <p className="productRate">⭑⭑⭑⭑⭑ 5</p>
-                    <div className="productPrice">₩69,000</div>
-                    <div className="productColorNav">
-                      <div className="colorCircle"></div>
-                      <div className="colorCircle"></div>
-                      <div className="colorCircle"></div>
-                    </div>
-                  </div>
-                </div>
-              </li>
-              <li>
-                <div className="productInfo">
-                  <div className="productInfoTopNav">
-                    <i className="far fa-heart"></i>
-                    <span>세일정보</span>
-                  </div>
-                  <div className="productInfoDetail">
-                    <div>
-                      <img
-                        alt="shoes"
-                        src="https://cdn.pixabay.com/photo/2013/07/12/18/20/shoes-153310_960_720.png"
-                        className="productImg"
-                      ></img>
-                    </div>
-                    <p className="productName">클래식 코지 샌들</p>
-                    <p className="productRate">⭑⭑⭑⭑⭑ 5</p>
-                    <div className="productPrice">₩69,000</div>
-                    <div className="productColorNav">
-                      <div className="colorCircle"></div>
-                      <div className="colorCircle"></div>
-                      <div className="colorCircle"></div>
-                    </div>
-                  </div>
-                </div>
-              </li>
-              <li>
-                <div className="productInfo">
-                  <div className="productInfoTopNav">
-                    <i className="far fa-heart"></i>
-                    <span>세일정보</span>
-                  </div>
-                  <div className="productInfoDetail">
-                    <div>
-                      <img
-                        alt="shoes"
-                        src="https://cdn.pixabay.com/photo/2013/07/12/18/20/shoes-153310_960_720.png"
-                        className="productImg"
-                      ></img>
-                    </div>
-                    <p className="productName">클래식 코지 샌들</p>
-                    <p className="productRate">⭑⭑⭑⭑⭑ 5</p>
-                    <div className="productPrice">₩69,000</div>
-                    <div className="productColorNav">
-                      <div className="colorCircle"></div>
-                      <div className="colorCircle"></div>
-                      <div className="colorCircle"></div>
-                    </div>
+                    <button className="lookClose">둘러보기</button>
                   </div>
                 </div>
               </li>
@@ -437,3 +353,34 @@ const ProductList = () => {
   );
 };
 export default ProductList;
+
+// const Product = () => {
+//   return (
+//     <li>
+//       <div className="productInfo">
+//         <div className="productInfoTopNav">
+//           <i className="far fa-heart" onClick={clickLike}></i>
+//           <span>세일정보</span>
+//         </div>
+//         <div className="productInfoDetail">
+//           <div>
+//             <img
+//               alt="shoes"
+//               src="https://cdn.pixabay.com/photo/2013/07/12/18/20/shoes-153310_960_720.png"
+//               className="productImg"
+//             ></img>
+//           </div>
+//           <p className="productName">클래식 코지 샌들</p>
+//           <p className="productRate">⭑⭑⭑⭑⭑ 5</p>
+//           <div className="productPrice">₩69,000</div>
+//           <div className="productColorNav">
+//             <div className="colorCircle black" onMouseOver={hoverColor}></div>
+//             <div className="colorCircle white" onMouseOver={hoverColor}></div>
+//             <div className="colorCircle blue" onMouseOver={hoverColor}></div>
+//           </div>
+//           <button className="lookClose">둘러보기</button>
+//         </div>
+//       </div>
+//     </li>
+//   );
+// };
