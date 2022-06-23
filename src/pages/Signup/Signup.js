@@ -1,10 +1,17 @@
 import React from "react";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import "./Signup.scss";
+import "../Signup/Signup.scss";
 
 const Signup = () => {
-  const [userInfo, setUserInfo] = useState({ userId: "", userPw: "" });
+  const [userInfo, setUserInfo] = useState({
+    lastName: "",
+    firstName: "",
+    nickName: "",
+    phoneNum: "",
+    email: "",
+    password: "",
+  });
   const location = useNavigate();
   // const context = useContext(contextValue);
 
@@ -15,26 +22,31 @@ const Signup = () => {
 
   const onSubmitForm = e => {
     e.preventDefault();
+    // console.log(userInfo);
 
     // 아아디: mokoko2@gmail.com
-    // 비번 : mokoko123#
-    fetch("http://10.58.0.144:8000/users/login", {
+    // 비번 :  dnlzhem1!
+    fetch("http://10.58.3.190:8000/users/signup", {
       method: "POST",
       body: JSON.stringify({
-        email: userInfo.userId,
-        password: userInfo.userPw,
+        username: userInfo.nickName,
+        first_name: userInfo.firstName,
+        last_name: userInfo.lastName,
+        email: userInfo.email,
+        password: userInfo.password,
+        phone_number: userInfo.phoneNum,
       }),
     })
       .then(res => res.json())
       .then(result => {
-        localStorage.setItem("ACCESS_TOKEN", result.access_token);
-        // console.log(result);
-        alert("wow");
-        location("/");
+        console.log(result);
+        alert("signup wow");
       });
-    // 다시 서버에 보낸다
-    // {access_token: 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6Mn0.jV_CiuD3Xbb3Jq1xKKYE4yP1riXGAwPyr_AXOYSLLIg'}
   };
+  // 성공시 : {message: 'SIGHUP SUCCESS'}
+  // 실패시 : {message: 'INVALID_PASSWORD'}
+
+  console.log(userInfo);
 
   return (
     <div className="loginContainer">
@@ -44,10 +56,10 @@ const Signup = () => {
         <form onSubmit={onSubmitForm}>
           <div className="fullName">
             <div className="filed lastName">
-              <label htmlFor="userId">
+              <label htmlFor="userLastName">
                 <span
                   className={
-                    userInfo.userId !== ""
+                    userInfo.lastName !== ""
                       ? "placeHolderHasValue placeHolder"
                       : "placeHolder"
                   }
@@ -55,21 +67,21 @@ const Signup = () => {
                   성
                 </span>
                 <input
-                  type="email"
-                  id="userId"
-                  name="userId"
+                  type="text"
+                  id="userLastName"
+                  name="lastName"
                   onInput={onInput}
                   required
-                  value={userInfo.userId}
-                  className={userInfo.userId !== "" ? "inputHasValue" : ""}
+                  value={userInfo.lastName}
+                  className={userInfo.lastName !== "" ? "inputHasValue" : ""}
                 />
               </label>
             </div>
             <div className="filed firstName">
-              <label htmlFor="userId">
+              <label htmlFor="userFirstName">
                 <span
                   className={
-                    userInfo.userId !== ""
+                    userInfo.firstName !== ""
                       ? "placeHolderHasValue placeHolder"
                       : "placeHolder"
                   }
@@ -77,22 +89,22 @@ const Signup = () => {
                   이름
                 </span>
                 <input
-                  type="email"
-                  id="userId"
-                  name="userId"
+                  type="text"
+                  id="userFirstName"
+                  name="firstName"
                   onInput={onInput}
                   required
-                  value={userInfo.userId}
-                  className={userInfo.userId !== "" ? "inputHasValue" : ""}
+                  value={userInfo.firstName}
+                  className={userInfo.firstName !== "" ? "inputHasValue" : ""}
                 />
               </label>
             </div>
           </div>
           <div className="filed">
-            <label htmlFor="userId">
+            <label htmlFor="userNickName">
               <span
                 className={
-                  userInfo.userId !== ""
+                  userInfo.nickName !== ""
                     ? "placeHolderHasValue placeHolder"
                     : "placeHolder"
                 }
@@ -100,21 +112,21 @@ const Signup = () => {
                 닉네임
               </span>
               <input
-                type="tel"
-                id="userId"
-                name="userId"
+                type="text"
+                id="userNickName"
+                name="nickName"
                 onInput={onInput}
                 required
-                value={userInfo.userId}
-                className={userInfo.userId !== "" ? "inputHasValue" : ""}
+                value={userInfo.nickName}
+                className={userInfo.nickName !== "" ? "inputHasValue" : ""}
               />
             </label>
           </div>
           <div className="filed">
-            <label htmlFor="userId">
+            <label htmlFor="userPhoneNum">
               <span
                 className={
-                  userInfo.userId !== ""
+                  userInfo.phoneNum !== ""
                     ? "placeHolderHasValue placeHolder"
                     : "placeHolder"
                 }
@@ -123,20 +135,21 @@ const Signup = () => {
               </span>
               <input
                 type="tel"
-                id="userId"
-                name="userId"
+                id="userPhoneNum"
+                name="phoneNum"
                 onInput={onInput}
                 required
-                value={userInfo.userId}
-                className={userInfo.userId !== "" ? "inputHasValue" : ""}
+                value={userInfo.phoneNum}
+                className={userInfo.phoneNum !== "" ? "inputHasValue" : ""}
               />
             </label>
           </div>
+
           <div className="filed">
-            <label htmlFor="userId">
+            <label htmlFor="userEmail">
               <span
                 className={
-                  userInfo.userId !== ""
+                  userInfo.email !== ""
                     ? "placeHolderHasValue placeHolder"
                     : "placeHolder"
                 }
@@ -145,15 +158,16 @@ const Signup = () => {
               </span>
               <input
                 type="email"
-                id="userId"
-                name="userId"
+                id="userEmail"
+                name="email"
                 onInput={onInput}
-                required
-                value={userInfo.userId}
-                className={userInfo.userId !== "" ? "inputHasValue" : ""}
+                // required
+                value={userInfo.email}
+                className={userInfo.email !== "" ? "inputHasValue" : ""}
               />
             </label>
           </div>
+
           <div className="filed">
             <label htmlFor="userPw">
               <span
@@ -168,11 +182,11 @@ const Signup = () => {
               <input
                 type="password"
                 id="userPw"
-                name="userPw"
+                name="password"
                 onInput={onInput}
                 required
-                value={userInfo.userPw}
-                className={userInfo.userPw !== "" ? "inputHasValue" : ""}
+                value={userInfo.password}
+                className={userInfo.password !== "" ? "inputHasValue" : ""}
               />
             </label>
           </div>

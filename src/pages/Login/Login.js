@@ -5,8 +5,8 @@ import "./Login.scss";
 
 const Login = () => {
   const [userInfo, setUserInfo] = useState({ userId: "", userPw: "" });
+
   const location = useNavigate();
-  // const context = useContext(contextValue);
 
   const onInput = e => {
     const { value, name } = e.target;
@@ -18,7 +18,7 @@ const Login = () => {
 
     // 아아디: mokoko2@gmail.com
     // 비번 : mokoko123#
-    fetch("http://10.58.0.144:8000/users/login", {
+    fetch("http://10.58.3.190:8000/users/login", {
       method: "POST",
       body: JSON.stringify({
         email: userInfo.userId,
@@ -32,9 +32,12 @@ const Login = () => {
         alert("wow");
         location("/signup");
       });
-    // 다시 서버에 보낸다
+
     // {access_token: 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6Mn0.jV_CiuD3Xbb3Jq1xKKYE4yP1riXGAwPyr_AXOYSLLIg'}
+    // 에러시 : POST http://10.58.3.190:8000/users/login 401 (Unauthorized) <-토근이 없다.
   };
+
+  console.log(userInfo);
 
   return (
     // <div className="loginContainer">
