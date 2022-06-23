@@ -1,6 +1,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import "./ProductList.scss";
+import ProductCard from "./components/ProductCard";
 
 const ProductList = () => {
   const [styleState, setStyleState] = useState(false);
@@ -16,7 +17,7 @@ const ProductList = () => {
 
   const [sizeFilterState, setSizeFilterState] = useState(false);
 
-  const [dataList, setDataList] = useState([]);
+  const [productDataList, setProductDataList] = useState([]);
 
   const styleMenuOpen = () => {
     setSizeState(false);
@@ -45,10 +46,6 @@ const ProductList = () => {
     return (
       <div className="modal" style={{ display: modalState ? "block" : "none" }}>
         <ul>
-          <li>베스트 매치</li>
-          <li>베스트 셀러</li>
-          <li>높은 평점</li>
-          <li>추천순</li>
           <li>최저가 - 최고가</li>
           <li>최고가 - 최저가</li>
         </ul>
@@ -56,7 +53,6 @@ const ProductList = () => {
     );
   };
 
-  //<i class="fas fa-heart"></i>
   const clickLike = e => {
     {
       e.target.className =
@@ -87,7 +83,7 @@ const ProductList = () => {
     fetch("/datas/ProductData.json")
       .then(res => res.json())
       .then(res => {
-        setDataList(res);
+        setProductDataList(res);
       });
   }, []);
 
@@ -278,48 +274,26 @@ const ProductList = () => {
         <section className="rightSection">
           <div className="dropdownMenu">
             <button className="sortBtn" onClick={onClickSortModal}>
-              베스트매치
+              정렬 방법
               <i className="fas fa-angle-down arrowBtn" />
               <SortModal></SortModal>
             </button>
           </div>
           <div>
             <ul className="productInfoList">
-              <li>
-                <div className="productInfo">
-                  <div className="productInfoTopNav">
-                    <i className="far fa-heart" onClick={clickLike} />
-                    <span>세일정보</span>
-                  </div>
-                  <div className="productInfoDetail">
-                    <div>
-                      <img
-                        alt="shoes"
-                        src="https://cdn.pixabay.com/photo/2013/07/12/18/20/shoes-153310_960_720.png"
-                        className="productImg"
-                      ></img>
-                    </div>
-                    <p className="productName">클래식 코지 샌들</p>
-                    <p className="productRate">⭑⭑⭑⭑⭑ 5</p>
-                    <div className="productPrice">₩69,000</div>
-                    <div className="productColorNav">
-                      <div
-                        className="colorCircle black"
-                        onMouseOver={hoverColor}
-                      ></div>
-                      <div
-                        className="colorCircle white"
-                        onMouseOver={hoverColor}
-                      ></div>
-                      <div
-                        className="colorCircle blue"
-                        onMouseOver={hoverColor}
-                      ></div>
-                    </div>
-                    <button className="lookClose">둘러보기</button>
-                  </div>
-                </div>
-              </li>
+              {productDataList.map(ele => {
+                return (
+                  <ProductCard
+                    key={ele.id}
+                    clickLike={clickLike}
+                    hoverColor={hoverColor}
+                    productImg={ele.productImg}
+                    productTitle={ele.title}
+                    productRate={ele.productRate}
+                    productColor={ele.color[0]}
+                  />
+                );
+              })}
             </ul>
           </div>
           <div className="moreProduct">
@@ -341,12 +315,12 @@ const ProductList = () => {
 };
 export default ProductList;
 
-// const Product = () => {
+// const ProductInfo = props => {
 //   return (
 //     <li>
 //       <div className="productInfo">
 //         <div className="productInfoTopNav">
-//           <i className="far fa-heart" onClick={clickLike}></i>
+//           <i className="far fa-heart" onClick={props.clickLike}></i>
 //           <span>세일정보</span>
 //         </div>
 //         <div className="productInfoDetail">
@@ -361,9 +335,18 @@ export default ProductList;
 //           <p className="productRate">⭑⭑⭑⭑⭑ 5</p>
 //           <div className="productPrice">₩69,000</div>
 //           <div className="productColorNav">
-//             <div className="colorCircle black" onMouseOver={hoverColor}></div>
-//             <div className="colorCircle white" onMouseOver={hoverColor}></div>
-//             <div className="colorCircle blue" onMouseOver={hoverColor}></div>
+//             <div
+//               className="colorCircle black"
+//               onMouseOver={props.hoverColor}
+//             ></div>
+//             <div
+//               className="colorCircle white"
+//               onMouseOver={props.hoverColor}
+//             ></div>
+//             <div
+//               className="colorCircle blue"
+//               onMouseOver={props.hoverColor}
+//             ></div>
 //           </div>
 //           <button className="lookClose">둘러보기</button>
 //         </div>
