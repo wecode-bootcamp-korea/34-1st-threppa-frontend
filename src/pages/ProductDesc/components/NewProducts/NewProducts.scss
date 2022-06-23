@@ -14,7 +14,7 @@
     position: relative;
     width: 1140px;
     height: 245px;
-    margin: 10px auto;
+    margin: 15px auto;
     overflow: hidden;
     .carouselBox {
       display: flex;
@@ -28,7 +28,6 @@
         background-color: #ffffff;
         text-align: center;
         transition: all 0.5s;
-        transform: translateX(0em);
         .itemImage {
           width: 170px;
           height: 110px;

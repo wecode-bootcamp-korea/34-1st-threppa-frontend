@@ -2,23 +2,26 @@
   {
     "id": 1,
     "title": "1ejfieaj",
-    "color": "red",
+    "color": "블랙",
     "price": "60000",
-    "imageId": 1
+    "imageId": 1,
+    "imageURL": "/images/crocs_03.jpg"
   },
   {
     "id": 2,
     "title": "2bjfieaj",
-    "color": "black",
+    "color": "화이트",
     "price": "60000",
-    "imageId": 2
+    "imageId": 2,
+    "imageURL": "/images/crocs_04.jpg"
   },
   {
     "id": 3,
     "title": "3yughfhh",
-    "color": "blue",
+    "color": "블루",
     "price": "12200",
-    "imageId": 3
+    "imageId": 3,
+    "imageURL": "/images/crocs_05.jpg"
   },
   {
     "id": 4,

@@ -5,7 +5,6 @@ import RecommendProducts from "./components/RecommendProducts/RecommendProducts"
 import NewProducts from "./components/NewProducts/NewProducts";
 
 const ProductDesc = () => {
-  const [recommendProductsData, setRecommendProductsData] = useState([]);
   useEffect(() => {
     fetch("/datas/RECOMMENDPRODUCTS_DATA.json", {
       method: "GET",
@@ -16,12 +15,17 @@ const ProductDesc = () => {
       });
   }, []);
 
+  const [recommendProductsData, setRecommendProductsData] = useState([]);
+
+  const [mainImageUrl, setMainImageUrls] = useState("/images/crocs_01.png");
+  const [mainColor, setMainColor] = useState("기본");
+
   return (
     <div className="productDescPage">
       <main className="container">
         <div className="asideLeft">
           <div className="leftImageAndHeart">
-            <img className="image" src="/images/crocs_01.png" alt="nono!" />
+            <img className="image" src={mainImageUrl} alt="nono!" />
             <i class="fa-regular fa-heart heart" />
           </div>
           <img
@@ -39,13 +43,37 @@ const ProductDesc = () => {
             </div>
             <div className="slippersColor">
               <div className="colorTitle">
-                <span>색상 :</span> 화이트
+                <span>색상 :</span> {mainColor}
               </div>
               <div className="colorList">
                 <ul>
-                  <li className="black">black</li>
-                  <li className="white">white</li>
-                  <li className="blue">blue</li>
+                  <li
+                    className="black"
+                    onClick={() => {
+                      setMainImageUrls(recommendProductsData[0].imageURL);
+                      setMainColor(recommendProductsData[0].color);
+                    }}
+                  >
+                    black
+                  </li>
+                  <li
+                    className="white"
+                    onClick={() => {
+                      setMainImageUrls(recommendProductsData[1].imageURL);
+                      setMainColor(recommendProductsData[1].color);
+                    }}
+                  >
+                    white
+                  </li>
+                  <li
+                    className="blue"
+                    onClick={() => {
+                      setMainImageUrls(recommendProductsData[2].imageURL);
+                      setMainColor(recommendProductsData[2].color);
+                    }}
+                  >
+                    blue
+                  </li>
                 </ul>
               </div>
               <div className="colorImages" />

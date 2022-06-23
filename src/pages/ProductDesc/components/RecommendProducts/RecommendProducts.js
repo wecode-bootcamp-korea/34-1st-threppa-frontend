@@ -6,16 +6,14 @@ const RecommendProducts = ({ reco }) => {
   const [carouselLRmovie, setCarouselLRmovie] = useState(0);
 
   const handleCarouselRightMovie = () => {
-    if (carouselLRmovie === carouselLRmovie) {
-      setCarouselLRmovie(carouselLRmovie - 13);
+    if (carouselLRmovie > -1000) {
+      setCarouselLRmovie(carouselLRmovie - 200);
     }
   };
 
   const handleCarouselLeftMovie = () => {
-    if (carouselLRmovie === 0) {
-      setCarouselLRmovie(0);
-    } else if (carouselLRmovie === carouselLRmovie) {
-      setCarouselLRmovie(carouselLRmovie + 13);
+    if (carouselLRmovie < 0) {
+      setCarouselLRmovie(carouselLRmovie + 200);
     }
   };
 
@@ -45,7 +43,7 @@ const RecommendProducts = ({ reco }) => {
               <li
                 key={reco.id}
                 className="recommendItem"
-                style={{ transform: `translateX(${carouselLRmovie}em)` }}
+                style={{ transform: `translateX(${carouselLRmovie}px)` }}
               >
                 <img
                   className="itemImage"

@@ -6,14 +6,14 @@ const NewProducts = ({ reco }) => {
   const [carouselLRmovie, setCarouselLRmovie] = useState(0);
 
   const handleCarouselRightMovie = () => {
-    if (carouselLRmovie === carouselLRmovie) {
-      setCarouselLRmovie(carouselLRmovie + -13);
+    if (carouselLRmovie > -1000) {
+      setCarouselLRmovie(carouselLRmovie - 200);
     }
   };
 
   const handleCarouselLeftMovie = () => {
-    if (carouselLRmovie === carouselLRmovie) {
-      setCarouselLRmovie(carouselLRmovie + 13);
+    if (carouselLRmovie < 0) {
+      setCarouselLRmovie(carouselLRmovie + 200);
     }
   };
 
@@ -43,7 +43,7 @@ const NewProducts = ({ reco }) => {
               <li
                 key={reco.id}
                 className="newItem"
-                style={{ transform: `translateX(${carouselLRmovie}em)` }}
+                style={{ transform: `translateX(${carouselLRmovie}px)` }}
               >
                 <img
                   className="itemImage"
