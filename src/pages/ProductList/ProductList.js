@@ -21,29 +21,24 @@ const ProductList = () => {
   const styleMenuOpen = () => {
     setSizeState(false);
     setColorState(false);
-    {
-      styleState ? setStyleState(false) : setStyleState(true);
-    }
+
+    styleState ? setStyleState(false) : setStyleState(true);
   };
   const sizeMenuOpen = () => {
     setStyleState(false);
     setColorState(false);
-    {
-      sizeState ? setSizeState(false) : setSizeState(true);
-    }
+
+    sizeState ? setSizeState(false) : setSizeState(true);
   };
   const colorMenuOpen = () => {
     setStyleState(false);
     setSizeState(false);
-    {
-      colorState ? setColorState(false) : setColorState(true);
-    }
+
+    colorState ? setColorState(false) : setColorState(true);
   };
 
   const onClickSortModal = () => {
-    {
-      modalState ? setModalState(false) : setModalState(true);
-    }
+    modalState ? setModalState(false) : setModalState(true);
   };
 
   const SortModal = () => {
@@ -89,27 +84,25 @@ const ProductList = () => {
   };
 
   useEffect(() => {
-    fetch("/data/ProductData.json")
+    fetch("/datas/ProductData.json")
       .then(res => res.json())
       .then(res => {
         setDataList(res);
       });
   }, []);
 
-  console.log(dataList);
-
   return (
     <div className="wrap">
       <p className="listTitle">크록스 여성 슈즈</p>
       <div className="listNav">
         <div className="listNavSmallLeft">
-          <i className="fas fa-home leftSmallBtn"></i>
+          <i className="fas fa-home leftSmallBtn" />
           <div className="leftSmallCategory">
-            <a>여성 X</a>
+            <a href="/">여성 X</a>
           </div>
         </div>
         <div className="listNavSmallRight">
-          <a className="showAll" href="">
+          <a className="showAll" href="/">
             모두보기
           </a>
           <span>127개의 상품</span>
@@ -133,10 +126,7 @@ const ProductList = () => {
             <ul>
               <li className="style">
                 스타일
-                <i
-                  className="fas fa-plus stylePlus"
-                  onClick={styleMenuOpen}
-                ></i>
+                <i className="fas fa-plus stylePlus" onClick={styleMenuOpen} />
                 <ul
                   className="styleUl"
                   style={{
@@ -145,85 +135,85 @@ const ProductList = () => {
                 >
                   <li>
                     <div>
-                      <i className="fas fa-shoe-prints"></i>
+                      <i className="fas fa-shoe-prints" />
                       클로그
                     </div>
-                    <input type="checkbox"></input>
+                    <input type="checkbox" />
                   </li>
                   <li>
                     <div>
-                      <i className="fas fa-shoe-prints"></i>
+                      <i className="fas fa-shoe-prints" />
                       샌들
                     </div>
-                    <input type="checkbox"></input>
+                    <input type="checkbox" />
                   </li>
                   <li>
                     <div>
-                      <i className="fas fa-shoe-prints"></i>
+                      <i className="fas fa-shoe-prints" />
                       슬라이드
                     </div>
-                    <input type="checkbox"></input>
+                    <input type="checkbox" />
                   </li>
                   <li>
                     <div>
-                      <i className="fas fa-shoe-prints"></i>
+                      <i className="fas fa-shoe-prints" />
                       의류
                     </div>
-                    <input type="checkbox"></input>
+                    <input type="checkbox" />
                   </li>
                   <li>
                     <div>
-                      <i className="fas fa-shoe-prints"></i>
+                      <i className="fas fa-shoe-prints" />
                       플립
                     </div>
-                    <input type="checkbox"></input>
+                    <input type="checkbox" />
                   </li>
                   <li>
                     <div>
-                      <i className="fas fa-shoe-prints"></i>
+                      <i className="fas fa-shoe-prints" />
                       힐과 웨지
                     </div>
-                    <input type="checkbox"></input>
+                    <input type="checkbox" />
                   </li>
                   <li>
                     <div>
-                      <i className="fas fa-shoe-prints"></i>털 안감
+                      <i className="fas fa-shoe-prints" />털 안감
                     </div>
-                    <input type="checkbox"></input>
+                    <input type="checkbox" />
                   </li>
                   <li>
                     <div>
-                      <i className="fas fa-shoe-prints"></i>
+                      <i className="fas fa-shoe-prints" />
                       플랫
                     </div>
-                    <input type="checkbox"></input>
+                    <input type="checkbox" />
                   </li>
                   <li>
                     <div>
-                      <i className="fas fa-shoe-prints"></i>
+                      <i className="fas fa-shoe-prints" />
                       단화 / 슬립온
                     </div>
-                    <input type="checkbox"></input>
+                    <input type="checkbox" />
                   </li>
                   <li>
                     <div>
-                      <i className="fas fa-shoe-prints"></i>
+                      <i className="fas fa-shoe-prints" />
                       스니커즈
                     </div>
-                    <input type="checkbox"></input>
+                    <input type="checkbox" />
                   </li>
                   <li>
                     <div>
-                      <i className="fas fa-shoe-prints"></i>
+                      <i className="fas fa-shoe-prints" />
                       슬리퍼
                     </div>
-                    <input type="checkbox"></input>
+                    <input type="checkbox" />
                   </li>
                 </ul>
               </li>
               <li className="size">
                 사이즈
-                <i className="fas fa-plus sizePlus" onClick={sizeMenuOpen}></i>
+                <i className="fas fa-plus sizePlus" onClick={sizeMenuOpen} />
                 <ul
                   className="sizeUl"
                   style={{
@@ -253,10 +243,7 @@ const ProductList = () => {
               </li>
               <li className="color">
                 색상
-                <i
-                  className="fas fa-plus colorPlus"
-                  onClick={colorMenuOpen}
-                ></i>
+                <i className="fas fa-plus colorPlus" onClick={colorMenuOpen} />
                 <ul
                   className="colorUl"
                   style={{
@@ -292,7 +279,7 @@ const ProductList = () => {
           <div className="dropdownMenu">
             <button className="sortBtn" onClick={onClickSortModal}>
               베스트매치
-              <i className="fas fa-angle-down arrowBtn"></i>
+              <i className="fas fa-angle-down arrowBtn" />
               <SortModal></SortModal>
             </button>
           </div>
@@ -301,7 +288,7 @@ const ProductList = () => {
               <li>
                 <div className="productInfo">
                   <div className="productInfoTopNav">
-                    <i className="far fa-heart" onClick={clickLike}></i>
+                    <i className="far fa-heart" onClick={clickLike} />
                     <span>세일정보</span>
                   </div>
                   <div className="productInfoDetail">
@@ -337,10 +324,10 @@ const ProductList = () => {
           </div>
           <div className="moreProduct">
             <div className="showMoreBtn">
-              <a>더보기</a>
+              <a href="/">더보기</a>
             </div>
             <div className="showAllBtn">
-              <a>모두보기(127)</a>
+              <a href="/">모두보기(127)</a>
             </div>
           </div>
           <p className="categoryComment">
