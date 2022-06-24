@@ -9,6 +9,7 @@ import Login from "./pages/Login/Login";
 import ProductList from "./pages/ProductList/ProductList";
 import ProductDesc from "./pages/ProductDesc/ProductDesc";
 import Signup from "./pages/Signup/Signup";
+import Cart from "./pages/Cart/Cart";
 
 export default function Router() {
   const [toastMessage, setToastMessage] = useState([]);
@@ -23,6 +24,7 @@ export default function Router() {
           <Route path="/signup" element={<Signup />} />
           <Route path="/productlist" element={<ProductList />} />
           <Route path="/productdesc" element={<ProductDesc />} />
+          <Route path="/cart" element={<Cart />} />
         </Routes>
         <Footer />
       </BrowserRouter>
