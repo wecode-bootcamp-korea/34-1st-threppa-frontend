@@ -1,0 +1,14 @@
+[
+  {
+    "id": 1,
+    "name": "클래식 플랫폼 클로그 우먼",
+    "price": 69900,
+    "quantity": 1
+  },
+  { "id": 1, "name": "Clog", "price": 100, "quantity": 11 },
+  { "id": 1, "name": "Clog", "price": 100, "quantity": 11 },
+  { "id": 1, "name": "Clog", "price": 100, "quantity": 11 },
+  { "id": 1, "name": "Clog", "price": 100, "quantity": 11 },
+  { "id": 1, "name": "Clog", "price": 100, "quantity": 11 },
+  { "id": 1, "name": "Clog", "price": 100, "quantity": 11 }
+]
