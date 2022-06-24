@@ -4,11 +4,11 @@ import Home from "./pages/Home/Home";
 import Popup from "./pages/Login/Popup";
 import ProductList from "./pages/ProductList/ProductList";
 import ProductDesc from "./pages/ProductDesc/ProductDesc";
-import Signup from "./pages/Signup/Signup";
+import SignupForm from "./pages/Signup/SignupForm";
 import Nav from "./components/Nav/Nav";
 import Footer from "./components/Footer/Footer";
-import Login2 from "./pages/Login/Login2";
-import Signup2 from "./pages/Signup/Signup2";
+import Login from "./pages/Login/Login";
+import Signup from "./pages/Signup/Signup";
 
 export default function Router() {
   return (
@@ -16,10 +16,10 @@ export default function Router() {
       <Nav />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/login" element={<Login2 />} />
+        <Route path="/login" element={<Login />} />
         <Route path="/productlist" element={<ProductList />} />
         <Route path="/productdesc" element={<ProductDesc />} />
-        <Route path="/signup" element={<Signup2 />} />
+        <Route path="/signup" element={<Signup />} />
       </Routes>
       <Footer />
     </BrowserRouter>
