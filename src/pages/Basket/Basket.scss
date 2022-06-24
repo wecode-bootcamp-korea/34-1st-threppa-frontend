@@ -1,5 +1,75 @@
 .basketContainer {
   margin-top: 100px;
-  background-color: rosybrown;
+  padding: 0 12%;
   height: 100vh;
+  border: 1px solid rebeccapurple;
+
+  .cartTitle {
+    display: inline-block;
+    margin-top: 20px;
+    font-size: 18px;
+
+    .bolder {
+      font-size: 34px;
+      font-weight: bold;
+      padding-right: 10px;
+    }
+  }
+
+  .columnWrapper {
+    display: grid;
+    grid-template-columns: 1.8fr 1fr;
+    .column {
+      border: 1px solid red;
+
+      .totalPrice {
+        padding: 30px 0 20px 0;
+        font-weight: bold;
+        font-size: 20px;
+      }
+
+      .orderFormTitle {
+        margin: 20px 0;
+        font-weight: bold;
+        font-size: 28px;
+      }
+
+      .orderLists {
+        padding: 0 30px;
+        height: 450px;
+
+        .orderList {
+          height: 80px;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          border-bottom: 1.5px solid lightgray;
+
+          li {
+            font-size: 18px;
+            font-weight: bold;
+
+            .coupon {
+              padding: 7px;
+              width: 140px;
+              border-radius: 10px;
+              border: 1px solid gray;
+            }
+          }
+        }
+      }
+
+      .orderBtn {
+        width: 100%;
+        height: 50px;
+        background-color: rgb(29, 115, 168);
+        color: white;
+        font-size: 20px;
+
+        .calculator {
+          padding-right: 12px;
+        }
+      }
+    }
+  }
 }
