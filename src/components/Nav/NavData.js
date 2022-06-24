@@ -135,4 +135,5 @@ const SUBMENU_DATA = {
     ],
   },
 };
+
 export default SUBMENU_DATA;
