@@ -2,6 +2,7 @@ import React from "react";
 import "./Popup.scss";
 
 const Popup = props => {
+  // console.log(props); // {title: '로그인', children: {…}}
   return (
     <div className="loginContainer">
       <div className="backDrop" />

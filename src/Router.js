@@ -1,10 +1,8 @@
 import React from "react";
 import { Routes, Route, BrowserRouter } from "react-router-dom";
 import Home from "./pages/Home/Home";
-import Popup from "./pages/Login/Popup";
 import ProductList from "./pages/ProductList/ProductList";
 import ProductDesc from "./pages/ProductDesc/ProductDesc";
-import SignupForm from "./pages/Signup/SignupForm";
 import Nav from "./components/Nav/Nav";
 import Footer from "./components/Footer/Footer";
 import Login from "./pages/Login/Login";
