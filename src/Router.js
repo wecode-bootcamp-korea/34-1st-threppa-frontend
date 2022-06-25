@@ -5,7 +5,7 @@ import ProductList from "./pages/ProductList/ProductList";
 import ProductDesc from "./pages/ProductDesc/ProductDesc";
 import Nav from "./components/Nav/Nav";
 import Footer from "./components/Footer/Footer";
-import Login from "./pages/Login/Login";
+import Login from "./pages/Login/components/Login";
 import Signup from "./pages/Signup/Signup";
 
 export default function Router() {

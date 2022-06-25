@@ -36,16 +36,18 @@ form {
 
       .signUpBtn {
         margin-left: 9px;
-        color: rgb(38, 49, 204);
+        color: rgb(65, 74, 201);
         cursor: pointer;
       }
     }
   }
 
   .hasFormErr {
+    width: 100%;
     margin-top: 20px;
     color: rgb(235, 80, 80);
     font-weight: 900;
+    font-size: 14px;
     line-height: 24px;
   }
 }

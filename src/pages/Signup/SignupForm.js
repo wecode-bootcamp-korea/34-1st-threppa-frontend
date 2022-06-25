@@ -1,9 +1,8 @@
 import React from "react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import Field from "../Login/Field";
-import "../Login/Login.scss";
-import "./Signup.scss";
+import Field from "../Login/components/Field";
+import "../Login/components/LoginAndSignup.scss";
 
 const SignupForm = () => {
   const [userInfo, setUserInfo] = useState({
@@ -14,8 +13,8 @@ const SignupForm = () => {
     email: "",
     password: "",
   });
-  const [pwIsValid, setPwIsValid] = useState(false);
-  const [emailIsValid, setEmailIsValid] = useState(false);
+  const [pwIsValid, setPwIsValid] = useState(true);
+  const [emailIsValid, setEmailIsValid] = useState(true);
 
   const location = useNavigate();
 
@@ -110,20 +109,23 @@ const SignupForm = () => {
           setUserInfo={setUserInfo}
         />
       ))}
-      <button type="submit" className="submitBtn  ">
+
+      <button type="submit" className="submitBtn submitBtnOn">
         가입
       </button>
-      {pwIsValid ? (
+
+      {emailIsValid ? (
         <p className="hasFormErr" style={{ fontSize: "14px" }}>
-          이 비밀번호는 추측하기 너무 쉽습니다.
-          <br /> (8글자 이상, 숫자와 특수문자 1개이상 포함)
+          중복된 이메일 입니다.
         </p>
       ) : (
         ""
       )}
-      {emailIsValid ? (
-        <p className="hasFormErr" style={{ fontSize: "14px" }}>
-          중복된 이메일 입니다.
+
+      {pwIsValid ? (
+        <p className="hasFormErr">
+          이 비밀번호는 추측하기 너무 쉽습니다.
+          <br /> (8글자 이상, 숫자와 특수문자 1개이상 포함)
         </p>
       ) : (
         ""

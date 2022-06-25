@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Field from "./Field";
-import "./Login.scss";
+import "./LoginAndSignup.scss";
 
 const LoginForm = () => {
   const [userInfo, setUserInfo] = useState({ userId: "", userPw: "" });
