@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import SUBMENU_DATA from "./NavData";
 import SubmenuSort from "./components/SubmenuSort";
@@ -7,6 +7,23 @@ import SubmenuImg from "./components/SubMenuImg";
 import "./Nav.scss";
 
 const Nav = () => {
+  //   localStorage.setItem("ACCESS_TOKEN", result.access_token);
+  const getUserData = localStorage.getItem("ACCESS_TOKEN");
+
+  useEffect(() => {
+    fetch("https://westagram-signup.herokuapp.com/profile", {
+      method: "GET",
+      headers: {
+        Authorization: getUserData,
+      },
+    })
+      .then(res => res.json())
+      .then(result => {
+        console.log(result);
+        localStorage.setItem("userData", result);
+      });
+  }, []);
+
   return (
     <nav id="Nav">
       <div id="navWrapper">
