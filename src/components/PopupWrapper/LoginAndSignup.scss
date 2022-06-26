@@ -1,0 +1,54 @@
+.loginSignupForm {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 270px;
+
+  .submitBtn {
+    padding: 10px 0;
+    margin-top: 20px;
+    width: 100%;
+    border-radius: 10px;
+    border: none;
+    background-color: rgba(0, 149, 246, 0.2);
+    color: white;
+    font-size: 16px;
+  }
+
+  .submitBtnOn {
+    background-color: rgb(0, 149, 246);
+    cursor: pointer;
+  }
+
+  .loginquestion {
+    margin-top: 20px;
+
+    li {
+      margin: 15px 0;
+      font-size: 15px;
+      font-weight: bold;
+      color: gray;
+
+      .noAccount {
+        color: gray;
+      }
+
+      .signUpBtn {
+        margin-left: 9px;
+        color: rgb(65, 74, 201);
+        cursor: pointer;
+      }
+    }
+  }
+
+  .hasFormErr {
+    margin-top: 20px;
+    width: 100%;
+    color: rgb(235, 80, 80);
+    font-weight: 900;
+    font-size: 14px;
+    line-height: 24px;
+    text-align: center;
+  }
+}
