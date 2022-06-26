@@ -50,6 +50,7 @@ const CartAll = ({ productDatas, handleSizeModal }) => {
                   };
                   return (
                     <li
+                      key={productColor.color_id}
                       className="color white blue"
                       style={{
                         backgroundColor: `${

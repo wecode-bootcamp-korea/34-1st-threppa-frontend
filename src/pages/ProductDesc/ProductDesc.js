@@ -35,14 +35,14 @@ const ProductDesc = () => {
   );
 };
 
-const SizeTableModal = props => {
+const SizeTableModal = ({ setSizeModal }) => {
   return (
     <>
       <div className="blackModal" />
       <div className="whiteModal">
         <button
           onClick={() => {
-            props.setSizeModal(false);
+            setSizeModal.setSizeModal(false);
           }}
         >
           X
