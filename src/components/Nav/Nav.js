@@ -7,7 +7,7 @@ import SubmenuImg from "./components/SubMenuImg";
 import "./Nav.scss";
 
 const Nav = () => {
-  //   localStorage.setItem("ACCESS_TOKEN", result.access_token);
+  // localStorage.setItem("ACCESS_TOKEN", result.access_token);
   const getUserData = localStorage.getItem("ACCESS_TOKEN");
 
   useEffect(() => {
@@ -19,14 +19,14 @@ const Nav = () => {
     })
       .then(res => res.json())
       .then(result => {
-        console.log(result);
+        console.log(result); // 나온 user 정보로, 안녕하세요 ㅇㅇ님 띄우기
         localStorage.setItem("userData", result);
       });
-  }, []);
+  }, [getUserData]);
 
   return (
-    <nav id="Nav">
-      <div id="navWrapper">
+    <nav className="nav">
+      <div className="navWrapper">
         <Link to="/">
           <h1 className="logo">Threppa</h1>
         </Link>

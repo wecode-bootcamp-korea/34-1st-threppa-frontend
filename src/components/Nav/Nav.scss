@@ -1,4 +1,4 @@
-#Nav {
+.nav {
   position: fixed;
 
   a {
@@ -6,7 +6,7 @@
     color: inherit;
   }
 
-  #navWrapper {
+  .navWrapper {
     border-bottom: 1px solid black;
     background-color: rgb(195, 171, 217);
     width: 100vw;
