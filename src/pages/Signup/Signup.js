@@ -1,8 +1,8 @@
 import React, { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
+import AppContext from "../../AppContext";
 import PopupWrapper from "../../components/PopupWrapper/PopupWrapper";
 import InputField from "../../components/InputField/InputField";
-import AppContext from "../../AppContext";
 import "../../components/PopupWrapper/LoginAndSignup.scss";
 
 const Signup = () => {

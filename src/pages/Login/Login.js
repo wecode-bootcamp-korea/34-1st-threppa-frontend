@@ -1,9 +1,9 @@
 import React, { useState, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import AppContext from "../../AppContext";
 import PopupWrapper from "../../components/PopupWrapper/PopupWrapper";
 import InputField from "../../components/InputField/InputField";
 import "../../components/PopupWrapper/LoginAndSignup.scss";
-import AppContext from "../../AppContext";
 
 const LoginForm = () => {
   const [userInfo, setUserInfo] = useState({ userId: "", userPw: "" });

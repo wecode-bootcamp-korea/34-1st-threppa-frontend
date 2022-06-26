@@ -1,14 +1,14 @@
 .loginSignupForm {
-  width: 270px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  width: 270px;
 
   .submitBtn {
-    width: 100%;
     padding: 10px 0;
     margin-top: 20px;
+    width: 100%;
     border-radius: 10px;
     border: none;
     background-color: rgba(0, 149, 246, 0.2);
@@ -43,8 +43,8 @@
   }
 
   .hasFormErr {
-    width: 100%;
     margin-top: 20px;
+    width: 100%;
     color: rgb(235, 80, 80);
     font-weight: 900;
     font-size: 14px;
