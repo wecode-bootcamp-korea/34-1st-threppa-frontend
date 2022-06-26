@@ -1,9 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-// import SUBMENU_DATA from "./NavData";
-// import SubmenuSort from "./components/SubmenuSort";
-// import SubmenuCol from "./components/SubMenuCol";
-// import SubmenuImg from "./components/SubMenuImg";
 import "./Nav.scss";
 
 const Nav = () => {
@@ -39,25 +35,31 @@ const Nav = () => {
         <ul className="menuMain">
           {navData.map(obj => (
             <li key={obj.id} className="menuTap">
-              <a href="#" className="menuColor">
+              <Link to={obj.genderType} className="menuColor">
                 {obj.genderType}
-              </a>
+              </Link>
               <div className="menuSub">
                 <div className="subColumn">
                   <h2>shoes sort</h2>
                   <ul>
                     {obj.category.map(el => (
                       <li id={el.category_id} key={el.category_id}>
-                        <Link to={obj.genderType / el.name}>{el.name}</Link>
+                        <Link to={`${obj.genderType}/${el.name}`}>
+                          {el.name}
+                        </Link>
                       </li>
                     ))}
                   </ul>
                 </div>
                 <div className="subColumn">
-                  <h2> {obj.genderType}collection</h2>
+                  <h2>{obj.genderType} collection</h2>
                   <ul>
                     {obj.collection.map(el => (
-                      <li key={el.collection_id}>{el.name}</li>
+                      <li key={el.collection_id}>
+                        <Link to={`${obj.genderType}/${el.name}`}>
+                          {el.name}
+                        </Link>
+                      </li>
                     ))}
                   </ul>
                   <div className="columnUnders">
@@ -66,70 +68,32 @@ const Nav = () => {
                   </div>
                 </div>
                 {/* 이미지 렌더 */}
-                <div className="subColumn"></div>
-                <div className="subColumn"></div>
+                {obj.imgcard.map((el, idx) => {
+                  return (
+                    <div className="subColumn" key={idx}>
+                      {el.map(obj => (
+                        <div className="navImg" key={obj.imgSrc_id}>
+                          <img src={obj.url} alt={obj.name} />
+                          <p className="navImgTitle">{obj.name}</p>
+                        </div>
+                      ))}
+                    </div>
+                  );
+                })}
               </div>
             </li>
           ))}
 
-          {/* <li className="menuTap">
-            <a href="#" className="menuColor">
-              여성
-            </a>
-
-            <div className="menuSub">
-              <div className="subColumn">
-                <h2>슈즈 종류</h2>
-                <ul>
-                  <SubmenuSort submenuSort={SUBMENU_DATA.여성.sort} />
-                </ul>
-              </div>
-              <SubmenuCol submenuCol={SUBMENU_DATA.여성.collection} />
-              <SubmenuImg imgCard={SUBMENU_DATA.여성.imgCard} />
-            </div>
-          </li>
-   
-          <li className="menuTap">
-            <a href="#" className="menuColor">
-              남성
-            </a>
-            <div className="menuSub">
-              <div className="subColumn">
-                <h2>슈즈 종류</h2>
-                <ul>
-                  <SubmenuSort submenuSort={SUBMENU_DATA.남성.sort} />
-                </ul>
-              </div>
-              <SubmenuCol submenuCol={SUBMENU_DATA.남성.collection} />
-              <SubmenuImg imgCard={SUBMENU_DATA.남성.imgCard} />
-            </div>
-          </li>
-      
-          <li className="menuTap">
-            <a href="#" className="menuColor">
-              키즈
-            </a>
-            <div className="menuSub">
-              <div className="subColumn">
-                <h2>토글러(165MM이하)</h2>
-                <ul>
-                  <SubmenuSort submenuSort={SUBMENU_DATA.키즈.sort} />
-                </ul>
-              </div>
-              <SubmenuCol submenuCol={SUBMENU_DATA.키즈.collection} />
-              <SubmenuImg imgCard={SUBMENU_DATA.키즈.imgCard} />
-            </div>
-          </li> */}
           {/* [4 워크슈즈] */}
           <li className="menuTap">
             <p href="#" className="menuColor">
-              워크 슈즈
+              work shoes
             </p>
           </li>
           {/* [5 세일] */}
           <li className="menuTap">
             <p href="#" className="menuColor">
-              세일
+              sales
             </p>
           </li>
         </ul>

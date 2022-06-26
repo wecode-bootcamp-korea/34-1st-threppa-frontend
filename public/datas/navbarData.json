@@ -18,6 +18,32 @@
       { "collection_id": 3, "name": "Outdoor" },
       { "collection_id": 4, "name": "Literide" },
       { "collection_id": 5, "name": "Bayaband" }
+    ],
+    "imgcard": [
+      [
+        {
+          "imgSrc_id": 1,
+          "url": "./images/NavImgs/shoes1.jpg",
+          "name": "신상품"
+        },
+        {
+          "imgSrc_id": 2,
+          "url": "./images/NavImgs/shoes2.jpeg",
+          "name": "베스트셀러"
+        }
+      ],
+      [
+        {
+          "imgSrc_id": 3,
+          "url": "./images/NavImgs/shoes3.jpeg",
+          "name": "스테디상품"
+        },
+        {
+          "imgSrc_id": 4,
+          "url": "./images/NavImgs/shoes4.jpeg",
+          "name": "컬렉션"
+        }
+      ]
     ]
   },
   {
@@ -39,6 +65,32 @@
       { "collection_id": 3, "name": "Outdoor" },
       { "collection_id": 4, "name": "Literide" },
       { "collection_id": 5, "name": "Bayaband" }
+    ],
+    "imgcard": [
+      [
+        {
+          "imgSrc_id": 1,
+          "url": "./images/NavImgs/shoes1.jpg",
+          "name": "신상품"
+        },
+        {
+          "imgSrc_id": 2,
+          "url": "./images/NavImgs/shoes2.jpeg",
+          "name": "베스트셀러"
+        }
+      ],
+      [
+        {
+          "imgSrc_id": 3,
+          "url": "./images/NavImgs/shoes3.jpeg",
+          "name": "스테디상품"
+        },
+        {
+          "imgSrc_id": 4,
+          "url": "./images/NavImgs/shoes4.jpeg",
+          "name": "컬렉션"
+        }
+      ]
     ]
   },
   {
@@ -60,6 +112,32 @@
       { "collection_id": 3, "name": "Outdoor" },
       { "collection_id": 4, "name": "Literide" },
       { "collection_id": 5, "name": "Bayaband" }
+    ],
+    "imgcard": [
+      [
+        {
+          "imgSrc_id": 1,
+          "url": "./images/NavImgs/shoes1.jpg",
+          "name": "신상품"
+        },
+        {
+          "imgSrc_id": 2,
+          "url": "./images/NavImgs/shoes2.jpeg",
+          "name": "베스트셀러"
+        }
+      ],
+      [
+        {
+          "imgSrc_id": 3,
+          "url": "./images/NavImgs/shoes3.jpeg",
+          "name": "스테디상품"
+        },
+        {
+          "imgSrc_id": 4,
+          "url": "./images/NavImgs/shoes4.jpeg",
+          "name": "컬렉션"
+        }
+      ]
     ]
   }
 ]
