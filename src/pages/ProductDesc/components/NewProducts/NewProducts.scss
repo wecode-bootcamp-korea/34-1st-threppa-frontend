@@ -21,13 +21,14 @@
       gap: 10px;
       width: 2040px;
       height: 245px;
+      transition: all 0.5s;
       .newItem {
         width: 245px;
         height: 245px;
         padding: 10px;
         background-color: #ffffff;
         text-align: center;
-        transition: all 0.5s;
+
         .itemImage {
           width: 170px;
           height: 110px;

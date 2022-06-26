@@ -2,18 +2,18 @@ import React from "react";
 import "./RecommendProducts.scss";
 import { useState } from "react";
 
-const RecommendProducts = ({ reco }) => {
-  const [carouselLRmovie, setCarouselLRmovie] = useState(0);
+const RecommendProducts = ({ recommendProductDatas }) => {
+  const [carouselLRmove, setCarouselLRmovie] = useState(0);
 
   const handleCarouselRightMovie = () => {
-    if (carouselLRmovie > -1000) {
-      setCarouselLRmovie(carouselLRmovie - 200);
+    if (carouselLRmove > -1000) {
+      setCarouselLRmovie(carouselLRmove - 200);
     }
   };
 
   const handleCarouselLeftMovie = () => {
-    if (carouselLRmovie < 0) {
-      setCarouselLRmovie(carouselLRmovie + 200);
+    if (carouselLRmove < 0) {
+      setCarouselLRmovie(carouselLRmove + 200);
     }
   };
 
@@ -27,7 +27,7 @@ const RecommendProducts = ({ reco }) => {
             handleCarouselLeftMovie();
           }}
         >
-          <i class="fas fa-angle-left" />
+          <i className="fas fa-angle-left" />
         </div>
         <div
           className="carouselArrowRight"
@@ -35,25 +35,29 @@ const RecommendProducts = ({ reco }) => {
             handleCarouselRightMovie();
           }}
         >
-          <i class="fas fa-angle-right" />
+          <i className="fas fa-angle-right" />
         </div>
-        <ul className="carouselBox">
-          {reco.map(reco => {
+        <ul
+          className="carouselBox"
+          style={{ transform: `translateX(${carouselLRmove}px)` }}
+        >
+          {recommendProductDatas.map(recommendProductDatas => {
             return (
               <li
-                key={reco.id}
+                key={recommendProductDatas.product_id}
                 className="recommendItem"
-                style={{ transform: `translateX(${carouselLRmovie}px)` }}
               >
                 <img
                   className="itemImage"
-                  src="/images/crocs_01.png"
+                  src={recommendProductDatas.productImage_url}
                   alt="nono"
                 />
                 <div className="itemContents">
-                  <p className="pContent">{reco.color}</p>
-                  <h4 className="hContent">{reco.title}</h4>
-                  <p className="pContent">{reco.price}</p>
+                  <p className="pContent">3색</p>
+                  <h4 className="hContent">
+                    {recommendProductDatas.product_name}
+                  </h4>
+                  <p className="pContent">{recommendProductDatas.price}</p>
                 </div>
               </li>
             );

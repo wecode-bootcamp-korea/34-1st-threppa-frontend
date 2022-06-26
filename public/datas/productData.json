@@ -1,0 +1,401 @@
+[
+  {
+    "product_id": 1,
+    "product_name": "클래식 크록스 플립",
+    "price": 31000,
+    "productImage_url": "/images/crocs_03.jpg",
+    "colors": [
+      {
+        "color_id": 1,
+        "color_name": "black",
+        "image_url": "/images/crocs_03.jpg"
+      },
+      {
+        "color_id": 2,
+        "color_name": "white",
+        "image_url": "/images/crocs_04.jpg"
+      },
+      {
+        "color_id": 3,
+        "color_name": "blue",
+        "image_url": "/images/crocs_05.jpg"
+      }
+    ],
+    "size": [
+      { "size_id": 1, "size": "210" },
+      { "size_id": 2, "size": "220" },
+      { "size_id": 3, "size": "230" },
+      { "size_id": 4, "size": "240" },
+      { "size_id": 5, "size": "250" },
+      { "size_id": 6, "size": "260" },
+      { "size_id": 7, "size": "270" },
+      { "size_id": 8, "size": "280" },
+      { "size_id": 9, "size": "290" },
+      { "size_id": 10, "size": "300" },
+      { "size_id": 11, "size": "175" },
+      { "size_id": 12, "size": "180" },
+      { "size_id": 13, "size": "190" },
+      { "size_id": 14, "size": "200" }
+    ]
+  },
+
+  {
+    "product_id": 2,
+    "product_name": "애니멀 리믹스 슬라이드",
+    "price": 39000,
+    "productImage_url": "/images/crocs_04.jpg",
+    "color": [
+      {
+        "color_id": 1,
+        "color_name": "black",
+        "image_url": "/images/crocs_03.jpg"
+      },
+      {
+        "color_id": 2,
+        "color_name": "white",
+        "image_url": "/images/crocs_03.jpg"
+      },
+      {
+        "color_id": 3,
+        "color_name": "blue",
+        "image_url": "/images/crocs_03.jpg"
+      }
+    ],
+    "size": [
+      { "size_id": 1, "size": "210" },
+      { "size_id": 2, "size": "220" },
+      { "size_id": 3, "size": "230" },
+      { "size_id": 4, "size": "240" },
+      { "size_id": 5, "size": "250" },
+      { "size_id": 6, "size": "260" },
+      { "size_id": 7, "size": "270" },
+      { "size_id": 8, "size": "280" },
+      { "size_id": 9, "size": "290" },
+      { "size_id": 10, "size": "300" },
+      { "size_id": 11, "size": "175" },
+      { "size_id": 12, "size": "180" },
+      { "size_id": 13, "size": "190" },
+      { "size_id": 14, "size": "200" }
+    ]
+  },
+
+  {
+    "product_id": 3,
+    "product_name": "마블 클로그",
+    "price": 21000,
+    "productImage_url": "/images/crocs_05.jpg",
+    "color": [
+      {
+        "color_id": 1,
+        "color_name": "black",
+        "image_url": "/images/crocs_03.jpg"
+      },
+      {
+        "color_id": 2,
+        "color_name": "white",
+        "image_url": "/images/crocs_04.jpg"
+      },
+      {
+        "color_id": 3,
+        "color_name": "blue",
+        "image_url": "/images/crocs_05.jpg"
+      }
+    ],
+    "size": [
+      { "size_id": 1, "size": "210" },
+      { "size_id": 2, "size": "220" },
+      { "size_id": 3, "size": "230" },
+      { "size_id": 4, "size": "240" },
+      { "size_id": 5, "size": "250" },
+      { "size_id": 6, "size": "260" },
+      { "size_id": 7, "size": "270" },
+      { "size_id": 8, "size": "280" },
+      { "size_id": 9, "size": "290" },
+      { "size_id": 10, "size": "300" },
+      { "size_id": 11, "size": "175" },
+      { "size_id": 12, "size": "180" },
+      { "size_id": 13, "size": "190" },
+      { "size_id": 14, "size": "200" }
+    ]
+  },
+
+  {
+    "product_id": 4,
+    "product_name": "올터레인 클로그",
+    "price": 41000,
+    "productImage_url": "/images/crocs_06.jpg",
+    "color": [
+      {
+        "color_id": 1,
+        "color_name": "black",
+        "image_url": "/images/crocs_03.jpg"
+      },
+      {
+        "color_id": 2,
+        "color_name": "white",
+        "image_url": "/images/crocs_04.jpg"
+      },
+      {
+        "color_id": 3,
+        "color_name": "blue",
+        "image_url": "/images/crocs_05.jpg"
+      }
+    ],
+    "size": [
+      { "size_id": 1, "size": "210" },
+      { "size_id": 2, "size": "220" },
+      { "size_id": 3, "size": "230" },
+      { "size_id": 4, "size": "240" },
+      { "size_id": 5, "size": "250" },
+      { "size_id": 6, "size": "260" },
+      { "size_id": 7, "size": "270" },
+      { "size_id": 8, "size": "280" },
+      { "size_id": 9, "size": "290" },
+      { "size_id": 10, "size": "300" },
+      { "size_id": 11, "size": "175" },
+      { "size_id": 12, "size": "180" },
+      { "size_id": 13, "size": "190" },
+      { "size_id": 14, "size": "200" }
+    ]
+  },
+
+  {
+    "product_id": 5,
+    "product_name": "바야 클로그",
+    "price": 26000,
+    "productImage_url": "/images/crocs_07.jpg",
+    "color": [
+      {
+        "color_id": 1,
+        "color_name": "black",
+        "image_url": "/images/crocs_03.jpg"
+      },
+      {
+        "color_id": 2,
+        "color_name": "white",
+        "image_url": "/images/crocs_04.jpg"
+      },
+      {
+        "color_id": 3,
+        "color_name": "blue",
+        "image_url": "/images/crocs_05.jpg"
+      }
+    ],
+    "size": [
+      { "size_id": 1, "size": "210" },
+      { "size_id": 2, "size": "220" },
+      { "size_id": 3, "size": "230" },
+      { "size_id": 4, "size": "240" },
+      { "size_id": 5, "size": "250" },
+      { "size_id": 6, "size": "260" },
+      { "size_id": 7, "size": "270" },
+      { "size_id": 8, "size": "280" },
+      { "size_id": 9, "size": "290" },
+      { "size_id": 10, "size": "300" },
+      { "size_id": 11, "size": "175" },
+      { "size_id": 12, "size": "180" },
+      { "size_id": 13, "size": "190" },
+      { "size_id": 14, "size": "200" }
+    ]
+  },
+
+  {
+    "product_id": 6,
+    "product_name": "크록밴드 클로그",
+    "price": 37000,
+    "productImage_url": "/images/crocs_08.jpg",
+    "color": [
+      {
+        "color_id": 1,
+        "color_name": "black",
+        "image_url": "/images/crocs_03.jpg"
+      },
+      {
+        "color_id": 2,
+        "color_name": "white",
+        "image_url": "/images/crocs_04.jpg"
+      },
+      {
+        "color_id": 3,
+        "color_name": "blue",
+        "image_url": "/images/crocs_05.jpg"
+      }
+    ],
+    "size": [
+      { "size_id": 1, "size": "210" },
+      { "size_id": 2, "size": "220" },
+      { "size_id": 3, "size": "230" },
+      { "size_id": 4, "size": "240" },
+      { "size_id": 5, "size": "250" },
+      { "size_id": 6, "size": "260" },
+      { "size_id": 7, "size": "270" },
+      { "size_id": 8, "size": "280" },
+      { "size_id": 9, "size": "290" },
+      { "size_id": 10, "size": "300" },
+      { "size_id": 11, "size": "175" },
+      { "size_id": 12, "size": "180" },
+      { "size_id": 13, "size": "190" },
+      { "size_id": 14, "size": "200" }
+    ]
+  },
+
+  {
+    "product_id": 7,
+    "product_name": "사이버 비치 클로그",
+    "price": 25000,
+    "productImage_url": "/images/crocs_09.jpg",
+    "color": [
+      {
+        "color_id": 1,
+        "color_name": "black",
+        "image_url": "/images/crocs_03.jpg"
+      },
+      {
+        "color_id": 2,
+        "color_name": "white",
+        "image_url": "/images/crocs_04.jpg"
+      },
+      {
+        "color_id": 3,
+        "color_name": "blue",
+        "image_url": "/images/crocs_05.jpg"
+      }
+    ],
+    "size": [
+      { "size_id": 1, "size": "210" },
+      { "size_id": 2, "size": "220" },
+      { "size_id": 3, "size": "230" },
+      { "size_id": 4, "size": "240" },
+      { "size_id": 5, "size": "250" },
+      { "size_id": 6, "size": "260" },
+      { "size_id": 7, "size": "270" },
+      { "size_id": 8, "size": "280" },
+      { "size_id": 9, "size": "290" },
+      { "size_id": 10, "size": "300" },
+      { "size_id": 11, "size": "175" },
+      { "size_id": 12, "size": "180" },
+      { "size_id": 13, "size": "190" },
+      { "size_id": 14, "size": "200" }
+    ]
+  },
+
+  {
+    "product_id": 8,
+    "product_name": "프린트 카모 클로그",
+    "price": 41000,
+    "productImage_url": "/images/crocs_10.jpg",
+    "color": [
+      {
+        "color_id": 1,
+        "color_name": "black",
+        "image_url": "/images/crocs_03.jpg"
+      },
+      {
+        "color_id": 2,
+        "color_name": "white",
+        "image_url": "/images/crocs_04.jpg"
+      },
+      {
+        "color_id": 3,
+        "color_name": "blue",
+        "image_url": "/images/crocs_05.jpg"
+      }
+    ],
+    "size": [
+      { "size_id": 1, "size": "210" },
+      { "size_id": 2, "size": "220" },
+      { "size_id": 3, "size": "230" },
+      { "size_id": 4, "size": "240" },
+      { "size_id": 5, "size": "250" },
+      { "size_id": 6, "size": "260" },
+      { "size_id": 7, "size": "270" },
+      { "size_id": 8, "size": "280" },
+      { "size_id": 9, "size": "290" },
+      { "size_id": 10, "size": "300" },
+      { "size_id": 11, "size": "175" },
+      { "size_id": 12, "size": "180" },
+      { "size_id": 13, "size": "190" },
+      { "size_id": 14, "size": "200" }
+    ]
+  },
+
+  {
+    "product_id": 9,
+    "product_name": "라이트 라이드",
+    "price": 14000,
+    "productImage_url": "/images/crocs_11.jpg",
+    "color": [
+      {
+        "color_id": 1,
+        "color_name": "black",
+        "image_url": "/images/crocs_03.jpg"
+      },
+      {
+        "color_id": 2,
+        "color_name": "white",
+        "image_url": "/images/crocs_04.jpg"
+      },
+      {
+        "color_id": 3,
+        "color_name": "blue",
+        "image_url": "/images/crocs_05.jpg"
+      }
+    ],
+    "size": [
+      { "size_id": 1, "size": "210" },
+      { "size_id": 2, "size": "220" },
+      { "size_id": 3, "size": "230" },
+      { "size_id": 4, "size": "240" },
+      { "size_id": 5, "size": "250" },
+      { "size_id": 6, "size": "260" },
+      { "size_id": 7, "size": "270" },
+      { "size_id": 8, "size": "280" },
+      { "size_id": 9, "size": "290" },
+      { "size_id": 10, "size": "300" },
+      { "size_id": 11, "size": "175" },
+      { "size_id": 12, "size": "180" },
+      { "size_id": 13, "size": "190" },
+      { "size_id": 14, "size": "200" }
+    ]
+  },
+
+  {
+    "product_id": 10,
+    "product_name": "글리터 클로그",
+    "price": 29000,
+    "productImage_url": "/images/crocs_12.jpg",
+    "color": [
+      {
+        "color_id": 1,
+        "color_name": "black",
+        "image_url": "/images/crocs_03.jpg"
+      },
+      {
+        "color_id": 2,
+        "color_name": "white",
+        "image_url": "/images/crocs_04.jpg"
+      },
+      {
+        "color_id": 3,
+        "color_name": "blue",
+        "image_url": "/images/crocs_05.jpg"
+      }
+    ],
+    "size": [
+      { "size_id": 1, "size": "210" },
+      { "size_id": 2, "size": "220" },
+      { "size_id": 3, "size": "230" },
+      { "size_id": 4, "size": "240" },
+      { "size_id": 5, "size": "250" },
+      { "size_id": 6, "size": "260" },
+      { "size_id": 7, "size": "270" },
+      { "size_id": 8, "size": "280" },
+      { "size_id": 9, "size": "290" },
+      { "size_id": 10, "size": "300" },
+      { "size_id": 11, "size": "175" },
+      { "size_id": 12, "size": "180" },
+      { "size_id": 13, "size": "190" },
+      { "size_id": 14, "size": "200" }
+    ]
+  }
+]
