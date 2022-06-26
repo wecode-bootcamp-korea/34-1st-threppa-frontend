@@ -24,7 +24,7 @@ const Signup = () => {
   const onSubmitForm = e => {
     e.preventDefault();
 
-    if (!pwCheck(userInfo.password)) {
+    if (!isPasswordValid(userInfo.password)) {
       setPwIsValid(true);
       return;
     }
@@ -150,9 +150,9 @@ const Signup = () => {
 
 export default Signup;
 
-function pwCheck(text) {
+function isPasswordValid(text) {
   const regExp =
-    /^(?=.*[a-zA-z])(?=.*[0-9])(?=.*[$`~!@$!%*#^?&\\(\\)\-_=+]).{8,12}$/;
+    /^(?=.*[a-zA-z])(?=.*[0-9])(?=.*[$`~!@$!%*#^?&\\(\\)\-_=+]).{8,}$/;
   return regExp.test(text);
 }
 
