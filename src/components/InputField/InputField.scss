@@ -9,7 +9,6 @@
     top: 0;
     left: 0;
     padding: 0 6px;
-    width: 100%;
     line-height: 40px;
     color: gray;
     font-size: 14px;
@@ -18,9 +17,8 @@
   }
 
   .placeHolderHasValue {
-    top: -10px;
-    left: -20px;
-    transform: scale(0.8);
+    transform: translateY(-10px);
+    font-size: 8px;
     color: gray;
   }
 

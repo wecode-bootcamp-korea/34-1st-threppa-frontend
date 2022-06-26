@@ -1,8 +1,7 @@
 import React from "react";
-import "./Popup.scss";
+import "./PopupWrapper.scss";
 
-const Popup = props => {
-  // console.log(props); // {title: '로그인', children: {…}}
+const PopupWrapper = props => {
   return (
     <div className="loginContainer">
       <div className="backDrop" />
@@ -15,4 +14,4 @@ const Popup = props => {
   );
 };
 
-export default Popup;
+export default PopupWrapper;

@@ -1,7 +1,7 @@
 import React from "react";
-import "./Field.scss";
+import "./InputField.scss";
 
-const Field = ({
+const InputField = ({
   id,
   className,
   context,
@@ -44,4 +44,4 @@ const Field = ({
   );
 };
 
-export default Field;
+export default InputField;
