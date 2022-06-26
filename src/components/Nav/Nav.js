@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import SUBMENU_DATA from "./NavData";
 import SubmenuSort from "./components/SubmenuSort";
@@ -7,10 +7,11 @@ import SubmenuImg from "./components/SubMenuImg";
 import "./Nav.scss";
 
 const Nav = () => {
-  // localStorage.setItem("ACCESS_TOKEN", result.access_token);
+  const [navData, setNavData] = useState([]);
   const getUserData = localStorage.getItem("ACCESS_TOKEN");
 
   useEffect(() => {
+    // api주소 받기!!
     fetch("https://westagram-signup.herokuapp.com/profile", {
       method: "GET",
       headers: {
@@ -19,10 +20,14 @@ const Nav = () => {
     })
       .then(res => res.json())
       .then(result => {
-        console.log(result); // 나온 user 정보로, 안녕하세요 ㅇㅇ님 띄우기
-        localStorage.setItem("userData", result);
+        // console.log(result); // 나온 user 정보로, 안녕하세요 ㅇㅇ님 띄우기
+        localStorage.setItem("userData", result); // 이후 그 객체 local에 담기
       });
   }, [getUserData]);
+
+  fetch("datas/navbarData.json")
+    .then(res => res.json())
+    .then(result => setNavData(result));
 
   return (
     <nav className="nav">
@@ -30,7 +35,30 @@ const Nav = () => {
         <Link to="/">
           <h1 className="logo">Threppa</h1>
         </Link>
+
         <ul className="menuMain">
+          {navData.map(obj => (
+            <li key={obj.id}>
+              <a href="#" className="menuColor">
+                {obj.genderType}
+              </a>
+              <div className="menuSub">
+                <div className="subColumn">
+                  <h2>슈즈 종류</h2>
+                  <ul>
+                    {/* <li></li> */}
+                    {/* {obj.category.map(el => (
+                      <SubmenuSort
+                        key={el.category_id}
+                        genderType={obj.genderType}
+                        {...el}
+                      />
+                    ))} */}
+                  </ul>
+                </div>
+              </div>
+            </li>
+          ))}
           {/* [1 여성] */}
           <li className="menuTap">
             <a href="#" className="menuColor">
@@ -80,14 +108,12 @@ const Nav = () => {
               <SubmenuImg imgCard={SUBMENU_DATA.키즈.imgCard} />
             </div>
           </li>
-
           {/* [4 워크슈즈] */}
           <li className="menuTap">
             <p href="#" className="menuColor">
               워크 슈즈
             </p>
           </li>
-
           {/* [5 세일] */}
           <li className="menuTap">
             <p href="#" className="menuColor">

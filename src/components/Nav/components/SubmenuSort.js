@@ -1,12 +1,13 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
-const SubmenuSort = ({ submenuSort }) => {
+const SubmenuSort = ({ id, submenuSort }) => {
   return submenuSort.map(el => (
-    <li key={el.id}>
-      <a href="#">
+    <li key={id}>
+      <Link to="/">
         <i className="fas fa-hand-point-right" />
-        {el.menu}
-      </a>
+        {submenuSort}
+      </Link>
     </li>
   ));
 };
