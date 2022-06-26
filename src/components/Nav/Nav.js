@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import SUBMENU_DATA from "./NavData";
-import SubmenuSort from "./components/SubmenuSort";
-import SubmenuCol from "./components/SubMenuCol";
-import SubmenuImg from "./components/SubMenuImg";
+// import SUBMENU_DATA from "./NavData";
+// import SubmenuSort from "./components/SubmenuSort";
+// import SubmenuCol from "./components/SubMenuCol";
+// import SubmenuImg from "./components/SubMenuImg";
 import "./Nav.scss";
 
 const Nav = () => {
@@ -38,29 +38,41 @@ const Nav = () => {
 
         <ul className="menuMain">
           {navData.map(obj => (
-            <li key={obj.id}>
+            <li key={obj.id} className="menuTap">
               <a href="#" className="menuColor">
                 {obj.genderType}
               </a>
               <div className="menuSub">
                 <div className="subColumn">
-                  <h2>슈즈 종류</h2>
+                  <h2>shoes sort</h2>
                   <ul>
-                    {/* <li></li> */}
-                    {/* {obj.category.map(el => (
-                      <SubmenuSort
-                        key={el.category_id}
-                        genderType={obj.genderType}
-                        {...el}
-                      />
-                    ))} */}
+                    {obj.category.map(el => (
+                      <li id={el.category_id} key={el.category_id}>
+                        <Link to={obj.genderType / el.name}>{el.name}</Link>
+                      </li>
+                    ))}
                   </ul>
                 </div>
+                <div className="subColumn">
+                  <h2> {obj.genderType}collection</h2>
+                  <ul>
+                    {obj.collection.map(el => (
+                      <li key={el.collection_id}>{el.name}</li>
+                    ))}
+                  </ul>
+                  <div className="columnUnders">
+                    <h2 className="columnUnder">All {obj.genderType} shoes</h2>
+                    <h2 className="columnUnder red">sale</h2>
+                  </div>
+                </div>
+                {/* 이미지 렌더 */}
+                <div className="subColumn"></div>
+                <div className="subColumn"></div>
               </div>
             </li>
           ))}
-          {/* [1 여성] */}
-          <li className="menuTap">
+
+          {/* <li className="menuTap">
             <a href="#" className="menuColor">
               여성
             </a>
@@ -76,7 +88,7 @@ const Nav = () => {
               <SubmenuImg imgCard={SUBMENU_DATA.여성.imgCard} />
             </div>
           </li>
-          {/* [2 남성] */}
+   
           <li className="menuTap">
             <a href="#" className="menuColor">
               남성
@@ -92,7 +104,7 @@ const Nav = () => {
               <SubmenuImg imgCard={SUBMENU_DATA.남성.imgCard} />
             </div>
           </li>
-          {/* [3 키즈] */}
+      
           <li className="menuTap">
             <a href="#" className="menuColor">
               키즈
@@ -107,7 +119,7 @@ const Nav = () => {
               <SubmenuCol submenuCol={SUBMENU_DATA.키즈.collection} />
               <SubmenuImg imgCard={SUBMENU_DATA.키즈.imgCard} />
             </div>
-          </li>
+          </li> */}
           {/* [4 워크슈즈] */}
           <li className="menuTap">
             <p href="#" className="menuColor">
