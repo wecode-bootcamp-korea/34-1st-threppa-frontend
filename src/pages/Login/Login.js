@@ -22,46 +22,55 @@ const LoginForm = () => {
     // 비번 : mokoko123#
     // 성공시 : {access_token: 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6Mn0.jV_CiuD3Xbb3Jq1xKKYE4yP1riXGAwPyr_AXOYSLLIg'}
     // 에러시 : POST http://10.58.3.190:8000/users/login 401 (Unauthorized) <-토근이 없다.
-    // fetch("http://10.58.3.190:8000/users/login", {
-    //   method: "POST",
-    //   body: JSON.stringify({
-    //     email: userInfo.userId,
-    //     password: userInfo.userPw,
-    //   }),
-    // })
-    //   .then(res => res.json())
-    //   .then(result => {
-    //     if (result.access_token) {
-    //       setHasFormErr(false);
-    //       localStorage.setItem("ACCESS_TOKEN", result.access_token);
-    //       appContext.setToastMessage(["로그인 성공!"]);
-    //       location("/");
-    //     } else {
-    //       setHasFormErr(true);
-    //     }
-    //   });
+    fetch("http://10.58.3.190:8000/users/login", {
+      method: "POST",
+      body: JSON.stringify({
+        email: userInfo.userId,
+        password: userInfo.userPw,
+      }),
+    })
+      .then(res => {
+        console.log(res);
+        if (!res.ok) {
+          throw res;
+        }
+        return res.json();
+      })
+      .then(result => {
+        if (result.access_token) {
+          setHasFormErr(false);
+          localStorage.setItem("ACCESS_TOKEN", result.access_token);
+          appContext.setToastMessage(["로그인 성공!"]);
+          location("/");
+        } else {
+          setHasFormErr(true);
+        }
+      })
+      .catch(err => {
+        appContext.setToastMessage(["네트워크 오류가 발생했습니다."]);
+      });
   };
 
   // <연습서버>
-  fetch("https://westagram-signup.herokuapp.com/login", {
-    method: "POST",
-    body: JSON.stringify({
-      id: "wecode1233@gamil.com",
-      password: "wecode15",
-    }),
-  })
-    .then(res => res.json())
-    .then(result => {
-      if (result.message === "login success") {
-        // console.log(result);
-        setHasFormErr(false);
-        localStorage.setItem("ACCESS_TOKEN", result.token);
-        appContext.setToastMessage(["로그인 성공!"]);
-        location("/", { replace: true });
-      } else {
-        setHasFormErr(true);
-      }
-    });
+  // fetch("https://westagram-signup.herokuapp.com/login", {
+  //   method: "POST",
+  //   body: JSON.stringify({
+  //     id: "wecode1233@gamil.com",
+  //     password: "wecode15",
+  //   }),
+  // })
+  //   .then(res => res.json())
+  //   .then(result => {
+  //     if (result.message === "login success") {
+  //       // console.log(result);
+  //       setHasFormErr(false);
+  //       localStorage.setItem("ACCESS_TOKEN", result.token);
+  //       appContext.setToastMessage(["로그인 성공!"]);
+  //       location("/", { replace: true });
+  //     } else {
+  //       setHasFormErr(true);
+  //     }
+  //   });
 
   return (
     <PopupWrapper title="로그인">

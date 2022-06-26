@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import PopupWrapper from "../../components/PopupWrapper/PopupWrapper";
 import InputField from "../../components/InputField/InputField";
@@ -35,42 +35,25 @@ const Signup = () => {
     // // 실패시 : {message: 'INVALID_PASSWORD'} , status = 401
     // // email 중복시 :  {message: "Email Already Exists"}, status = 400
 
-    // fetch("http://10.58.3.190:8000/users/signup", {
-    //   method: "POST",
-    //   body: JSON.stringify({
-    //     username: userInfo.nickName,
-    //     first_name: userInfo.firstName,
-    //     last_name: userInfo.lastName,
-    //     email: userInfo.email,
-    //     password: userInfo.password,
-    //     phone_number: userInfo.phoneNum,
-    //   }),
-    // })
-    //   .then(res => res.json())
-    //   .then(result => {
-    //     if (result.message === "Email Already Exists") {
-    //       setEmailIsValid(true);
-    //       return;
-    //     }
-    //     setPwIsValid(false);
-    //     setEmailIsValid(false);
-    //     location("/");
-    //   });
-  };
-
-  // <실습예제>
-  useEffect(() => {
-    fetch("https://westagram-signup.herokuapp.com/signup", {
+    fetch("http://10.58.3.190:8000/users/signup", {
       method: "POST",
       body: JSON.stringify({
-        id: "wecode15@gamil.com",
-        password: "wecode15",
+        username: userInfo.nickName,
+        first_name: userInfo.firstName,
+        last_name: userInfo.lastName,
+        email: userInfo.email,
+        password: userInfo.password,
+        phone_number: userInfo.phoneNum,
       }),
     })
-      .then(res => res.json())
+      .then(res => {
+        if (!res.ok) {
+          throw res;
+        }
+        return res.json();
+      })
       .then(result => {
-        console.log(result);
-        if (result.message === "user already exist") {
+        if (result.message === "Email Already Exists") {
           setEmailIsValid(true);
           return;
         }
@@ -78,8 +61,34 @@ const Signup = () => {
         setEmailIsValid(false);
         appContext.setToastMessage(["회원가입 성공!"]);
         location("/");
+      })
+      .catch(err => {
+        appContext.setToastMessage(["네트워크 오류가 발생했습니다."]);
       });
-  }, []);
+  };
+
+  // <실습예제>
+  // useEffect(() => {
+  //   fetch("https://westagram-signup.herokuapp.com/signup", {
+  //     method: "POST",
+  //     body: JSON.stringify({
+  //       id: "wecode15@gamil.com",
+  //       password: "wecode15",
+  //     }),
+  //   })
+  //     .then(res => res.json())
+  //     .then(result => {
+  //       console.log(result);
+  //       if (result.message === "user already exist") {
+  //         setEmailIsValid(true);
+  //         return;
+  //       }
+  //       setPwIsValid(false);
+  //       setEmailIsValid(false);
+  //       appContext.setToastMessage(["회원가입 성공!"]);
+  //       location("/");
+  //     });
+  // }, []);
 
   return (
     <PopupWrapper title="회원가입">
