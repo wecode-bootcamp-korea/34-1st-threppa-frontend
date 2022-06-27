@@ -22,7 +22,7 @@ const LoginForm = () => {
     // 비번 : mokoko123#
     // 성공시 : {access_token: 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6Mn0.jV_CiuD3Xbb3Jq1xKKYE4yP1riXGAwPyr_AXOYSLLIg'}
     // 에러시 : POST http://10.58.3.190:8000/users/login 401 (Unauthorized) <-토근이 없다.
-    fetch("http://10.58.3.190:8000/users/login", {
+    fetch("http://10.58.3.27:8000/users/login", {
       method: "POST",
       body: JSON.stringify({
         email: userInfo.userId,

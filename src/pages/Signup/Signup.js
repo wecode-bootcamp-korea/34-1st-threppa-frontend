@@ -35,7 +35,7 @@ const Signup = () => {
     // // 실패시 : {message: 'INVALID_PASSWORD'} , status = 401
     // // email 중복시 :  {message: "Email Already Exists"}, status = 400
 
-    fetch("http://10.58.3.190:8000/users/signup", {
+    fetch("http://10.58.3.27:8000/users/signup", {
       method: "POST",
       body: JSON.stringify({
         username: userInfo.nickName,
@@ -47,9 +47,9 @@ const Signup = () => {
       }),
     })
       .then(res => {
-        if (!res.ok) {
-          throw res;
-        }
+        // if (!res.ok) {
+        //   throw res;
+        // }
         return res.json();
       })
       .then(result => {
@@ -61,10 +61,10 @@ const Signup = () => {
         setEmailIsValid(false);
         appContext.setToastMessage(["회원가입 성공!"]);
         location("/");
-      })
-      .catch(err => {
-        appContext.setToastMessage(["네트워크 오류가 발생했습니다."]);
       });
+    // .catch(err => {
+    //   appContext.setToastMessage(["네트워크 오류가 발생했습니다."]);
+    // });
   };
 
   // <실습예제>
