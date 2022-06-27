@@ -7,6 +7,7 @@
   background-color: #ffffff;
 
   .blackModal {
+    z-index: 9;
     width: 100vw;
     height: 100vh;
     position: fixed;
@@ -15,28 +16,41 @@
     background-color: black;
   }
 
-  .whiteModal {
+  .whiteModalStickyBox {
     z-index: 10;
     position: absolute;
     width: 1050px;
-    height: 650px;
-    top: 7%;
+    height: 2000px;
+    top: 5%;
     left: 18%;
-    background-color: #ffffff;
-
-    button {
-      font-size: 20px;
+    .whiteModal {
+      position: sticky;
+      top: 14%;
+      width: 1050px;
+      height: 600px;
+      border-radius: 10px;
+      background-color: #ffffff;
+      button {
+        position: absolute;
+        font-size: 20px;
+        top: 2%;
+        left: 95%;
+        border-radius: 5px;
+        background-color: black;
+        color: #ffffff;
+        cursor: pointer;
+      }
+      img {
+        width: 900px;
+        margin: 50px 0px 0px 70px;
+      }
     }
-    img {
-      padding-top: 50px;
-      width: 900px;
-    }
-  }
 
-  .bottomContainer {
-    width: 1180px;
-    height: auto;
-    margin: 0px auto;
-    background-color: #ffffff;
+    .bottomContainer {
+      width: 1180px;
+      height: auto;
+      margin: 0px auto;
+      background-color: #ffffff;
+    }
   }
 }

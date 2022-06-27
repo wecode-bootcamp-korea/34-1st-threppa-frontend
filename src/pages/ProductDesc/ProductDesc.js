@@ -39,15 +39,17 @@ const SizeTableModal = ({ setSizeModal }) => {
   return (
     <>
       <div className="blackModal" />
-      <div className="whiteModal">
-        <button
-          onClick={() => {
-            setSizeModal.setSizeModal(false);
-          }}
-        >
-          X
-        </button>
-        <img src="./images/sizeTable_01.png" alt="nonono!" />
+      <div className="whiteModalStickyBox">
+        <div className="whiteModal">
+          <button
+            onClick={() => {
+              setSizeModal(false);
+            }}
+          >
+            X
+          </button>
+          <img src="./images/sizeTable_01.png" alt="nonono!" />
+        </div>
       </div>
     </>
   );
