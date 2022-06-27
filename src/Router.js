@@ -6,7 +6,7 @@ import ProductList from "./pages/ProductList/ProductList";
 import ProductDesc from "./pages/ProductDesc/ProductDesc";
 import Signup from "./pages/Signup/Signup";
 import Nav from "./components/Nav/Nav";
-import Basket from "./pages/Basket/Basket";
+import Cart from "./pages/Cart/Cart";
 import Footer from "./components/Footer/Footer";
 
 export default function Router() {
@@ -14,12 +14,12 @@ export default function Router() {
     <BrowserRouter>
       <Nav />
       <Routes>
-        <Route path="/" element={<Home />}></Route>
-        <Route path="/login" element={<Login />}></Route>
-        <Route path="/productlist" element={<ProductList />}></Route>
-        <Route path="/productdesc" element={<ProductDesc />}></Route>
-        <Route path="/signup" element={<Signup />}></Route>
-        <Route path="/basket" element={<Basket />}></Route>
+        <Route path="/" element={<Home />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/productlist" element={<ProductList />} />
+        <Route path="/productdesc" element={<ProductDesc />} />
+        <Route path="/signup" element={<Signup />} />
+        <Route path="/cart" element={<Cart />} />
       </Routes>
       <Footer />
     </BrowserRouter>
