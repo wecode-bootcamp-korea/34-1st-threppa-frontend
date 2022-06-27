@@ -1,19 +1,19 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./Nav.scss";
 
 const Nav = () => {
+  const navigate = useNavigate();
   const [navData, setNavData] = useState([]);
   const [userName, setUserName] = useState("");
-
   const getUserToken = localStorage.getItem("ACCESS_TOKEN");
 
-  // <네브바 데이터 요청 - mock data 이용할 것임 >
+  // <네브바 데이터 요청 - mock data 이용할 것이여서, result값 사용안함 >
   useEffect(() => {
     fetch("http://10.58.3.27:8000/products/nav")
       .then(res => res.json())
       .then(result => {
-        console.log(result); // 경로 달라졌는지 확인!
+        // console.log(result); // 경로 달라졌는지 확인!
       });
   }, []);
 
@@ -26,7 +26,8 @@ const Nav = () => {
 
   // < 유저정보 요청 >
   useEffect(() => {
-    fetch("http://10.58.3.27:8000/products/user_nav", {
+    // fetch("http://10.58.3.27:8000/products/user_nav", {
+    fetch("http://localhost:8000/products/user_nav", {
       method: "GET",
       headers: {
         Authorization: getUserToken,
@@ -34,11 +35,20 @@ const Nav = () => {
     })
       .then(res => res.json())
       .then(result => {
-        console.log(result); // 경로 달라졌는지 확인!
+        // console.log(result); // 경로 달라졌는지 확인!
         setUserName(result.full_name);
         localStorage.setItem("USER_FULLNAME", result.full_name); // { full_name: "전지현" };
       });
   }, []);
+
+  // <로그아웃시, 로컬에 저장된 토큰,useName 지움>
+  const onclickLogout = e => {
+    e.preventDefault();
+    setUserName("");
+    localStorage.removeItem("USER_FULLNAME");
+    localStorage.removeItem("ACCESS_TOKEN");
+    navigate("/login");
+  };
 
   return (
     <nav className="nav">
@@ -101,15 +111,11 @@ const Nav = () => {
 
           {/* [4 워크슈즈] */}
           <li className="menuTap">
-            <p href="#" className="menuColor">
-              work shoes
-            </p>
+            <p className="menuColor">work shoes</p>
           </li>
           {/* [5 세일] */}
           <li className="menuTap">
-            <p href="#" className="menuColor">
-              sales
-            </p>
+            <p className="menuColor">sales</p>
           </li>
         </ul>
 
@@ -119,13 +125,13 @@ const Nav = () => {
           </p>
           <div className="navRightTap">
             <i className="fas fa-heart heart">
-              <p href="#">
+              <p>
                 <span>0</span>
               </p>
             </i>
           </div>
           <div className="navRightTap">
-            <p href="#">
+            <p>
               <i className="fas fa-shopping-cart cart">
                 <span className="cartNum">0</span>
               </i>
@@ -137,9 +143,20 @@ const Nav = () => {
             <div className="barBtn">
               <i className="fas fa-bars bars" />
               <ul className="menuBar">
-                <Link to="/login">
-                  <li>로그인 </li>
-                </Link>
+                {getUserToken ? (
+                  <li>
+                    <a href="/login" onClick={onclickLogout}>
+                      <i className="fas fa-sign-out-alt">로그아웃</i>
+                    </a>
+                  </li>
+                ) : (
+                  <li>
+                    <Link to="/login">
+                      <i className="fas fa-sign-in-alt">로그인</i>
+                    </Link>
+                  </li>
+                )}
+
                 <Link to="/signup">
                   <li>회원가입</li>
                 </Link>
