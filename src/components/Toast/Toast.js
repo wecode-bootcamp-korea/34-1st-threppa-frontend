@@ -16,8 +16,8 @@ const Toast = ({ toastMessage, setToastMessage }) => {
 
   return (
     <div className="toast">
-      <p className="imoji">🙂</p>
-      {toastMessage.join()}
+      <p className="imoji"> {toastMessage[1]}</p>
+      {toastMessage[0]}
     </div>
   );
 };

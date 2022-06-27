@@ -69,12 +69,12 @@ const Signup = () => {
           return;
         }
 
-        appContext.setToastMessage(["회원가입 성공!"]);
+        appContext.setToastMessage(["회원가입 성공!", "😆"]);
         location("/");
       })
 
       .catch(err => {
-        appContext.setToastMessage(["네트워크 오류가 발생했습니다."]);
+        appContext.setToastMessage(["네트워크 오류가 발생했습니다.", "😥"]);
       });
   };
 
