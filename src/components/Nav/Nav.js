@@ -7,6 +7,12 @@ const Nav = () => {
   const getUserData = localStorage.getItem("ACCESS_TOKEN");
 
   useEffect(() => {
+    fetch("datas/navbarData.json")
+      .then(res => res.json())
+      .then(result => setNavData(result));
+  }, []);
+
+  useEffect(() => {
     // api주소 받기!!
     fetch("https://westagram-signup.herokuapp.com/profile", {
       method: "GET",
@@ -20,10 +26,6 @@ const Nav = () => {
         localStorage.setItem("userData", result); // 이후 그 객체 local에 담기
       });
   }, [getUserData]);
-
-  fetch("datas/navbarData.json")
-    .then(res => res.json())
-    .then(result => setNavData(result));
 
   return (
     <nav className="nav">
