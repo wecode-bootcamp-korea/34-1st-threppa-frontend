@@ -108,7 +108,7 @@ const CartAll = ({ productDatas, handleSizeModal }) => {
             </div>
             <form>
               <button className="shopingListAdd" disabled={true}>
-                사이즈 선택하기
+                사이즈 선택하기!
               </button>
               <button className="shopingLikeAdd">
                 <i className="far fa-heart hearticon" />
