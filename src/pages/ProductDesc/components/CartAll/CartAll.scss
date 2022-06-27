@@ -165,8 +165,11 @@
             font-weight: 700;
           }
           .sizeTable {
+            padding: 3px 10px;
+            border-radius: 5px;
             background-color: #000000;
             color: #fff;
+            font-weight: bold;
             cursor: pointer;
           }
         }

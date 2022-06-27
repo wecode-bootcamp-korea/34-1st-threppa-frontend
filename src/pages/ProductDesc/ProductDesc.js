@@ -39,15 +39,17 @@ const SizeTableModal = props => {
   return (
     <>
       <div className="blackModal" />
-      <div className="whiteModal">
-        <button
-          onClick={() => {
-            props.setSizeModal(false);
-          }}
-        >
-          X
-        </button>
-        <img src="./images/sizeTable_01.png" alt="nonono!" />
+      <div className="whiteModalStickyBox">
+        <div className="whiteModal">
+          <button
+            onClick={() => {
+              props.setSizeModal(false);
+            }}
+          >
+            X
+          </button>
+          <img src="./images/sizeTable_01.png" alt="nonono!" />
+        </div>
       </div>
     </>
   );
