@@ -24,10 +24,10 @@ const Signup = () => {
   const onSubmitForm = e => {
     e.preventDefault();
 
-    if (!isPasswordValid(userInfo.password)) {
-      setPwIsValid(true);
-      return;
-    }
+    // if (!isPasswordValid(userInfo.password)) {
+    //   setPwIsValid(true);
+    //   return;
+    // }
 
     // // 아아디: mokoko2@gmail.com
     // // 비번 :  dnlzhem1!
@@ -53,14 +53,15 @@ const Signup = () => {
         return res.json();
       })
       .then(result => {
-        if (result.message === "Email Already Exists") {
-          setEmailIsValid(true);
-          return;
-        }
-        setPwIsValid(false);
-        setEmailIsValid(false);
-        appContext.setToastMessage(["회원가입 성공!"]);
-        location("/");
+        console.log(result);
+        // if (result.message === "Email Already Exists") {
+        //   setEmailIsValid(true);
+        //   return;
+        // }
+        // setPwIsValid(false);
+        // setEmailIsValid(false);
+        // appContext.setToastMessage(["회원가입 성공!"]);
+        // location("/");
       });
     // .catch(err => {
     //   appContext.setToastMessage(["네트워크 오류가 발생했습니다."]);
@@ -150,11 +151,11 @@ const Signup = () => {
 
 export default Signup;
 
-function isPasswordValid(text) {
-  const regExp =
-    /^(?=.*[a-zA-z])(?=.*[0-9])(?=.*[$`~!@$!%*#^?&\\(\\)\-_=+]).{8,}$/;
-  return regExp.test(text);
-}
+// function isPasswordValid(text) {
+//   const regExp =
+//     /^(?=.*[a-zA-z])(?=.*[0-9])(?=.*[$`~!@$!%*#^?&\\(\\)\-_=+]).{8,}$/;
+//   return regExp.test(text);
+// }
 
 const SIGNUP_INPUT = [
   {
