@@ -125,7 +125,7 @@ const Signup = () => {
 
         {phoneNumIsValid ? (
           <p className="hasFormErr" style={{ fontSize: "14px" }}>
-            중복된 폰넘버 입니다.
+            중복된 핸드폰번호 입니다.
           </p>
         ) : (
           ""
