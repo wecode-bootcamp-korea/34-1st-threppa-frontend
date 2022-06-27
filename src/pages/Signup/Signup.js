@@ -16,6 +16,8 @@ const Signup = () => {
   });
   const [pwIsValid, setPwIsValid] = useState(false);
   const [emailIsValid, setEmailIsValid] = useState(false);
+  const [nickNameIsValid, setNickNameIsValid] = useState(false);
+  const [phoneNumIsValid, setPhoneNumIsValid] = useState(false);
 
   const location = useNavigate();
 
@@ -24,16 +26,11 @@ const Signup = () => {
   const onSubmitForm = e => {
     e.preventDefault();
 
-    // if (!isPasswordValid(userInfo.password)) {
-    //   setPwIsValid(true);
-    //   return;
-    // }
-
-    // // 아아디: mokoko2@gmail.com
-    // // 비번 :  dnlzhem1!
-    // // 성공시 : {message: 'SIGHUP SUCCESS'}
-    // // 실패시 : {message: 'INVALID_PASSWORD'} , status = 401
-    // // email 중복시 :  {message: "Email Already Exists"}, status = 400
+    if (!isPasswordValid(userInfo.password)) {
+      setPwIsValid(true);
+      return;
+    }
+    setPwIsValid(false);
 
     fetch("http://10.58.3.27:8000/users/signup", {
       method: "POST",
@@ -47,49 +44,39 @@ const Signup = () => {
       }),
     })
       .then(res => {
-        // if (!res.ok) {
-        //   throw res;
-        // }
+        if (!res.ok) {
+          throw res;
+        }
         return res.json();
       })
       .then(result => {
-        console.log(result);
-        // if (result.message === "Email Already Exists") {
-        //   setEmailIsValid(true);
-        //   return;
-        // }
-        // setPwIsValid(false);
-        // setEmailIsValid(false);
-        // appContext.setToastMessage(["회원가입 성공!"]);
-        // location("/");
-      });
-    // .catch(err => {
-    //   appContext.setToastMessage(["네트워크 오류가 발생했습니다."]);
-    // });
-  };
+        setNickNameIsValid(false);
+        setPhoneNumIsValid(false);
+        setEmailIsValid(false);
 
-  // <실습예제>
-  // useEffect(() => {
-  //   fetch("https://westagram-signup.herokuapp.com/signup", {
-  //     method: "POST",
-  //     body: JSON.stringify({
-  //       id: "wecode15@gamil.com",
-  //       password: "wecode15",
-  //     }),
-  //   })
-  //     .then(res => res.json())
-  //     .then(result => {
-  //       console.log(result);
-  //       if (result.message === "user already exist") {
-  //         setEmailIsValid(true);
-  //         return;
-  //       }
-  //       setPwIsValid(false);
-  //       setEmailIsValid(false);
-  //       appContext.setToastMessage(["회원가입 성공!"]);
-  //       location("/");
-  //     });
-  // }, []);
+        if (result.message === "USERNAME Already Exists") {
+          setNickNameIsValid(true);
+          return;
+        }
+
+        if (result.message === "PHONE_NUMBER Already Exists") {
+          setPhoneNumIsValid(true);
+          return;
+        }
+
+        if (result.message === "Email Already Exists") {
+          setEmailIsValid(true);
+          return;
+        }
+
+        appContext.setToastMessage(["회원가입 성공!"]);
+        location("/");
+      })
+
+      .catch(err => {
+        appContext.setToastMessage(["네트워크 오류가 발생했습니다."]);
+      });
+  };
 
   return (
     <PopupWrapper title="회원가입">
@@ -128,6 +115,22 @@ const Signup = () => {
           가입
         </button>
 
+        {nickNameIsValid ? (
+          <p className="hasFormErr" style={{ fontSize: "14px" }}>
+            중복된 닉네임 입니다.
+          </p>
+        ) : (
+          ""
+        )}
+
+        {phoneNumIsValid ? (
+          <p className="hasFormErr" style={{ fontSize: "14px" }}>
+            중복된 폰넘버 입니다.
+          </p>
+        ) : (
+          ""
+        )}
+
         {emailIsValid ? (
           <p className="hasFormErr" style={{ fontSize: "14px" }}>
             중복된 이메일 입니다.
@@ -151,11 +154,11 @@ const Signup = () => {
 
 export default Signup;
 
-// function isPasswordValid(text) {
-//   const regExp =
-//     /^(?=.*[a-zA-z])(?=.*[0-9])(?=.*[$`~!@$!%*#^?&\\(\\)\-_=+]).{8,}$/;
-//   return regExp.test(text);
-// }
+function isPasswordValid(text) {
+  const regExp =
+    /^(?=.*[a-zA-z])(?=.*[0-9])(?=.*[$`~!@$!%*#^?&\\(\\)\-_=+]).{8,}$/;
+  return regExp.test(text);
+}
 
 const SIGNUP_INPUT = [
   {
