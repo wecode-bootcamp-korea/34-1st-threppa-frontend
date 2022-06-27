@@ -28,7 +28,7 @@ const CartAll = ({ handleSizeModal, sizeSeverData, productSeverData }) => {
         <div className="stickyBox">
           <div className="slippersInfo">
             <h1 className="infoTitle">{productSeverData?.results.name}</h1>
-            <p className="infoGender">여성</p>
+            <p className="infoGender">남성</p>
             <div className="infoPrice">{productSeverData?.results.price}</div>
           </div>
           <div className="slippersColor">
