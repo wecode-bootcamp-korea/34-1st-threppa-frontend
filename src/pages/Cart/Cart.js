@@ -1,14 +1,14 @@
 import React from "react";
 import Item from "./components/Item";
-import "./Basket.scss";
+import "./Cart.scss";
 
-const Basket = () => {
+const Cart = () => {
   // fetch("data/cart.json")
   //   .then(res => res.json())
   //   .then(result => console.log(result));
 
   return (
-    <div className="basketContainer">
+    <div className="CartContainer">
       <h1 className="cartTitle">
         <span className="bolder">장바구니</span> (1개수량)
       </h1>
@@ -57,4 +57,4 @@ const Basket = () => {
   );
 };
 
-export default Basket;
+export default Cart;
