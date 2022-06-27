@@ -6,15 +6,23 @@ const Nav = () => {
   const [navData, setNavData] = useState([]);
   const getUserData = localStorage.getItem("ACCESS_TOKEN");
 
+  // 네브바 데이터 요청 - mock data 이용할 것임
   useEffect(() => {
     fetch("http://10.58.3.27:8000/products/nav")
       .then(res => res.json())
       .then(result => {
         console.log(result);
-        setNavData(result);
       });
   }, []);
 
+  // mock data api요청
+  useEffect(() => {
+    fetch("datas/navbarData.json")
+      .then(res => res.json())
+      .then(result => setNavData(result));
+  }, []);
+
+  // 유저정보 요청
   useEffect(() => {
     fetch("http://10.58.3.27:8000/products/user_nav", {
       method: "GET",
@@ -24,8 +32,7 @@ const Nav = () => {
     })
       .then(res => res.json())
       .then(result => {
-        // console.log(result);  // { full_name: "전지현" };
-        localStorage.setItem("USER_FULLNAME", result.full_name); // 이후 그 객체 local에 담기
+        localStorage.setItem("USER_FULLNAME", result.full_name); // { full_name: "전지현" };
       });
   }, [getUserData]);
 
