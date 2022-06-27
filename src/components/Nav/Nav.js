@@ -4,9 +4,9 @@ import "./Nav.scss";
 
 const Nav = () => {
   const [navData, setNavData] = useState([]);
-  const [hasUserName, setHasUserName] = useState(false);
+  const [userName, setUserName] = useState("");
+
   const getUserToken = localStorage.getItem("ACCESS_TOKEN");
-  const getUserData = localStorage.getItem("USER_FULLNAME");
 
   // <네브바 데이터 요청 - mock data 이용할 것임 >
   useEffect(() => {
@@ -14,7 +14,6 @@ const Nav = () => {
       .then(res => res.json())
       .then(result => {
         console.log(result); // 경로 달라졌는지 확인!
-        return null;
       });
   }, []);
 
@@ -36,10 +35,10 @@ const Nav = () => {
       .then(res => res.json())
       .then(result => {
         console.log(result); // 경로 달라졌는지 확인!
-        setHasUserName(true);
+        setUserName(result.full_name);
         localStorage.setItem("USER_FULLNAME", result.full_name); // { full_name: "전지현" };
       });
-  }, [getUserData]);
+  }, []);
 
   return (
     <nav className="nav">
@@ -116,7 +115,7 @@ const Nav = () => {
 
         <div className="navRight">
           <p className="hello">
-            {hasUserName ? `안녕하세요 ${getUserData}님 🙂` : ""}
+            {userName ? `안녕하세요 ${userName}님 🙂` : ""}
           </p>
           <div className="navRightTap">
             <i className="fas fa-heart heart">
