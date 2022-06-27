@@ -4,34 +4,39 @@ import "./Nav.scss";
 
 const Nav = () => {
   const [navData, setNavData] = useState([]);
-  const getUserData = localStorage.getItem("ACCESS_TOKEN");
+  const [hasUserName, setHasUserName] = useState(false);
+  const getUserToken = localStorage.getItem("ACCESS_TOKEN");
+  const getUserData = localStorage.getItem("USER_FULLNAME");
 
-  // 네브바 데이터 요청 - mock data 이용할 것임
+  // <네브바 데이터 요청 - mock data 이용할 것임 >
   useEffect(() => {
     fetch("http://10.58.3.27:8000/products/nav")
       .then(res => res.json())
       .then(result => {
-        console.log(result);
+        console.log(result); // 경로 달라졌는지 확인!
+        return null;
       });
   }, []);
 
-  // mock data api요청
+  // < mock data api요청 >
   useEffect(() => {
     fetch("datas/navbarData.json")
       .then(res => res.json())
       .then(result => setNavData(result));
   }, []);
 
-  // 유저정보 요청
+  // < 유저정보 요청 >
   useEffect(() => {
     fetch("http://10.58.3.27:8000/products/user_nav", {
       method: "GET",
       headers: {
-        Authorization: getUserData,
+        Authorization: getUserToken,
       },
     })
       .then(res => res.json())
       .then(result => {
+        console.log(result); // 경로 달라졌는지 확인!
+        setHasUserName(true);
         localStorage.setItem("USER_FULLNAME", result.full_name); // { full_name: "전지현" };
       });
   }, [getUserData]);
@@ -39,9 +44,9 @@ const Nav = () => {
   return (
     <nav className="nav">
       <div className="navWrapper">
-        <Link to="/">
-          <h1 className="logo">Threppa</h1>
-        </Link>
+        <h1 className="logo">
+          <Link to="/">Threppa </Link>
+        </h1>
 
         <ul className="menuMain">
           {navData.map(obj => (
@@ -110,6 +115,9 @@ const Nav = () => {
         </ul>
 
         <div className="navRight">
+          <p className="hello">
+            {hasUserName ? `안녕하세요 ${getUserData}님 🙂` : ""}
+          </p>
           <div className="navRightTap">
             <i className="fas fa-heart heart">
               <p href="#">
