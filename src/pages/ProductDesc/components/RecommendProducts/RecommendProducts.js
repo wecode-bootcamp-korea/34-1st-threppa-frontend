@@ -1,10 +1,12 @@
 import React from "react";
-import "./RecommendProducts.scss";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import "./RecommendProducts.scss";
 
 const RecommendProducts = ({ recommendProductDatas }) => {
+  const navigate = useNavigate();
   const goToProductDesc = () => {
-    console.log("hello");
+    navigate(`/productdesc/${recommendProductDatas}`);
   };
 
   const [carouselLRmove, setCarouselLRmovie] = useState(0);
@@ -51,12 +53,11 @@ const RecommendProducts = ({ recommendProductDatas }) => {
                 key={recommendProductDatas.product_id}
                 className="recommendItem"
                 onClick={goToProductDesc}
-                // 고급라우팅
+                // 고오오오급 라우팅
                 // 1. onClick이벤트를 발생시켜주고 클릭 했을 때 발생할 이벤트를 생각해본다
                 // 2. 예를 들어 클릭을 했을때 페이지가 이동을 해야 한다
                 // 3. 함수를 만들고 함수에 콘솔로그를 찍어 이벤트 클릭이 잘되는지 확인한다
                 // 4. navigate라는 함수를 만들어 함수안에 useNavigate를 선언하고 클릭시 어디로 이동할지 생각해본다
-                // 5.
               >
                 <img
                   className="itemImage"

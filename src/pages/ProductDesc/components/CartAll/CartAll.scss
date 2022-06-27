@@ -137,9 +137,11 @@
             height: 30px;
             padding-top: 7px;
             border-radius: 5px;
+            box-shadow: 3px 2px 3px gray;
             text-align: center;
             background-color: black;
             color: #ffffff;
+            font-weight: 700;
             cursor: pointer;
           }
           .color:hover {
@@ -187,7 +189,15 @@
             font-size: 0.875rem;
             font-weight: 700;
             text-align: center;
+            box-shadow: 3px 2px 3px gray;
             cursor: pointer;
+          }
+          .black {
+            background-color: #000000;
+            color: #fff;
+          }
+          .white {
+            color: #000000;
           }
           .size:hover {
             border: 1px solid #000000;
@@ -227,6 +237,8 @@
             color: #fff;
             .hearticon {
               font-size: 20px;
+              padding: 1px;
+              line-height: 1;
             }
           }
         }

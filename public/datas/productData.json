@@ -21,21 +21,12 @@
         "image_url": "/images/crocs_05.jpg"
       }
     ],
-    "size": [
+    "sizes": [
       { "size_id": 1, "size": "210" },
       { "size_id": 2, "size": "220" },
       { "size_id": 3, "size": "230" },
       { "size_id": 4, "size": "240" },
-      { "size_id": 5, "size": "250" },
-      { "size_id": 6, "size": "260" },
-      { "size_id": 7, "size": "270" },
-      { "size_id": 8, "size": "280" },
-      { "size_id": 9, "size": "290" },
-      { "size_id": 10, "size": "300" },
-      { "size_id": 11, "size": "175" },
-      { "size_id": 12, "size": "180" },
-      { "size_id": 13, "size": "190" },
-      { "size_id": 14, "size": "200" }
+      { "size_id": 5, "size": "250" }
     ]
   },
 
@@ -61,7 +52,7 @@
         "image_url": "/images/crocs_03.jpg"
       }
     ],
-    "size": [
+    "sizes": [
       { "size_id": 1, "size": "210" },
       { "size_id": 2, "size": "220" },
       { "size_id": 3, "size": "230" },
@@ -101,7 +92,7 @@
         "image_url": "/images/crocs_05.jpg"
       }
     ],
-    "size": [
+    "sizes": [
       { "size_id": 1, "size": "210" },
       { "size_id": 2, "size": "220" },
       { "size_id": 3, "size": "230" },
@@ -141,7 +132,7 @@
         "image_url": "/images/crocs_05.jpg"
       }
     ],
-    "size": [
+    "sizes": [
       { "size_id": 1, "size": "210" },
       { "size_id": 2, "size": "220" },
       { "size_id": 3, "size": "230" },
@@ -181,7 +172,7 @@
         "image_url": "/images/crocs_05.jpg"
       }
     ],
-    "size": [
+    "sizes": [
       { "size_id": 1, "size": "210" },
       { "size_id": 2, "size": "220" },
       { "size_id": 3, "size": "230" },
@@ -221,7 +212,7 @@
         "image_url": "/images/crocs_05.jpg"
       }
     ],
-    "size": [
+    "sizes": [
       { "size_id": 1, "size": "210" },
       { "size_id": 2, "size": "220" },
       { "size_id": 3, "size": "230" },
@@ -261,7 +252,7 @@
         "image_url": "/images/crocs_05.jpg"
       }
     ],
-    "size": [
+    "sizes": [
       { "size_id": 1, "size": "210" },
       { "size_id": 2, "size": "220" },
       { "size_id": 3, "size": "230" },
@@ -301,7 +292,7 @@
         "image_url": "/images/crocs_05.jpg"
       }
     ],
-    "size": [
+    "sizes": [
       { "size_id": 1, "size": "210" },
       { "size_id": 2, "size": "220" },
       { "size_id": 3, "size": "230" },
@@ -341,7 +332,7 @@
         "image_url": "/images/crocs_05.jpg"
       }
     ],
-    "size": [
+    "sizes": [
       { "size_id": 1, "size": "210" },
       { "size_id": 2, "size": "220" },
       { "size_id": 3, "size": "230" },
@@ -381,7 +372,7 @@
         "image_url": "/images/crocs_05.jpg"
       }
     ],
-    "size": [
+    "sizes": [
       { "size_id": 1, "size": "210" },
       { "size_id": 2, "size": "220" },
       { "size_id": 3, "size": "230" },

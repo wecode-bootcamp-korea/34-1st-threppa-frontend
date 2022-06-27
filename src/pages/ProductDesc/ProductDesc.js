@@ -7,6 +7,8 @@ import CartAll from "./components/CartAll/CartAll";
 
 const ProductDesc = () => {
   const [productDatas, setProductData] = useState([]);
+  const [productSeverData, setProductSeverData] = useState();
+  const [sizeSeverData, setSizeSeverData] = useState();
 
   const [sizeModal, setSizeModal] = useState(false);
 
@@ -23,10 +25,37 @@ const ProductDesc = () => {
       });
   }, []);
 
+  // productData
+  useEffect(() => {
+    fetch("http://10.58.3.27:8000/products/1", {
+      method: "GET",
+    })
+      .then(res => res.json())
+      .then(productData => {
+        setProductSeverData(productData);
+      });
+  }, []);
+
+  // productsSizeData
+  useEffect(() => {
+    fetch("http://10.58.3.27:8000/products/sizes", {
+      method: "GET",
+    })
+      .then(res => res.json())
+      .then(sizeData => {
+        setSizeSeverData(sizeData);
+      });
+  }, []);
+
   return (
     <div className="productDescPage">
       {sizeModal === true && <SizeTableModal setSizeModal={setSizeModal} />}
-      <CartAll productDatas={productDatas} handleSizeModal={handleSizeModal} />
+      <CartAll
+        productDatas={productDatas}
+        handleSizeModal={handleSizeModal}
+        sizeSeverData={sizeSeverData}
+        productSeverData={productSeverData}
+      />
       <footer className="bottomContainer">
         <RecommendProducts recommendProductDatas={productDatas} />
         <NewProducts newProductDatas={productDatas} />

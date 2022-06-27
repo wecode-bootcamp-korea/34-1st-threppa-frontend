@@ -2,14 +2,14 @@ import React from "react";
 import { useState } from "react";
 import "./CartAll.scss";
 
-const CartAll = ({ productDatas, handleSizeModal }) => {
+const CartAll = ({ handleSizeModal, sizeSeverData, productSeverData }) => {
   const [colorChangeImage, setColorChangeImage] = useState(
     "/images/crocs_03.jpg"
   );
-  const [colorTitle, setColorTitle] = useState(["black", "gray", "royalblue"]);
+  const [color, setColor] = useState([]);
 
-  const [sizeButtonTarget, setSizeButtonTarget] = useState("");
-  const [sizeButtonHandle, setSizeButtonHandle] = useState("");
+  const [sizeSelectButton, setSizeSelectButton] = useState("");
+  const [sizeModal, setSizeModal] = useState(false);
 
   return (
     <main className="container">
@@ -27,42 +27,31 @@ const CartAll = ({ productDatas, handleSizeModal }) => {
       <div className="asideRight">
         <div className="stickyBox">
           <div className="slippersInfo">
-            <h1 className="infoTitle">{productDatas[0]?.product_name}</h1>
+            <h1 className="infoTitle">{productSeverData?.results.name}</h1>
             <p className="infoGender">여성</p>
-            <div className="infoPrice">{productDatas[0]?.price}</div>
+            <div className="infoPrice">{productSeverData?.results.price}</div>
           </div>
           <div className="slippersColor">
             <div className="colorTitle">
-              <span>색상 :</span> {colorTitle}
+              <span>색상 :</span> {color}
             </div>
             <div className="colorList">
               <ul>
-                {productDatas[0]?.colors.map(productColor => {
-                  const handleColorImageTilte = () => {
-                    setColorChangeImage(
-                      productDatas[0]?.colors[productColor.color_id - 1]
-                        .image_url
-                    );
-                    setColorTitle(
-                      productDatas[0]?.colors[productColor.color_id - 1]
-                        .color_name
-                    );
-                  };
+                {productSeverData?.results.colors.map(colors => {
                   return (
                     <li
-                      key={productColor.color_id}
-                      className="color white blue"
+                      key={colors.id}
+                      className="color"
                       style={{
-                        backgroundColor: `${
-                          colorTitle[productColor.color_id - 1]
-                        }`,
+                        backgroundColor: colors.name,
                       }}
-                      onClick={handleColorImageTilte}
+                      onClick={() => {
+                        setColor(colors.name);
+                        setColorChangeImage(colors.image_url);
+                        setSizeModal(true);
+                      }}
                     >
-                      {
-                        productDatas[0]?.colors[productColor.color_id - 1]
-                          .color_name
-                      }
+                      {colors.name}
                     </li>
                   );
                 })}
@@ -70,54 +59,72 @@ const CartAll = ({ productDatas, handleSizeModal }) => {
             </div>
             <div className="colorImages" />
           </div>
-
-          <div className="slippersSize">
-            <div>
-              <div className="sizeTitle">
-                <p>
-                  <span>사이즈:</span> {sizeButtonTarget}
-                  mm
-                </p>
-                <button className="sizeTable" onClick={handleSizeModal}>
-                  사이즈 표 보기
-                </button>
-              </div>
-              <ul className="sizeList">
-                {productDatas[0]?.size.map(({ size_id }) => {
-                  const sizeTitleText = e => {
-                    setSizeButtonTarget(e.target.innerHTML);
-                    setSizeButtonHandle(size_id);
-                  };
-                  return (
-                    // button active효과 참고 https://www.geeksforgeeks.org/how-to-switch-css-class-between-buttons-rendered-with-map/
-                    <li
-                      className="size"
-                      key={size_id}
-                      onClick={sizeTitleText}
-                      style={{
-                        backgroundColor:
-                          sizeButtonHandle === size_id ? "black" : "",
-                        color: sizeButtonHandle === size_id ? "white" : "",
-                      }}
-                    >
-                      {productDatas[0]?.size[size_id - 1].size}
-                    </li>
-                  );
-                })}
-              </ul>
-            </div>
-            <form>
-              <button className="shopingListAdd" disabled={true}>
-                사이즈 선택하기
-              </button>
-              <button className="shopingLikeAdd">
-                <i className="far fa-heart hearticon" />
-              </button>
-            </form>
-          </div>
+          {sizeModal === true ? (
+            <Size
+              setSizeSelectButton={setSizeSelectButton}
+              sizeSelectButton={sizeSelectButton}
+              handleSizeModal={handleSizeModal}
+              sizeSeverData={sizeSeverData}
+            />
+          ) : null}
         </div>
       </div>
     </main>
+  );
+};
+
+const Size = ({
+  sizeSelectButton,
+  handleSizeModal,
+  setSizeSelectButton,
+  sizeSeverData,
+}) => {
+  const [cartAdd, setCartAdd] = useState(true);
+
+  const [cartText, setCartText] = useState("사이즈 선택하기");
+  return (
+    <div className="slippersSize">
+      <div>
+        <div className="sizeTitle">
+          <p>
+            <span>사이즈:</span> {sizeSelectButton}
+          </p>
+          <button className="sizeTable" onClick={handleSizeModal}>
+            사이즈 표 보기
+          </button>
+        </div>
+        <ul className="sizeList">
+          {sizeSeverData.sizes.map(({ id, sizes }) => {
+            return (
+              <li
+                className={sizeSelectButton === sizes ? "size black" : "size"}
+                key={id}
+                onClick={() => {
+                  setSizeSelectButton(sizes);
+                  setCartAdd(false);
+                  setCartText("장바구니 추가");
+                }}
+              >
+                {sizes}
+              </li>
+            );
+          })}
+        </ul>
+      </div>
+      <form>
+        <button
+          className="shopingListAdd"
+          disabled={cartAdd}
+          style={cartAdd === false ? { backgroundColor: "#002982" } : null}
+          onClick={() => {}}
+        >
+          {cartText}
+        </button>
+        <button className="shopingLikeAdd">
+          <i className="far fa-heart hearticon" />
+        </button>
+      </form>
+    </div>
   );
 };
 
