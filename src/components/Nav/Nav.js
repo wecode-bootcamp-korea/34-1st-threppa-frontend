@@ -8,13 +8,9 @@ const Nav = () => {
   const [userName, setUserName] = useState("");
   const getUserToken = localStorage.getItem("ACCESS_TOKEN");
 
-  // <네브바 데이터 요청 - mock data 이용할 것이여서, result값 사용안함 >
+  // <네브바 데이터 요청 - mock data 이용할 것이여서, api호출만 함 >
   useEffect(() => {
-    fetch("http://10.58.3.27:8000/products/nav")
-      .then(res => res.json())
-      .then(result => {
-        // console.log(result); // 경로 달라졌는지 확인!
-      });
+    fetch("http://10.58.3.27:8000/products/nav");
   }, []);
 
   // < mock data api요청 >
@@ -26,8 +22,7 @@ const Nav = () => {
 
   // < 유저정보 요청 >
   useEffect(() => {
-    // fetch("http://10.58.3.27:8000/products/user_nav", {
-    fetch("http://localhost:8000/products/user_nav", {
+    fetch("http://10.58.3.27:8000/products/user_nav", {
       method: "GET",
       headers: {
         Authorization: getUserToken,
@@ -35,13 +30,11 @@ const Nav = () => {
     })
       .then(res => res.json())
       .then(result => {
-        // console.log(result); // 경로 달라졌는지 확인!
         setUserName(result.full_name);
-        localStorage.setItem("USER_FULLNAME", result.full_name); // { full_name: "전지현" };
+        localStorage.setItem("USER_FULLNAME", result.full_name);
       });
   }, []);
 
-  // <로그아웃시, 로컬에 저장된 토큰,useName 지움>
   const onclickLogout = e => {
     e.preventDefault();
     setUserName("");
@@ -54,7 +47,7 @@ const Nav = () => {
     <nav className="nav">
       <div className="navWrapper">
         <h1 className="logo">
-          <Link to="/">Threppa </Link>
+          <Link to="/">Threppa</Link>
         </h1>
 
         <ul className="menuMain">
@@ -63,57 +56,59 @@ const Nav = () => {
               <Link to={obj.genderType} className="menuColor">
                 {obj.genderType}
               </Link>
-              <div className="menuSub">
-                <div className="subColumn">
-                  <h2>shoes sort</h2>
-                  <ul>
-                    {obj.category.map(el => (
-                      <li id={el.category_id} key={el.category_id}>
-                        <Link to={`${obj.genderType}/${el.name}`}>
-                          {el.name}
-                        </Link>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-                <div className="subColumn">
-                  <h2>{obj.genderType} collection</h2>
-                  <ul>
-                    {obj.collection.map(el => (
-                      <li key={el.collection_id}>
-                        <Link to={`${obj.genderType}/${el.name}`}>
-                          {el.name}
-                        </Link>
-                      </li>
-                    ))}
-                  </ul>
-                  <div className="columnUnders">
-                    <h2 className="columnUnder">All {obj.genderType} shoes</h2>
-                    <h2 className="columnUnder red">sale</h2>
-                  </div>
-                </div>
-                {/* 이미지 렌더 */}
-                {obj.imgcard.map((el, idx) => {
-                  return (
-                    <div className="subColumn" key={idx}>
-                      {el.map(obj => (
-                        <div className="navImg" key={obj.imgSrc_id}>
-                          <img src={obj.url} alt={obj.name} />
-                          <p className="navImgTitle">{obj.name}</p>
-                        </div>
+              <div className="menuSubWrapper">
+                <div className="menuSub">
+                  <div className="subColumn">
+                    <h2>shoes sort</h2>
+                    <ul>
+                      {obj.category.map(el => (
+                        <li id={el.category_id} key={el.category_id}>
+                          <Link to={`${obj.genderType}/${el.name}`}>
+                            {el.name}
+                          </Link>
+                        </li>
                       ))}
+                    </ul>
+                  </div>
+                  <div className="subColumn">
+                    <h2>{obj.genderType} collection</h2>
+                    <ul>
+                      {obj.collection.map(el => (
+                        <li key={el.collection_id}>
+                          <Link to={`${obj.genderType}/${el.name}`}>
+                            {el.name}
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                    <div className="columnUnders">
+                      <h2 className="columnUnder">
+                        All {obj.genderType} shoes
+                      </h2>
+                      <h2 className="columnUnder red">sale</h2>
                     </div>
-                  );
-                })}
+                  </div>
+                  {obj.imgcard.map((el, idx) => {
+                    return (
+                      <div className="subColumn" key={idx}>
+                        {el.map(obj => (
+                          <div className="navImg" key={obj.imgSrc_id}>
+                            <img src={obj.url} alt={obj.name} />
+                            <p className="navImgTitle">{obj.name}</p>
+                          </div>
+                        ))}
+                      </div>
+                    );
+                  })}
+                </div>
               </div>
             </li>
           ))}
 
-          {/* [4 워크슈즈] */}
           <li className="menuTap">
             <p className="menuColor">work shoes</p>
           </li>
-          {/* [5 세일] */}
+
           <li className="menuTap">
             <p className="menuColor">sales</p>
           </li>
@@ -138,7 +133,6 @@ const Nav = () => {
             </p>
           </div>
 
-          {/* 3단 메뉴 */}
           <div className="navRightTap">
             <div className="barBtn">
               <i className="fas fa-bars bars" />
@@ -146,13 +140,15 @@ const Nav = () => {
                 {getUserToken ? (
                   <li>
                     <a href="/login" onClick={onclickLogout}>
-                      <i className="fas fa-sign-out-alt">로그아웃</i>
+                      <span>로그아웃</span>
+                      <i className="fas fa-sign-out-alt loginAndOut" />
                     </a>
                   </li>
                 ) : (
                   <li>
                     <Link to="/login">
-                      <i className="fas fa-sign-in-alt">로그인</i>
+                      <span>로그인</span>
+                      <i className="fas fa-sign-in-alt" />
                     </Link>
                   </li>
                 )}

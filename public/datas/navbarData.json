@@ -70,24 +70,24 @@
       [
         {
           "imgSrc_id": 1,
-          "url": "./images/NavImgs/shoes1.jpg",
+          "url": "./images/NavImgs/shoes5.jpg",
           "name": "신상품"
         },
         {
           "imgSrc_id": 2,
-          "url": "./images/NavImgs/shoes2.jpeg",
+          "url": "./images/NavImgs/shoes6.jpg",
           "name": "베스트셀러"
         }
       ],
       [
         {
           "imgSrc_id": 3,
-          "url": "./images/NavImgs/shoes3.jpeg",
+          "url": "./images/NavImgs/shoes7.jpg",
           "name": "스테디상품"
         },
         {
           "imgSrc_id": 4,
-          "url": "./images/NavImgs/shoes4.jpeg",
+          "url": "./images/NavImgs/shoes8.jpg",
           "name": "컬렉션"
         }
       ]
