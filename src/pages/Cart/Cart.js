@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from "react";
-import ItemList from "./components/ItemList";
+import CartItem from "./components/CartItem";
 import "./Cart.scss";
 
 const Cart = () => {
   const [cartData, setCartData] = useState([]);
+  const [totalPrice, setTotalPrice] = useState();
+  let deliveryFee = totalPrice >= 100000 ? "무료" : 5000;
 
-  const totalPrice = cartData.reduce((acc, cur) => acc + +cur.price, 0);
-
+  // <데이터 요청>
   // 로그인 후 나온 토큰 보내야 함.
   // const getUserToken =
   //   "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MTR9.uCo_nqlEeKoRuz9m6fhE9Mru4bMhLIuhFb7y0UWkq_E";
@@ -21,10 +22,42 @@ const Cart = () => {
       // })
       .then(res => res.json())
       .then(result => {
-        // console.log(result);
+        const sumPrice = result.reduce((acc, cur) => acc + +cur.price, 0);
+        setTotalPrice(sumPrice);
         setCartData(result);
       });
   }, []);
+
+  // <수량조절 함수>
+  const onClickQuantity = (itemId, itemQuantity, price, itemValue) => {
+    if (itemQuantity === 1 && itemValue === "minus") {
+      return;
+    }
+
+    const updataData = cartData.map(data => {
+      if (data.product_id === itemId) {
+        if (itemValue === "minus") {
+          data.quantity -= 1;
+          setTotalPrice(prev => prev - price);
+          deliveryFee = totalPrice - price >= 100000 ? "무료" : 5000;
+        } else {
+          data.quantity += 1;
+          setTotalPrice(prev => prev + price);
+          deliveryFee = totalPrice + price >= 100000 ? "무료" : 5000;
+        }
+      }
+      return data;
+    });
+
+    setCartData(updataData);
+  };
+
+  // <삭제 함수>
+  const onClickDelete = (product_id, price, quantity) => {
+    const updataData = cartData.filter(data => data.product_id !== product_id);
+    setCartData(updataData);
+    setTotalPrice(prev => prev - price * quantity);
+  };
 
   return (
     <div className="CartContainer">
@@ -37,10 +70,17 @@ const Cart = () => {
 
           <ul>
             {cartData.map(data => (
-              <ItemList
+              <CartItem
                 key={data.product_id}
-                data={data}
-                setCartData={setCartData}
+                product_id={data.product_id}
+                product_name={data.product_name}
+                color={data.color}
+                image_url={data.image_url}
+                price={+data.price}
+                quantity={data.quantity}
+                size={data.size}
+                onClickQuantity={onClickQuantity}
+                onClickDelete={onClickDelete}
               />
             ))}
           </ul>
@@ -64,12 +104,19 @@ const Cart = () => {
             </ul>
             <ul className="orderList">
               <li>배송비</li>
-              <li>{totalPrice >= 50000 ? "무료" : "₩5000"}</li>
-              {/* <li className="three">5만원 이상 무료입니다.</li> */}
+              <li>{totalPrice > 0 ? deliveryFee : ""}</li>
+              {/* <li className="three">10만원 이상 무료입니다.</li> */}
             </ul>
             <ul className="orderList">
               <li>주문 총액</li>
-              <li>₩{totalPrice >= 50000 ? totalPrice : totalPrice + 5000} </li>
+              <li>
+                ₩
+                {totalPrice >= 50000
+                  ? totalPrice
+                  : totalPrice > 0
+                  ? totalPrice + 5000
+                  : "0"}
+              </li>
             </ul>
           </div>
           <button type="button" className="orderBtn">
