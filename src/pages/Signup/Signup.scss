@@ -21,27 +21,6 @@
     cursor: pointer;
   }
 
-  .loginquestion {
-    margin-top: 20px;
-
-    li {
-      margin: 15px 0;
-      font-size: 15px;
-      font-weight: bold;
-      color: gray;
-
-      .noAccount {
-        color: gray;
-      }
-
-      .signUpBtn {
-        margin-left: 9px;
-        color: rgb(65, 74, 201);
-        cursor: pointer;
-      }
-    }
-  }
-
   .hasFormErr {
     margin-top: 20px;
     width: 100%;

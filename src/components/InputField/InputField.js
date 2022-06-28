@@ -11,7 +11,7 @@ const InputField = ({
   userInfo,
   setUserInfo,
 }) => {
-  const onInput = e => {
+  const handleInput = e => {
     const { value, name } = e.target;
     setUserInfo(prev => ({ ...prev, [name]: value }));
   };
@@ -30,9 +30,8 @@ const InputField = ({
         </span>
         <input
           type={type}
-          id={label}
           name={name}
-          onInput={onInput}
+          onInput={handleInput}
           required
           autoComplete="off" // 자동완성 방지
           autoCapitalize="off" // 모바일에서, 첫글자 대문자 방지

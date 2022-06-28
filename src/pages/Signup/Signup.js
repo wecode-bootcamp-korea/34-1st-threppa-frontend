@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import AppContext from "../../AppContext";
 import PopupWrapper from "../../components/PopupWrapper/PopupWrapper";
 import InputField from "../../components/InputField/InputField";
-import "../../components/PopupWrapper/LoginAndSignup.scss";
+import "./Signup.scss";
 
 const Signup = () => {
   const [userInfo, setUserInfo] = useState({
@@ -14,10 +14,10 @@ const Signup = () => {
     email: "",
     password: "",
   });
-  const [pwIsValid, setPwIsValid] = useState(false);
-  const [emailIsValid, setEmailIsValid] = useState(false);
-  const [nickNameIsValid, setNickNameIsValid] = useState(false);
-  const [phoneNumIsValid, setPhoneNumIsValid] = useState(false);
+  const [pwOverlap, setPwOverlap] = useState(false);
+  const [emailOverlap, setEmailOverlap] = useState(false);
+  const [nickNameOverlap, setNickNameOverlap] = useState(false);
+  const [phoneNumOverlap, setPhoneNumOverlap] = useState(false);
 
   const location = useNavigate();
 
@@ -27,10 +27,10 @@ const Signup = () => {
     e.preventDefault();
 
     if (!isPasswordValid(userInfo.password)) {
-      setPwIsValid(true);
+      setPwOverlap(true);
       return;
     }
-    setPwIsValid(false);
+    setPwOverlap(false);
 
     fetch("http://10.58.3.27:8000/users/signup", {
       method: "POST",
@@ -50,22 +50,22 @@ const Signup = () => {
         return res.json();
       })
       .then(result => {
-        setNickNameIsValid(false);
-        setPhoneNumIsValid(false);
-        setEmailIsValid(false);
+        setNickNameOverlap(false);
+        setPhoneNumOverlap(false);
+        setEmailOverlap(false);
 
         if (result.message === "USERNAME Already Exists") {
-          setNickNameIsValid(true);
+          setNickNameOverlap(true);
           return;
         }
 
         if (result.message === "PHONE_NUMBER Already Exists") {
-          setPhoneNumIsValid(true);
+          setPhoneNumOverlap(true);
           return;
         }
 
         if (result.message === "Email Already Exists") {
-          setEmailIsValid(true);
+          setEmailOverlap(true);
           return;
         }
 
@@ -100,7 +100,6 @@ const Signup = () => {
         {SIGNUP_INPUT.slice(2).map(el => (
           <InputField
             key={el.id}
-            id={el.id}
             className={el.className}
             context={el.context}
             label={el.label}
@@ -115,37 +114,38 @@ const Signup = () => {
           가입
         </button>
 
-        {nickNameIsValid ? (
+        {nickNameOverlap && (
           <p className="hasFormErr" style={{ fontSize: "14px" }}>
             중복된 닉네임 입니다.
           </p>
-        ) : (
-          ""
         )}
 
-        {phoneNumIsValid ? (
+        {phoneNumOverlap && (
           <p className="hasFormErr" style={{ fontSize: "14px" }}>
             중복된 핸드폰번호 입니다.
           </p>
-        ) : (
-          ""
         )}
 
-        {emailIsValid ? (
+        {emailOverlap && (
           <p className="hasFormErr" style={{ fontSize: "14px" }}>
             중복된 이메일 입니다.
           </p>
-        ) : (
-          ""
         )}
 
-        {pwIsValid ? (
+        {pwOverlap ? (
           <p className="hasFormErr">
             이 비밀번호는 추측하기 너무 쉽습니다.
             <br /> (8글자 이상, 숫자와 특수문자 1개이상 포함)
           </p>
         ) : (
           ""
+        )}
+
+        {pwOverlap && (
+          <p className="hasFormErr">
+            이 비밀번호는 추측하기 너무 쉽습니다.
+            <br /> (8글자 이상, 숫자와 특수문자 1개이상 포함)
+          </p>
         )}
       </form>
     </PopupWrapper>
@@ -162,7 +162,6 @@ function isPasswordValid(text) {
 
 const SIGNUP_INPUT = [
   {
-    id: 1,
     className: "filed lastName",
     context: "성",
     label: "userLastName",
@@ -170,7 +169,6 @@ const SIGNUP_INPUT = [
     type: "text",
   },
   {
-    id: 2,
     className: "filed firstName",
     context: "이름",
     label: "userFirstName",
@@ -178,7 +176,6 @@ const SIGNUP_INPUT = [
     type: "text",
   },
   {
-    id: 3,
     className: "filed",
     context: "닉네임",
     label: "userNickName",
@@ -186,7 +183,6 @@ const SIGNUP_INPUT = [
     type: "text",
   },
   {
-    id: 4,
     className: "filed",
     context: "핸드폰번호",
     label: "userPhoneNum",
@@ -194,7 +190,6 @@ const SIGNUP_INPUT = [
     type: "tel",
   },
   {
-    id: 5,
     className: "filed",
     context: "이메일",
     label: "userEmail",
@@ -202,7 +197,6 @@ const SIGNUP_INPUT = [
     type: "email",
   },
   {
-    id: 6,
     className: "filed",
     context: "비밀번호",
     label: "userPw",

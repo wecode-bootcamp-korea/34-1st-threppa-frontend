@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import AppContext from "../../AppContext";
 import PopupWrapper from "../../components/PopupWrapper/PopupWrapper";
 import InputField from "../../components/InputField/InputField";
-import "../../components/PopupWrapper/LoginAndSignup.scss";
+import "./Login.scss";
 
 const LoginForm = () => {
   const [userInfo, setUserInfo] = useState({ userId: "", userPw: "" });
@@ -46,7 +46,6 @@ const LoginForm = () => {
         {LOGIN_INPUT.map(el => (
           <InputField
             key={el.id}
-            id={el.id}
             className={el.className}
             context={el.context}
             label={el.label}
@@ -59,7 +58,7 @@ const LoginForm = () => {
 
         <button
           disabled={!isValid}
-          className={`submitBtn${isValid ? " submitBtnOn" : ""}`}
+          className={`submitBtn ${isValid ? " submitBtnOn" : ""}`}
         >
           로그인
         </button>
@@ -80,7 +79,6 @@ const LoginForm = () => {
 
 const LOGIN_INPUT = [
   {
-    id: 1,
     className: "filed",
     context: "전화번호, 사용자 이름 또는 이메일",
     label: "userId",
@@ -88,7 +86,6 @@ const LOGIN_INPUT = [
     type: "email",
   },
   {
-    id: 2,
     className: "filed",
     context: "비밀번호",
     label: "userPw",
