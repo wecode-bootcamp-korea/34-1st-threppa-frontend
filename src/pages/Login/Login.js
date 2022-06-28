@@ -58,9 +58,8 @@ const LoginForm = () => {
         ))}
 
         <button
-          type="submit"
           disabled={!isValid}
-          className={isValid ? "submitBtn submitBtnOn" : "submitBtn"}
+          className={`submitBtn${isValid ? " submitBtnOn" : ""}`}
         >
           로그인
         </button>

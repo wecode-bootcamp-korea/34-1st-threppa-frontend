@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 import { Routes, Route, BrowserRouter } from "react-router-dom";
 import Home from "./pages/Home/Home";
+import Login from "./pages/Login/Login";
 import ProductList from "./pages/ProductList/ProductList";
 import ProductDesc from "./pages/ProductDesc/ProductDesc";
+import Signup from "./pages/Signup/Signup";
 import Nav from "./components/Nav/Nav";
 import Footer from "./components/Footer/Footer";
-import Login from "./pages/Login/Login";
-import Signup from "./pages/Signup/Signup";
-import AppContext from "./AppContext";
 import Toast from "./components/Toast/Toast";
+import AppContext from "./AppContext";
 
 export default function Router() {
   const [toastMessage, setToastMessage] = useState([]);
