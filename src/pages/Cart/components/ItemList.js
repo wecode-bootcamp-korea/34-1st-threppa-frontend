@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import "./Item.scss";
+import "./ItemList.scss";
 
-const Item = ({
+const ItemList = ({
   name,
   id,
   color,
@@ -38,7 +38,7 @@ const Item = ({
   };
 
   return (
-    <div className="itemContainer">
+    <li className="itemContainer" id={id}>
       <div className="itemWrapper">
         <img src="images/shoe1.jpg" alt="shoe1" className="itemImg" />
         <div className="itemInfo">
@@ -70,8 +70,8 @@ const Item = ({
       </div>
 
       <p className="unitPrice">₩{price}</p>
-    </div>
+    </li>
   );
 };
 
-export default Item;
+export default ItemList;
