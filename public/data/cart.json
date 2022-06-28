@@ -1,26 +1,29 @@
 [
   {
-    "id": 1,
-    "name": "클래식 플랫폼 클로그 우먼",
-    "color": "red",
-    "size": "small",
-    "price": 40000,
-    "quantity": 1
+    "product_id": 5,
+    "product_name": "크록스 크록밴드 플립1",
+    "color": "Blue1",
+    "image_url": "https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fb1VW1j%2FbtrFWzA7bnt%2FnKBO8rAkMG4akamgmFFku1%2Fimg.jpg",
+    "price": "4900.00",
+    "quantity": 1,
+    "size": "Small1"
   },
   {
-    "id": 2,
-    "name": "Clog2",
-    "color": "blue",
-    "size": "large",
-    "price": 30000,
-    "quantity": 1
+    "product_id": 2,
+    "product_name": "크록스 크록밴드 플립2",
+    "color": "Blue2",
+    "image_url": "https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fb1VW1j%2FbtrFWzA7bnt%2FnKBO8rAkMG4akamgmFFku1%2Fimg.jpg",
+    "price": "4900.00",
+    "quantity": 1,
+    "size": "Small2"
   },
   {
-    "id": 3,
-    "name": "Clog3",
-    "color": "green",
-    "size": "medium",
-    "price": 20000,
-    "quantity": 1
+    "product_id": 3,
+    "product_name": "크록스 크록밴드 플립3",
+    "color": "Blue3",
+    "image_url": "https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fb1VW1j%2FbtrFWzA7bnt%2FnKBO8rAkMG4akamgmFFku1%2Fimg.jpg",
+    "price": "14900.00",
+    "quantity": 1,
+    "size": "Small3"
   }
 ]
