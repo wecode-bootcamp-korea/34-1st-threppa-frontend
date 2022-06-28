@@ -4,7 +4,9 @@
   height: 315px;
   padding: 25px 20px 20px 20px;
   background-color: #f3f2f3;
-  margin-top: 20px;
+  margin-top: 70px;
+  box-shadow: 15px 15px 1px orange;
+
   .newTitle {
     font-size: 20px;
     font-weight: 700;
@@ -16,12 +18,14 @@
     height: 245px;
     margin: 15px auto;
     overflow: hidden;
+
     .carouselBox {
       display: flex;
       gap: 10px;
       width: 2040px;
       height: 245px;
       transition: all 0.5s;
+
       .newItem {
         width: 245px;
         height: 245px;
@@ -34,6 +38,7 @@
           height: 110px;
           object-fit: cover;
         }
+
         .itemContents {
           margin-top: 50px;
 
@@ -42,6 +47,7 @@
             text-align: left;
             padding-top: 10px;
           }
+
           .hContent {
             font-size: 14px;
             font-weight: bold;
@@ -50,6 +56,7 @@
         }
       }
     }
+
     .carouselArrowLeft {
       z-index: 5;
       position: absolute;
@@ -63,6 +70,7 @@
       text-align: center;
       cursor: pointer;
     }
+
     .carouselArrowRight {
       z-index: 5;
       position: absolute;

@@ -1,20 +1,21 @@
-import React from "react";
-import "./ProductDesc.scss";
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 import RecommendProducts from "./components/RecommendProducts/RecommendProducts";
 import NewProducts from "./components/NewProducts/NewProducts";
-import CartAll from "./components/CartAll/CartAll";
+import ProductPurchase from "./components/ProductPurchase/ProductPurchase";
+import "./ProductDesc.scss";
 
 const ProductDesc = () => {
+  const params = useParams();
   const [productDatas, setProductData] = useState([]);
-  const [productSeverData, setProductSeverData] = useState();
+  const [productSeverData, setProductSeverData] = useState({});
   const [sizeSeverData, setSizeSeverData] = useState();
-
-  const [sizeModal, setSizeModal] = useState(false);
+  const [isSizeModal, setIsSizeModal] = useState(false);
 
   const handleSizeModal = () => {
-    setSizeModal(true);
+    setIsSizeModal(true);
   };
+
   useEffect(() => {
     fetch("/datas/productData.json", {
       method: "GET",
@@ -27,7 +28,7 @@ const ProductDesc = () => {
 
   // productData
   useEffect(() => {
-    fetch("http://10.58.3.27:8000/products/1", {
+    fetch(`http://10.58.6.64:8000/products/${params.id}`, {
       method: "GET",
     })
       .then(res => res.json())
@@ -38,7 +39,7 @@ const ProductDesc = () => {
 
   // productsSizeData
   useEffect(() => {
-    fetch("http://10.58.3.27:8000/products/sizes", {
+    fetch("http://10.58.6.64:8000/products/sizes", {
       method: "GET",
     })
       .then(res => res.json())
@@ -49,8 +50,8 @@ const ProductDesc = () => {
 
   return (
     <div className="productDescPage">
-      {sizeModal === true && <SizeTableModal setSizeModal={setSizeModal} />}
-      <CartAll
+      {isSizeModal && <SizeTableModal setIsSizeModal={setIsSizeModal} />}
+      <ProductPurchase
         productDatas={productDatas}
         handleSizeModal={handleSizeModal}
         sizeSeverData={sizeSeverData}
@@ -64,7 +65,7 @@ const ProductDesc = () => {
   );
 };
 
-const SizeTableModal = ({ setSizeModal }) => {
+const SizeTableModal = ({ setIsSizeModal }) => {
   return (
     <>
       <div className="blackModal" />
@@ -72,12 +73,12 @@ const SizeTableModal = ({ setSizeModal }) => {
         <div className="whiteModal">
           <button
             onClick={() => {
-              setSizeModal(false);
+              setIsSizeModal(false);
             }}
           >
             X
           </button>
-          <img src="./images/sizeTable_01.png" alt="nonono!" />
+          <img src="/images/sizeTable_01.png" alt="nonono!" />
         </div>
       </div>
     </>
