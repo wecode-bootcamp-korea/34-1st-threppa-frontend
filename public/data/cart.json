@@ -3,7 +3,7 @@
     "id": 1,
     "name": "클래식 플랫폼 클로그 우먼",
     "color": "red",
-    "size": "230",
+    "size": "small",
     "price": 40000,
     "quantity": 1
   },
@@ -11,7 +11,7 @@
     "id": 2,
     "name": "Clog2",
     "color": "blue",
-    "size": "240",
+    "size": "large",
     "price": 30000,
     "quantity": 1
   },
@@ -19,7 +19,7 @@
     "id": 3,
     "name": "Clog3",
     "color": "green",
-    "size": "250",
+    "size": "medium",
     "price": 20000,
     "quantity": 1
   }
