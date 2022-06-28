@@ -9,7 +9,7 @@ const Cart = () => {
   const [totalPrice, setTotalPrice] = useState(0);
 
   useEffect(() => {
-    fetch("http://10.58.6.64:8000/products/carts") //
+    fetch("http://10.58.6.64:8000/products/carts") // 로그인 후 나온 토큰 보내야 함.
       // fetch("data/cart.json")
       .then(res => res.json())
       .then(result => {
