@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import Item from "./components/Item";
+import ItemList from "./components/ItemList";
 import "./Cart.scss";
 
 const Cart = () => {
@@ -9,12 +9,14 @@ const Cart = () => {
   const [totalPrice, setTotalPrice] = useState(0);
 
   useEffect(() => {
-    fetch("data/cart.json")
+    fetch("http://10.58.6.64:8000/products/carts") //
+      // fetch("data/cart.json")
       .then(res => res.json())
       .then(result => {
-        setCartData(result);
-        const firstTotalPrice = result.reduce((acc, cur) => acc + cur.price, 0);
-        setTotalPrice(firstTotalPrice);
+        console.log(result);
+        // setCartData(result);
+        // const firstTotalPrice = result.reduce((acc, cur) => acc + cur.price, 0);
+        // setTotalPrice(firstTotalPrice);
       });
   }, []);
 
@@ -26,20 +28,22 @@ const Cart = () => {
       <div className="columnWrapper">
         <div className="column">
           <p className="totalPrice">구매 상품 총액 : ₩{totalPrice}</p>
-          {/* 컴포넌트 */}
-          {cartData.map(obj => (
-            <Item
-              key={obj.id}
-              id={obj.id}
-              name={obj.name}
-              color={obj.color}
-              size={obj.size}
-              price={obj.price}
-              quantity={obj.quantity}
-              setCartData={setCartData}
-              setTotalPrice={setTotalPrice}
-            />
-          ))}
+
+          <ul>
+            {cartData.map(obj => (
+              <ItemList
+                key={obj.id}
+                id={obj.id}
+                name={obj.name}
+                color={obj.color}
+                size={obj.size}
+                price={obj.price}
+                quantity={obj.quantity}
+                setCartData={setCartData}
+                setTotalPrice={setTotalPrice}
+              />
+            ))}
+          </ul>
         </div>
         <div className="column">
           <h2 className="orderFormTitle">주문 내역</h2>
