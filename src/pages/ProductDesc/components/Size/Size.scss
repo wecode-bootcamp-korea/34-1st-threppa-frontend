@@ -14,9 +14,9 @@
     .sizeTable {
       padding: 3px 10px;
       border-radius: 5px;
+      font-weight: bold;
       background-color: #000000;
       color: #fff;
-      font-weight: bold;
       cursor: pointer;
     }
   }
@@ -32,9 +32,9 @@
     .size {
       padding: 10px 2px;
       border-radius: 4px;
+      text-align: center;
       font-size: 0.875rem;
       font-weight: 700;
-      text-align: center;
       box-shadow: 3px 2px 3px gray;
       cursor: pointer;
     }

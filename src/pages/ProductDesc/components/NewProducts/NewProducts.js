@@ -1,19 +1,22 @@
 import React from "react";
-import "./NewProducts.scss";
 import { useState } from "react";
+import "./NewProducts.scss";
 
-const NewProducts = ({ newProductDatas }) => {
+const NewProducts = ({ newproduct }) => {
   const [carouselLRmove, setCarouselLRmovie] = useState(0);
 
   const handleCarouselRightMovie = () => {
-    if (carouselLRmove > -1000) {
-      setCarouselLRmovie(carouselLRmove - 200);
+    let rightMaxWidth = -195 * (newproduct.length / 2);
+    let imageWidthRight = carouselLRmove - 195;
+    if (carouselLRmove > rightMaxWidth) {
+      setCarouselLRmovie(imageWidthRight);
     }
   };
 
   const handleCarouselLeftMovie = () => {
+    let imageWidthLeft = carouselLRmove + 195;
     if (carouselLRmove < 0) {
-      setCarouselLRmovie(carouselLRmove + 200);
+      setCarouselLRmovie(imageWidthLeft);
     }
   };
 
@@ -41,18 +44,18 @@ const NewProducts = ({ newProductDatas }) => {
           className="carouselBox"
           style={{ transform: `translateX(${carouselLRmove}px)` }}
         >
-          {newProductDatas.map(newProductDatas => {
+          {newproduct.map(newproduct => {
             return (
-              <li key={newProductDatas.product_id} className="newItem">
+              <li key={newproduct.product_id} className="newItem">
                 <img
                   className="itemImage"
-                  src={newProductDatas.productImage_url}
+                  src={newproduct.productImage_url}
                   alt="nono"
                 />
                 <div className="itemContents">
                   <p className="pContent">3색</p>
-                  <h4 className="hContent">{newProductDatas.product_name}</h4>
-                  <p className="pContent">{newProductDatas.price}</p>
+                  <h4 className="hContent">{newproduct.product_name}</h4>
+                  <p className="pContent">{newproduct.price}</p>
                 </div>
               </li>
             );

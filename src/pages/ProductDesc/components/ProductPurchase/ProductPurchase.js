@@ -10,12 +10,10 @@ const ProductPurchase = ({
   productSeverData,
 }) => {
   const params = useParams();
-  const [colorChangeImage, setColorChangeImage] = useState(
-    productSeverData.results?.colors[0].image_url
-  );
+  const [colorChangeImage, setColorChangeImage] = useState("");
   const [color, setColor] = useState("");
   const [sizeSelect, setSizeSelect] = useState(""); // TODO: 이름 명확하게 수정 *완료*
-  const [sizeModal, setSizeModal] = useState(false);
+  const [isSizeModal, setIsSizeModal] = useState(false);
 
   const sendToCart = e => {
     e.preventDefault();
@@ -72,7 +70,7 @@ const ProductPurchase = ({
                       onClick={() => {
                         setColor(colors.name);
                         setColorChangeImage(colors.image_url);
-                        setSizeModal(true);
+                        setIsSizeModal(true);
                       }}
                     >
                       {colors.name}
@@ -83,7 +81,7 @@ const ProductPurchase = ({
             </div>
             <div className="colorImages" />
           </div>
-          {sizeModal && (
+          {isSizeModal && (
             <Size
               setSizeSelect={setSizeSelect}
               sizeSelect={sizeSelect}

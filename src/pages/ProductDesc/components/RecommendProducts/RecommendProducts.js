@@ -3,23 +3,26 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./RecommendProducts.scss";
 
-const RecommendProducts = ({ recommendProductDatas }) => {
+const RecommendProducts = ({ recommend }) => {
   const navigate = useNavigate();
   const goToProductDesc = () => {
-    navigate(`/productdesc/${recommendProductDatas}`);
+    navigate(`/productdesc/${recommend}`);
   };
 
   const [carouselLRmove, setCarouselLRmovie] = useState(0);
 
   const handleCarouselRightMovie = () => {
-    if (carouselLRmove > -1000) {
-      setCarouselLRmovie(carouselLRmove - 200);
+    let rightMaxWidth = -195 * (recommend.length / 2);
+    let imageWidthRight = carouselLRmove - 195;
+    if (carouselLRmove > rightMaxWidth) {
+      setCarouselLRmovie(imageWidthRight);
     }
   };
 
   const handleCarouselLeftMovie = () => {
+    let imageWidthLeft = carouselLRmove + 195;
     if (carouselLRmove < 0) {
-      setCarouselLRmovie(carouselLRmove + 200);
+      setCarouselLRmovie(imageWidthLeft);
     }
   };
 
@@ -47,10 +50,10 @@ const RecommendProducts = ({ recommendProductDatas }) => {
           className="carouselBox"
           style={{ transform: `translateX(${carouselLRmove}px)` }}
         >
-          {recommendProductDatas.map(recommendProductDatas => {
+          {recommend.map(recommend => {
             return (
               <li
-                key={recommendProductDatas.product_id}
+                key={recommend.product_id}
                 className="recommendItem"
                 onClick={goToProductDesc}
                 // 고오오오급 라우팅
@@ -61,15 +64,13 @@ const RecommendProducts = ({ recommendProductDatas }) => {
               >
                 <img
                   className="itemImage"
-                  src={recommendProductDatas.productImage_url}
+                  src={recommend.productImage_url}
                   alt="nono"
                 />
                 <div className="itemContents">
                   <p className="pContent">3색</p>
-                  <h4 className="hContent">
-                    {recommendProductDatas.product_name}
-                  </h4>
-                  <p className="pContent">{recommendProductDatas.price}</p>
+                  <h4 className="hContent">{recommend.product_name}</h4>
+                  <p className="pContent">{recommend.price}</p>
                 </div>
               </li>
             );

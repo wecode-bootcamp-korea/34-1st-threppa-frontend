@@ -1,7 +1,7 @@
 .container {
-  position: relative;
   display: flex;
   justify-content: space-between;
+  position: relative;
   width: 1180px;
   height: auto;
   margin: 0px auto;
@@ -9,9 +9,9 @@
 
   .cartModal {
     position: absolute;
+    left: 70%;
     width: 350px;
     height: auto;
-    left: 70%;
     background-color: royalblue;
 
     .cartHeader {
@@ -70,8 +70,8 @@
       .image {
         width: 650px;
         height: 550px;
-        background-size: cover;
         border-radius: 10px;
+        background-size: cover;
         box-shadow: 15px 15px 1px orange;
       }
 
@@ -147,6 +147,7 @@
 
         .colorList {
           margin-top: 20px;
+
           ul {
             display: flex;
             gap: 10px;
@@ -159,9 +160,9 @@
             border-radius: 5px;
             box-shadow: 2px 1px 2px gray;
             text-align: center;
+            font-weight: 700;
             background-color: black;
             color: #ffffff;
-            font-weight: 700;
             cursor: pointer;
           }
 
@@ -173,58 +174,6 @@
         .colorImages {
           .image {
             width: 50px;
-          }
-        }
-      }
-
-      form {
-        margin: 15px 0px;
-
-        .shopingListAdd {
-          width: 90%;
-          padding: 15px 25px;
-          border-radius: 3px 0px 0px 3px;
-          font-weight: 700;
-          font-size: 18px;
-          line-height: 1.1;
-          color: #fff;
-          &:hover {
-            cursor: pointer;
-          }
-        }
-        .navy {
-          background-color: black;
-        }
-
-        .gray {
-          background-color: #bbbbbb;
-        }
-
-        .shopingListAddblue {
-          width: 90%;
-          padding: 15px 25px;
-          border-radius: 3px 0px 0px 3px;
-          font-weight: 700;
-          font-size: 18px;
-          line-height: 1.1;
-          color: #fff;
-          background-color: #002982;
-        }
-
-        .shopingLikeAdd {
-          width: 10%;
-          height: 55px;
-          border: 1px solid black;
-          background-color: black;
-          border-left: 1px solid #fff;
-          border-radius: 0px 3px 3px 0px;
-          line-height: 1.5;
-          color: #fff;
-
-          .hearticon {
-            font-size: 20px;
-            padding: 1px;
-            line-height: 1;
           }
         }
       }

@@ -1,11 +1,12 @@
 import React from "react";
+import "./ShoppingCartAdd.scss";
 
 const ShoppingCartAdd = ({ releaseButtonCart, sendToCart }) => {
   return (
     <form>
       <button
         className={
-          releaseButtonCart ? "shopingListAdd gray" : "shopingListAdd navy"
+          releaseButtonCart ? "shopingListAdd gray" : "shopingListAdd black"
         }
         disabled={releaseButtonCart}
         //TODO: 인라인 스타일 ㄴㄴ *완료*
