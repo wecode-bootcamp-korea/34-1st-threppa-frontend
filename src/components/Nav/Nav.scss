@@ -168,7 +168,7 @@
       align-items: center;
       position: absolute;
       right: 10px;
-      height: 55px;
+      height: 100%;
 
       .hello {
         padding-right: 40px;
@@ -177,8 +177,11 @@
       }
 
       .navRightTap {
+        display: flex;
+        align-items: center;
         position: relative;
         margin-right: 20px;
+        height: 100%;
         font-weight: bold;
 
         .heart {
@@ -229,7 +232,7 @@
 
         .menuBar {
           position: absolute;
-          top: 73px;
+          top: 100px;
           left: 73px;
           display: grid;
           grid-template-rows: repeat(5, 1fr);

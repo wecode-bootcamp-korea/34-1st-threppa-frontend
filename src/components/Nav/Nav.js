@@ -132,11 +132,10 @@ const Nav = () => {
               <ul className="menuBar">
                 <li>
                   {getUserToken ? (
-                    <a href="/login" onClick={logOut}>
-                      {/*a 태그일 필요 X*/}
+                    <p onClick={logOut}>
                       <span>로그아웃</span>
                       <i className="fas fa-sign-out-alt loginAndOut" />
-                    </a>
+                    </p>
                   ) : (
                     <Link to="/login">
                       <span>로그인</span>
