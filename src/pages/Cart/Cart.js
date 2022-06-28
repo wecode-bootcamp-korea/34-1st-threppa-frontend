@@ -3,20 +3,26 @@ import ItemList from "./components/ItemList";
 import "./Cart.scss";
 
 const Cart = () => {
-  // {id: 2, name: 'Clog2', price: 30000, quantity: 1}
-
   const [cartData, setCartData] = useState([]);
-  const [totalPrice, setTotalPrice] = useState(0);
+
+  const totalPrice = cartData.reduce((acc, cur) => acc + +cur.price, 0);
+
+  // 로그인 후 나온 토큰 보내야 함.
+  // const getUserToken =
+  //   "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MTR9.uCo_nqlEeKoRuz9m6fhE9Mru4bMhLIuhFb7y0UWkq_E";
 
   useEffect(() => {
-    // fetch("http://10.58.6.64:8000/products/carts") // 로그인 후 나온 토큰 보내야 함.
     fetch("data/cart.json")
+      // fetch("http://192.168.225.215:8000/products/carts", {
+      //   method: "GET",
+      //   headers: {
+      //     Authorization: getUserToken,
+      //   },
+      // })
       .then(res => res.json())
       .then(result => {
         // console.log(result);
         setCartData(result);
-        const firstTotalPrice = result.reduce((acc, cur) => acc + cur.price, 0);
-        setTotalPrice(firstTotalPrice);
       });
   }, []);
 
@@ -30,17 +36,11 @@ const Cart = () => {
           <p className="totalPrice">구매 상품 총액 : ₩{totalPrice}</p>
 
           <ul>
-            {cartData.map(obj => (
+            {cartData.map(data => (
               <ItemList
-                key={obj.id}
-                id={obj.id}
-                name={obj.name}
-                color={obj.color}
-                size={obj.size}
-                price={obj.price}
-                quantity={obj.quantity}
+                key={data.product_id}
+                data={data}
                 setCartData={setCartData}
-                setTotalPrice={setTotalPrice}
               />
             ))}
           </ul>
@@ -63,13 +63,13 @@ const Cart = () => {
               </li>
             </ul>
             <ul className="orderList">
-              <li>배송비 </li>
+              <li>배송비</li>
               <li>{totalPrice >= 50000 ? "무료" : "₩5000"}</li>
               {/* <li className="three">5만원 이상 무료입니다.</li> */}
             </ul>
             <ul className="orderList">
               <li>주문 총액</li>
-              <li>₩{totalPrice} </li>
+              <li>₩{totalPrice >= 50000 ? totalPrice : totalPrice + 5000} </li>
             </ul>
           </div>
           <button type="button" className="orderBtn">
