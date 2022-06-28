@@ -8,11 +8,6 @@ const Nav = () => {
   const [userName, setUserName] = useState("");
   const getUserToken = localStorage.getItem("ACCESS_TOKEN");
 
-  // <네브바 데이터 요청 - mock data 이용할 것이여서, api호출만 함 >
-  useEffect(() => {
-    fetch("http://10.58.3.27:8000/products/nav");
-  }, []);
-
   // < mock data api요청 >
   useEffect(() => {
     fetch("datas/navbarData.json")
@@ -35,7 +30,7 @@ const Nav = () => {
       });
   }, []);
 
-  const onclickLogout = e => {
+  const logOut = e => {
     e.preventDefault();
     setUserName("");
     localStorage.removeItem("USER_FULLNAME");
@@ -115,9 +110,7 @@ const Nav = () => {
         </ul>
 
         <div className="navRight">
-          <p className="hello">
-            {userName ? `안녕하세요 ${userName}님 🙂` : ""}
-          </p>
+          <p className="hello">{userName && `안녕하세요 ${userName}님 🙂`}</p>
           <div className="navRightTap">
             <i className="fas fa-heart heart">
               <p>
@@ -137,21 +130,20 @@ const Nav = () => {
             <div className="barBtn">
               <i className="fas fa-bars bars" />
               <ul className="menuBar">
-                {getUserToken ? (
-                  <li>
-                    <a href="/login" onClick={onclickLogout}>
+                <li>
+                  {getUserToken ? (
+                    <a href="/login" onClick={logOut}>
+                      {/*a 태그일 필요 X*/}
                       <span>로그아웃</span>
                       <i className="fas fa-sign-out-alt loginAndOut" />
                     </a>
-                  </li>
-                ) : (
-                  <li>
+                  ) : (
                     <Link to="/login">
                       <span>로그인</span>
                       <i className="fas fa-sign-in-alt" />
                     </Link>
-                  </li>
-                )}
+                  )}
+                </li>
 
                 <Link to="/signup">
                   <li>회원가입</li>
