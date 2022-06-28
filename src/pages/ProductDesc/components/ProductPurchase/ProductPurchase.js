@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 import Size from "../Size/Size";
 import "./ProductPurchase.scss";
@@ -16,8 +16,6 @@ const ProductPurchase = ({
   const [color, setColor] = useState("");
   const [sizeSelect, setSizeSelect] = useState(""); // TODO: 이름 명확하게 수정 *완료*
   const [sizeModal, setSizeModal] = useState(false);
-
-  console.log(productSeverData.results?.colors[0].image_url);
 
   const sendToCart = e => {
     e.preventDefault();
@@ -53,7 +51,7 @@ const ProductPurchase = ({
         <div className="stickyBox">
           <div className="slippersInfo">
             <h1 className="infoTitle">{productSeverData.results?.name}</h1>
-            <p className="infoGender">남성</p>
+            <p className="infoGender">여성</p>
             <div className="infoPrice">{productSeverData.results?.price}</div>
           </div>
           <div className="slippersColor">
