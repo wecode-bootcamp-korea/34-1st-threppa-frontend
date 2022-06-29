@@ -14,7 +14,7 @@ const Cart = () => {
   );
   let deliveryFee = totalPrice >= 100000 ? "무료" : 5000;
 
-  // const getUserToken = localStorage.getItem("ACCESS_TOKEN");
+  const getUserToken = localStorage.getItem("ACCESS_TOKEN");
 
   // < get api >
   useEffect(() => {
@@ -27,7 +27,7 @@ const Cart = () => {
       // })
       .then(res => res.json())
       .then(result => {
-        // console.log(result);
+        console.log(result);
         setCartData(result);
       });
   }, []);
