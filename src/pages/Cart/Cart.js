@@ -11,9 +11,8 @@ const Cart = () => {
   );
   let deliveryFee = totalPrice >= 100000 ? "무료" : 5000;
 
-  // <데이터 요청>
-  // const getUserToken =
-  //   "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MTR9.uCo_nqlEeKoRuz9m6fhE9Mru4bMhLIuhFb7y0UWkq_E";
+  // < get api >
+  // const getUserToken = localStorage.getItem("ACCESS_TOKEN");
   useEffect(() => {
     // fetch("http://192.168.225.215:8000/products/carts", {
     //   method: "GET",
@@ -30,6 +29,7 @@ const Cart = () => {
       });
   }, []);
 
+  // < post api >
   useEffect(() => {
     clearTimeout(timerRef.current);
 
@@ -51,7 +51,7 @@ const Cart = () => {
   }, [cartData]);
 
   // <수량조절 함수>
-  const onClickQuantity = (itemId, itemQuantity, price, itemValue) => {
+  const onClickQuantity = (itemId, itemQuantity, itemValue) => {
     if (itemQuantity === 1 && itemValue === "minus") {
       return;
     }
@@ -70,23 +70,9 @@ const Cart = () => {
       newItem.quantity += 1;
     }
 
-    // const updataData = cartData.map(data => {
-    //   if (data.product_id === itemId) {
-    //     if (itemValue === "minus") {
-    //       data.quantity -= 1;
-    //
-    //     } else {
-    //       data.quantity += 1;
-    //       deliveryFee = totalPrice + price >= 100000 ? "무료" : 5000;
-    //     }
-    //   }
-    //   return data;
-    // });
-
     setCartData(prev => {
       const updataData = [...prev];
       updataData[foundIdx] = newItem;
-
       return updataData;
     });
   };
