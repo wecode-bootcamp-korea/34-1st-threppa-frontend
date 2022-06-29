@@ -1,14 +1,14 @@
 .itemContainer {
-  padding: 15px 15px 40px 15px;
+  padding: 15px 15px 20px 15px;
   margin-bottom: 15px;
   width: 570px;
-  height: 285px;
   border-bottom: 1px solid gray;
   font-size: 16px;
 
   .itemWrapper {
     display: flex;
     height: 100%;
+    margin-bottom: 1px;
 
     .itemImg {
       width: 110px;
@@ -17,11 +17,9 @@
     }
 
     .itemInfo {
-      //   background-color: burlywood;
       width: 100%;
 
       .itemTxt {
-        // background-color: brown;
         dt {
           font-weight: 700;
           font-size: 20px;
