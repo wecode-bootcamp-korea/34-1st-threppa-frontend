@@ -18,6 +18,7 @@ export default function Router() {
     <AppContext.Provider value={{ toastMessage, setToastMessage }}>
       <BrowserRouter>
         <Nav />
+        <div style={{ height: "100px" }} />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />

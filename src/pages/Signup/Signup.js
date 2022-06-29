@@ -32,7 +32,7 @@ const Signup = () => {
     }
     setPwOverlap(false);
 
-    fetch("http://10.58.3.27:8000/users/signup", {
+    fetch("http://10.58.6.64:8000/users/signup", {
       method: "POST",
       body: JSON.stringify({
         username: userInfo.nickName,
@@ -44,12 +44,14 @@ const Signup = () => {
       }),
     })
       .then(res => {
-        if (!res.ok) {
-          throw res;
-        }
+        console.log(res);
+        // if (!res.ok) {
+        //   throw res;
+        // }
         return res.json();
       })
       .then(result => {
+        console.log(result);
         setNickNameOverlap(false);
         setPhoneNumOverlap(false);
         setEmailOverlap(false);
@@ -71,11 +73,11 @@ const Signup = () => {
 
         appContext.setToastMessage(["회원가입 성공!", "😆"]);
         location("/");
-      })
-
-      .catch(err => {
-        appContext.setToastMessage(["네트워크 오류가 발생했습니다.", "😥"]);
       });
+
+    // .catch(err => {
+    //   appContext.setToastMessage(["네트워크 오류가 발생했습니다.", "😥"]);
+    // });
   };
 
   return (

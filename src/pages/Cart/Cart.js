@@ -1,8 +1,11 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useContext } from "react";
+import AppContext from "../../AppContext";
 import CartItem from "./components/CartItem";
 import "./Cart.scss";
 
 const Cart = () => {
+  const appContext = useContext(AppContext);
+
   const timerRef = useRef(0);
   const [cartData, setCartData] = useState([]);
   let totalPrice = cartData.reduce(
@@ -11,25 +14,25 @@ const Cart = () => {
   );
   let deliveryFee = totalPrice >= 100000 ? "무료" : 5000;
 
-  // < get api >
   // const getUserToken = localStorage.getItem("ACCESS_TOKEN");
 
+  // < get api >
   useEffect(() => {
-    // fetch("http://10.58.6.64:8000/products/carts", {
-    //   method: "GET",
-    //   headers: {
-    //     Authorization: getUserToken,
-    //   },
-    // })
-    fetch("data/cart.json")
+    fetch("datas/cart.json")
+      // fetch("http://10.58.6.64:8000/products/carts", {
+      //   method: "GET",
+      //   headers: {
+      //     Authorization: getUserToken,
+      //   },
+      // })
       .then(res => res.json())
       .then(result => {
         // console.log(result);
-
         setCartData(result);
       });
   }, []);
 
+  // < post api >
   useEffect(() => {
     clearTimeout(timerRef.current);
 
@@ -37,18 +40,16 @@ const Cart = () => {
       const postData = cartData.map(({ product_id, color, quantity, size }) => {
         return { product_id, color, quantity, size };
       });
-      console.log(postData);
 
-      // fetch("http://10.58.6.64:8000/products/carts", {
-      // fetch("#", {
-      //   method: "POST",
-      //   headers: {
-      //     Authorization: "token",
-      //   },
-      //   body: postData,
-      // })
-      //   .then()
-      //   .then(result => console.log(result));
+      fetch("http://10.58.6.64:8000/products/carts", {
+        method: "POST",
+        headers: {
+          Authorization: "token",
+        },
+        body: postData,
+      })
+        .then()
+        .then(result => console.log(result));
     }, 2000);
   }, [cartData]);
 
@@ -85,14 +86,26 @@ const Cart = () => {
     setCartData(updataData);
   };
 
+  // <결제 함수>
+  const paymentBtn = () => {
+    if (cartData.length === 0) {
+      return;
+    }
+    appContext.setToastMessage(["결제완료 되었습니다", "🌝"]);
+  };
+
   return (
     <div className="CartContainer">
-      <h1 className="cartTitle">
-        <span className="bolder">장바구니</span> ({cartData.length}개수량)
-      </h1>
       <div className="columnWrapper">
         <div className="column">
-          <p className="totalPrice">구매 상품 총액 : ₩{totalPrice}</p>
+          <h1 className="cartTitle">
+            <span className="bolder">장바구니</span> ({cartData.length}개수량)
+          </h1>
+
+          <p className="totalTitle">
+            구매 상품 총액 :&nbsp;
+            <span className="totalPrice">₩{totalPrice.toLocaleString()}</span>
+          </p>
 
           <ul>
             {cartData.map(data => (
@@ -110,45 +123,60 @@ const Cart = () => {
               />
             ))}
           </ul>
+          <div
+            className={`emptyCart ${
+              cartData.length === 0 ? "" : "isShowemptyCart"
+            }`}
+          >
+            <p>
+              <i class="fas fa-shopping-basket basket" />
+              장바구니에 담긴 상품이 없습니다.
+            </p>
+          </div>
         </div>
         <div className="column">
-          <h2 className="orderFormTitle">주문 내역</h2>
-          <div className="orderLists">
-            <ul className="orderList">
-              <li className="listTitle">구매 상품 총액 </li>
-              <li className="listContent">₩{totalPrice}</li>
-            </ul>
-            <ul className="orderList">
-              <li>쿠폰 코드 입력 </li>
-              <li>
-                <input
-                  type="text"
-                  className="coupon"
-                  placeholder="쿠폰 번호를 입력하세요"
-                />
-              </li>
-            </ul>
-            <ul className="orderList">
-              <li>배송비</li>
-              <li>{totalPrice > 0 ? deliveryFee : ""}</li>
-              {/* <li className="three">10만원 이상 무료입니다.</li> */}
-            </ul>
-            <ul className="orderList">
-              <li>주문 총액</li>
-              <li>
-                ₩
-                {totalPrice >= 50000
-                  ? totalPrice
-                  : totalPrice > 0
-                  ? totalPrice + 5000
-                  : "0"}
-              </li>
-            </ul>
+          <div className="fixedCol">
+            <h2 className="orderFormTitle">주문 내역</h2>
+            <div className="orderLists">
+              <ul className="orderList">
+                <li className="listTitle">구매 상품 총액 </li>
+                <li className="listContent">₩{totalPrice.toLocaleString()}</li>
+              </ul>
+              <ul className="orderList">
+                <li>쿠폰 코드 입력 </li>
+                <li>
+                  <input
+                    type="text"
+                    className="coupon"
+                    placeholder="쿠폰 번호를 입력하세요"
+                  />
+                </li>
+              </ul>
+              <ul className="orderList">
+                <li>배송비</li>
+                <li className="deliveryLi">
+                  <p>{totalPrice > 0 ? deliveryFee.toLocaleString() : ""}</p>
+                  <p className="three">10만원 이상 무료입니다.</p>
+                </li>
+              </ul>
+              <ul className="orderList">
+                <li>주문 총액</li>
+                <li className="totalPrice">
+                  ₩
+                  {(totalPrice >= 50000
+                    ? totalPrice
+                    : totalPrice > 0
+                    ? totalPrice + 5000
+                    : "0"
+                  ).toLocaleString()}
+                </li>
+              </ul>
+            </div>
+            <button type="button" className="orderBtn" onClick={paymentBtn}>
+              <i className="fas fa-calculator calculator" />
+              주문 진행하기
+            </button>
           </div>
-          <button type="button" className="orderBtn">
-            <i className="fas fa-calculator calculator" />
-            주문 진행하기
-          </button>
         </div>
       </div>
     </div>

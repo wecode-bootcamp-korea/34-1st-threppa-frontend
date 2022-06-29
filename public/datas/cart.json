@@ -25,5 +25,14 @@
     "price": "10000.00",
     "quantity": 1,
     "size": "Small3"
+  },
+  {
+    "product_id": 4,
+    "product_name": "크록스 크록밴드 플립4",
+    "color": "Blue4",
+    "image_url": "https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fb1VW1j%2FbtrFWzA7bnt%2FnKBO8rAkMG4akamgmFFku1%2Fimg.jpg",
+    "price": "10000.00",
+    "quantity": 4,
+    "size": "Small4"
   }
 ]

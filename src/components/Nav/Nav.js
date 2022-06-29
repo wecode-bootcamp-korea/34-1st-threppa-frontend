@@ -17,7 +17,7 @@ const Nav = () => {
 
   // < 유저정보 요청 >
   useEffect(() => {
-    fetch("http://10.58.3.27:8000/products/user_nav", {
+    fetch("http://10.58.6.64:8000/products/user_nav", {
       method: "GET",
       headers: {
         Authorization: getUserToken,
@@ -119,11 +119,13 @@ const Nav = () => {
             </i>
           </div>
           <div className="navRightTap">
-            <p>
-              <i className="fas fa-shopping-cart cart">
-                <span className="cartNum">0</span>
-              </i>
-            </p>
+            <Link to="/cart">
+              <p>
+                <i className="fas fa-shopping-cart cart">
+                  <span className="cartNum">0</span>
+                </i>
+              </p>
+            </Link>
           </div>
 
           <div className="navRightTap">

@@ -15,7 +15,7 @@ const CartItem = ({
 }) => {
   const _onClickQuantity = e => {
     const { value } = e.target;
-    onClickQuantity(product_id, quantity, price, value);
+    onClickQuantity(product_id, quantity, value);
   };
 
   const _onClickDelete = () => {
@@ -30,10 +30,12 @@ const CartItem = ({
           <dl className="itemTxt">
             <dt>{product_name}</dt>
             <dd>
-              색상 : <span className="underLine">{color}</span>
+              <span> 색상</span>
+              <span>:</span>
+              <span>{color}</span>
             </dd>
             <dd>
-              사이즈 : <span className="underLine">{size}</span>
+              <span>사이즈</span> : <span className="underLine">{size}</span>
             </dd>
           </dl>
           <div className="countBtns">
@@ -45,7 +47,7 @@ const CartItem = ({
             >
               -
             </button>
-            <span className="num">{quantity}</span>
+            <p className="num">{quantity}</p>
             <button
               type="number"
               className="countBtn"
@@ -64,7 +66,7 @@ const CartItem = ({
         </div>
       </div>
 
-      <p className="unitPrice">₩{price}</p>
+      <p className="unitPrice">₩{price.toLocaleString()}</p>
     </li>
   );
 };

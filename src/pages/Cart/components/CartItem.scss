@@ -22,14 +22,18 @@
       .itemTxt {
         dt {
           font-weight: 700;
-          font-size: 20px;
+          font-size: 18px;
           padding: 10px 0;
         }
 
         dd {
+          width: 120px;
           padding: 3px 0;
-          .underLine {
-            text-decoration: underline;
+          display: grid;
+          grid-template-columns: 50px 20px 50px;
+          span {
+            text-align: left;
+            width: 50px;
           }
         }
       }
@@ -49,6 +53,8 @@
           width: 35px;
           height: 38px;
           font-weight: bold;
+          border: none;
+          border-radius: 50%;
         }
       }
 
@@ -69,7 +75,7 @@
   }
 
   .unitPrice {
-    font-size: 18px;
+    font-size: 16px;
     font-weight: bold;
     text-align: end;
   }

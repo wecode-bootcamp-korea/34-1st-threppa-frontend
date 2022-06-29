@@ -17,7 +17,7 @@ const LoginForm = () => {
   const onSubmitForm = e => {
     e.preventDefault();
 
-    fetch("http://10.58.3.27:8000/users/login", {
+    fetch("http://10.58.6.64:8000/users/login", {
       method: "POST",
       body: JSON.stringify({
         email: userInfo.userId,
@@ -25,19 +25,20 @@ const LoginForm = () => {
       }),
     })
       .then(res => {
-        if (!res.ok) {
-          throw res;
-        }
+        // if (!res.ok) {
+        //   throw res;
+        // }
         return res.json();
       })
       .then(result => {
+        console.log(result);
         localStorage.setItem("ACCESS_TOKEN", result.access_token);
         appContext.setToastMessage(["로그인 성공!", "😆"]);
         location("/");
-      })
-      .catch(err => {
-        appContext.setToastMessage(["사용자 계정을 찾을 수 없습니다.", "😥"]);
       });
+    // .catch(err => {
+    //   appContext.setToastMessage(["사용자 계정을 찾을 수 없습니다.", "😥"]);
+    // });
   };
 
   return (
