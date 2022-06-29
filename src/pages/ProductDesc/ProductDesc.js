@@ -11,7 +11,6 @@ const ProductDesc = () => {
   const [productSeverData, setProductSeverData] = useState({});
   const [sizeSeverData, setSizeSeverData] = useState();
   const [isSizeModal, setIsSizeModal] = useState(false);
-
   const handleSizeModal = () => {
     setIsSizeModal(true);
   };

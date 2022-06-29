@@ -10,7 +10,7 @@ const ProductPurchase = ({
 }) => {
   const params = useParams();
   const [colorChangeImage, setColorChangeImage] = useState(
-    productSeverData.results.colors[0].image_url[0].url
+    productSeverData.results.colors[0].image_url
   );
   const [color, setColor] = useState("");
   const [sizeSelect, setSizeSelect] = useState("");
@@ -32,8 +32,9 @@ const ProductPurchase = ({
       }),
     })
       .then(response => response.json())
-      .then(() => {
+      .then(result => {
         alert("장바구니에 추가 하였습니다");
+        console.log("result", result);
       });
   };
 
@@ -55,7 +56,7 @@ const ProductPurchase = ({
           <div className="slippersInfo">
             <h1 className="infoTitle">{productSeverData.results.name}</h1>
             <p className="infoGender">여성</p>
-            <div className="infoPrice">{productSeverData.results.price}</div>
+            <div className="infoPrice">{productSeverData.results.price} ₩</div>
           </div>
           <div className="slippersColor">
             <div className="colorTitle">
