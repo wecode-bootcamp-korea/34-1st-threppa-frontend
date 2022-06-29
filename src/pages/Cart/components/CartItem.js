@@ -19,7 +19,7 @@ const CartItem = ({
   };
 
   const _onClickDelete = () => {
-    onClickDelete(product_id, price, quantity);
+    onClickDelete(product_id);
   };
 
   return (

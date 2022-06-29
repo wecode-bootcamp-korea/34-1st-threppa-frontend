@@ -8,11 +8,24 @@ const Cart = () => {
 
   const timerRef = useRef(0);
   const [cartData, setCartData] = useState([]);
+  const [couponValue, setCoupon] = useState("");
+  const [discountPercent, setDiscountPercent] = useState(0);
+
+  const couponInput = e => {
+    setCoupon(e.target.value);
+  };
+
   let totalPrice = cartData.reduce(
     (acc, cur) => acc + +cur.price * cur.quantity,
     0
   );
-  let deliveryFee = totalPrice >= 100000 ? "무료" : 5000;
+
+  let discountPrice = totalPrice * discountPercent;
+
+  let deliveryFee = totalPrice === 0 ? 0 : totalPrice >= 100000 ? "무료" : 5000;
+
+  let totalAndFee =
+    totalPrice - discountPrice + (deliveryFee === "무료" ? 0 : deliveryFee);
 
   const getUserToken = localStorage.getItem("ACCESS_TOKEN");
 
@@ -27,7 +40,7 @@ const Cart = () => {
       // })
       .then(res => res.json())
       .then(result => {
-        console.log(result);
+        // console.log(result); // 테스트용
         setCartData(result);
       });
   }, []);
@@ -87,11 +100,21 @@ const Cart = () => {
   };
 
   // <결제 함수>
-  const paymentBtn = () => {
+  const OnClickPaymentBtn = () => {
     if (cartData.length === 0) {
       return;
     }
     appContext.setToastMessage(["결제완료 되었습니다", "🌝"]);
+  };
+
+  // < 쿠폰입력 >
+  const couponBtn = () => {
+    if (couponValue === "wecode1") {
+      setDiscountPercent(0.1);
+      return;
+    }
+
+    setDiscountPercent(0);
   };
 
   return (
@@ -103,7 +126,7 @@ const Cart = () => {
           </h1>
 
           <p className="totalTitle">
-            구매 상품 총액 :&nbsp;
+            구매 상품 총액 {`: `}
             <span className="totalPrice">₩{totalPrice.toLocaleString()}</span>
           </p>
 
@@ -145,11 +168,27 @@ const Cart = () => {
               <ul className="orderList">
                 <li>쿠폰 코드 입력 </li>
                 <li>
-                  <input
-                    type="text"
-                    className="coupon"
-                    placeholder="쿠폰 번호를 입력하세요"
-                  />
+                  <label htmlFor="coupon">
+                    <input
+                      type="text"
+                      className="coupon"
+                      id="coupon"
+                      placeholder="쿠폰 번호를 입력하세요"
+                      onInput={couponInput}
+                    />
+                    <button type="button" onClick={couponBtn}>
+                      확인
+                    </button>
+                  </label>
+                </li>
+              </ul>
+              <ul className="orderList">
+                <li>할인 내역</li>
+                <li className="deliveryLi">
+                  <p>
+                    {discountPrice &&
+                      `위코더할인(10%) ₩ -${discountPrice.toLocaleString()}`}
+                  </p>
                 </li>
               </ul>
               <ul className="orderList">
@@ -161,18 +200,14 @@ const Cart = () => {
               </ul>
               <ul className="orderList">
                 <li>주문 총액</li>
-                <li className="totalPrice">
-                  ₩
-                  {(totalPrice >= 50000
-                    ? totalPrice
-                    : totalPrice > 0
-                    ? totalPrice + 5000
-                    : "0"
-                  ).toLocaleString()}
-                </li>
+                <li className="totalPrice">₩{totalAndFee.toLocaleString()}</li>
               </ul>
             </div>
-            <button type="button" className="orderBtn" onClick={paymentBtn}>
+            <button
+              type="button"
+              className="orderBtn"
+              onClick={OnClickPaymentBtn}
+            >
               <i className="fas fa-calculator calculator" />
               주문 진행하기
             </button>
