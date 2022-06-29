@@ -42,7 +42,7 @@ const Nav = () => {
     <nav className="nav">
       <div className="navWrapper">
         <h1 className="logo">
-          <Link to="/">Threppa</Link>
+          <Link to="/productlist">Threppa</Link>
         </h1>
 
         <ul className="menuMain">

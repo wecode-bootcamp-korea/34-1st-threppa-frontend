@@ -43,15 +43,8 @@ const Signup = () => {
         phone_number: userInfo.phoneNum,
       }),
     })
-      .then(res => {
-        console.log(res);
-        // if (!res.ok) {
-        //   throw res;
-        // }
-        return res.json();
-      })
+      .then(res => res.json())
       .then(result => {
-        console.log(result);
         setNickNameOverlap(false);
         setPhoneNumOverlap(false);
         setEmailOverlap(false);
@@ -72,12 +65,8 @@ const Signup = () => {
         }
 
         appContext.setToastMessage(["회원가입 성공!", "😆"]);
-        location("/");
+        location("/productlist");
       });
-
-    // .catch(err => {
-    //   appContext.setToastMessage(["네트워크 오류가 발생했습니다.", "😥"]);
-    // });
   };
 
   return (
@@ -141,13 +130,6 @@ const Signup = () => {
           </p>
         ) : (
           ""
-        )}
-
-        {pwOverlap && (
-          <p className="hasFormErr">
-            이 비밀번호는 추측하기 너무 쉽습니다.
-            <br /> (8글자 이상, 숫자와 특수문자 1개이상 포함)
-          </p>
         )}
       </form>
     </PopupWrapper>
