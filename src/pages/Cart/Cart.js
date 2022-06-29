@@ -13,8 +13,9 @@ const Cart = () => {
 
   // < get api >
   // const getUserToken = localStorage.getItem("ACCESS_TOKEN");
+
   useEffect(() => {
-    // fetch("http://192.168.225.215:8000/products/carts", {
+    // fetch("http://10.58.6.64:8000/products/carts", {
     //   method: "GET",
     //   headers: {
     //     Authorization: getUserToken,
@@ -38,7 +39,8 @@ const Cart = () => {
         return { product_id, color, quantity, size };
       });
       console.log(postData);
-      // fetch("#", {
+
+      // fetch("http://10.58.6.64:8000/products/carts", {
       //   method: "POST",
       //   headers: {
       //     Authorization: "token",
