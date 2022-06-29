@@ -32,7 +32,7 @@ const Signup = () => {
     }
     setPwOverlap(false);
 
-    fetch("http://10.58.3.27:8000/users/signup", {
+    fetch("http://10.58.6.64:8000/users/signup", {
       method: "POST",
       body: JSON.stringify({
         username: userInfo.nickName,

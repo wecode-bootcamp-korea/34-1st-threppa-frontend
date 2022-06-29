@@ -3,25 +3,26 @@ import { useParams } from "react-router-dom";
 import Size from "../Size/Size";
 import "./ProductPurchase.scss";
 
-// TODO: 컴포넌트명 수정
 const ProductPurchase = ({
   handleSizeModal,
   sizeSeverData,
   productSeverData,
 }) => {
   const params = useParams();
-  const [colorChangeImage, setColorChangeImage] = useState("");
+  const [colorChangeImage, setColorChangeImage] = useState(
+    productSeverData.results.colors[0].image_url[0].url
+  );
   const [color, setColor] = useState("");
-  const [sizeSelect, setSizeSelect] = useState(""); // TODO: 이름 명확하게 수정 *완료*
+  const [sizeSelect, setSizeSelect] = useState("");
   const [isSizeModal, setIsSizeModal] = useState(false);
+  const getUserToken = localStorage.getItem("ACCESS_TOKEN");
 
   const sendToCart = e => {
     e.preventDefault();
     fetch("http://10.58.6.64:8000/products/carts", {
       method: "POST",
       headers: {
-        Authorization:
-          "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MTR9.uCo_nqlEeKoRuz9m6fhE9Mru4bMhLIuhFb7y0UWkq_E",
+        Authorization: getUserToken,
       },
       body: JSON.stringify({
         product_id: params.id,
@@ -29,11 +30,15 @@ const ProductPurchase = ({
         size: sizeSelect,
         quantity: 1,
       }),
-    }).then(response => response.json());
+    })
+      .then(response => response.json())
+      .then(() => {
+        alert("장바구니에 추가 하였습니다");
+      });
   };
 
   return (
-    <main className="container">
+    <main className="productPurchase">
       <div className="asideLeft">
         <div className="leftImageAndHeart">
           <img className="image" src={colorChangeImage} alt="nono!" />
@@ -48,9 +53,9 @@ const ProductPurchase = ({
       <div className="asideRight">
         <div className="stickyBox">
           <div className="slippersInfo">
-            <h1 className="infoTitle">{productSeverData.results?.name}</h1>
+            <h1 className="infoTitle">{productSeverData.results.name}</h1>
             <p className="infoGender">여성</p>
-            <div className="infoPrice">{productSeverData.results?.price}</div>
+            <div className="infoPrice">{productSeverData.results.price}</div>
           </div>
           <div className="slippersColor">
             <div className="colorTitle">
@@ -58,7 +63,7 @@ const ProductPurchase = ({
             </div>
             <div className="colorList">
               <ul>
-                {productSeverData.results?.colors.map(colors => {
+                {productSeverData.results.colors.map(colors => {
                   return (
                     <li
                       key={colors.id}
@@ -95,7 +100,5 @@ const ProductPurchase = ({
     </main>
   );
 };
-
-// TODO: Size 컴포넌트 분리 *완료*
 
 export default ProductPurchase;

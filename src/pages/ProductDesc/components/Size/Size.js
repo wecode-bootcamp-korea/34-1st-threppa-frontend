@@ -9,7 +9,7 @@ const Size = ({
   sizeSeverData,
   sendToCart,
 }) => {
-  const [releaseButtonCart, setReleaseButtonCart] = useState(true); // TODO: boolean naming convention 고민 중
+  const [isButtonCart, setIsButtonCart] = useState(true);
 
   return (
     <div className="slippersSize">
@@ -30,7 +30,7 @@ const Size = ({
                 key={id}
                 onClick={() => {
                   setSizeSelect(sizes);
-                  setReleaseButtonCart(false);
+                  setIsButtonCart(false);
                 }}
               >
                 {sizes}
@@ -39,7 +39,7 @@ const Size = ({
           })}
         </ul>
       </div>
-      <ShoppingCartAdd sendToCart={sendToCart} cartAdd={releaseButtonCart} />
+      <ShoppingCartAdd sendToCart={sendToCart} cartAdd={isButtonCart} />
     </div>
   );
 };

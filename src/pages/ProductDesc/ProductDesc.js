@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import RecommendProducts from "./components/RecommendProducts/RecommendProducts";
-import NewProducts from "./components/NewProducts/NewProducts";
 import ProductPurchase from "./components/ProductPurchase/ProductPurchase";
 import SizeTableModal from "./components/SizeTableModal/SizeTableModal";
 import "./ProductDesc.scss";
@@ -27,7 +26,6 @@ const ProductDesc = () => {
       });
   }, []);
 
-  // productData
   useEffect(() => {
     fetch(`http://10.58.6.64:8000/products/${params.id}`, {
       method: "GET",
@@ -36,9 +34,8 @@ const ProductDesc = () => {
       .then(productData => {
         setProductSeverData(productData);
       });
-  }, []);
+  }, [params.id]);
 
-  // productsSizeData
   useEffect(() => {
     fetch("http://10.58.6.64:8000/products/sizes", {
       method: "GET",
@@ -49,18 +46,21 @@ const ProductDesc = () => {
       });
   }, []);
 
+  if (Object.keys(productSeverData).length === 0) return <>loading...</>;
+
   return (
     <div className="productDescPage">
       {isSizeModal && <SizeTableModal setIsSizeModal={setIsSizeModal} />}
       <ProductPurchase
-        // productDatas={productDatas}
         handleSizeModal={handleSizeModal}
         sizeSeverData={sizeSeverData}
         productSeverData={productSeverData}
       />
       <footer className="bottomContainer">
-        <RecommendProducts recommend={recommendAndNew} />
-        <NewProducts newproduct={recommendAndNew} />
+        <RecommendProducts
+          recommend={recommendAndNew}
+          newproduct={recommendAndNew}
+        />
       </footer>
     </div>
   );

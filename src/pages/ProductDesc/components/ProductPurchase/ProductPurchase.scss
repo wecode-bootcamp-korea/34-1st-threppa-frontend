@@ -1,4 +1,4 @@
-.container {
+.productPurchase {
   display: flex;
   justify-content: space-between;
   position: relative;
@@ -72,7 +72,7 @@
         height: 550px;
         border-radius: 10px;
         background-size: cover;
-        box-shadow: 15px 15px 1px orange;
+        box-shadow: 15px 15px 1px rgb(255, 204, 109);
       }
 
       .heart {
@@ -108,7 +108,7 @@
 
     .stickyBox {
       position: sticky;
-      top: 3%;
+      top: 15%;
       width: 500px;
       height: 400px;
 
@@ -121,6 +121,7 @@
         }
 
         .infoGender {
+          margin-top: 10px;
           padding-top: 5px;
           font-size: 13px;
         }
@@ -133,7 +134,7 @@
       }
 
       .slippersColor {
-        padding: 10px 10px 50px 10px;
+        padding: 10px 10px 30px 10px;
         margin-top: 10px;
         border-bottom: 1px solid gray;
 
@@ -146,7 +147,7 @@
         }
 
         .colorList {
-          margin-top: 20px;
+          padding-top: 30px;
 
           ul {
             display: flex;
@@ -157,17 +158,17 @@
             width: 80px;
             height: 30px;
             padding-top: 7px;
+            border: 1px solid gray;
             border-radius: 5px;
-            box-shadow: 2px 1px 2px gray;
             text-align: center;
             font-weight: 700;
             background-color: black;
             color: #ffffff;
             cursor: pointer;
-          }
 
-          .color:hover {
-            border: 1.5px solid white;
+            &:hover {
+              border: 1.5px solid rgb(137, 137, 137);
+            }
           }
         }
 

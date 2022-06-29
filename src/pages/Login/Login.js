@@ -17,7 +17,7 @@ const LoginForm = () => {
   const onSubmitForm = e => {
     e.preventDefault();
 
-    fetch("http://10.58.3.27:8000/users/login", {
+    fetch("http://10.58.6.64:8000/users/login", {
       method: "POST",
       body: JSON.stringify({
         email: userInfo.userId,
