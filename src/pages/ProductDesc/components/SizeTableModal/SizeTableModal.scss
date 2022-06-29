@@ -1,0 +1,42 @@
+.blackModal {
+  z-index: 10;
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  opacity: 0.5;
+  background-color: black;
+}
+
+.whiteModalStickyBox {
+  z-index: 10;
+  position: absolute;
+  top: 5%;
+  left: 18%;
+  width: 1050px;
+  height: 2000px;
+
+  .whiteModal {
+    position: sticky;
+    top: 14%;
+    width: 1050px;
+    height: 600px;
+    border-radius: 10px;
+    background-color: #ffffff;
+
+    button {
+      position: absolute;
+      top: 2%;
+      left: 95%;
+      border-radius: 5px;
+      font-size: 20px;
+      background-color: black;
+      color: #ffffff;
+      cursor: pointer;
+    }
+
+    img {
+      width: 900px;
+      margin: 50px 0px 0px 70px;
+    }
+  }
+}
