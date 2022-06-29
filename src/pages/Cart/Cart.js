@@ -30,7 +30,6 @@ const Cart = () => {
       });
   }, []);
 
-  // < post api >
   useEffect(() => {
     clearTimeout(timerRef.current);
 
@@ -41,6 +40,7 @@ const Cart = () => {
       console.log(postData);
 
       // fetch("http://10.58.6.64:8000/products/carts", {
+      // fetch("#", {
       //   method: "POST",
       //   headers: {
       //     Authorization: "token",
