@@ -1,0 +1,143 @@
+[
+  {
+    "id": 1,
+    "genderType": "Woman",
+    "category": [
+      { "category_id": 1, "name": "Clog" },
+      { "category_id": 2, "name": "Sandle" },
+      { "category_id": 3, "name": "Wedge" },
+      { "category_id": 4, "name": "Flip" },
+      { "category_id": 5, "name": "Slcategory_ide" },
+      { "category_id": 6, "name": "Flat" },
+      { "category_id": 7, "name": "Ropper" },
+      { "category_id": 8, "name": "Boots" }
+    ],
+    "collection": [
+      { "collection_id": 1, "name": "Classic" },
+      { "collection_id": 2, "name": "Came" },
+      { "collection_id": 3, "name": "Outdoor" },
+      { "collection_id": 4, "name": "Literide" },
+      { "collection_id": 5, "name": "Bayaband" }
+    ],
+    "imgcard": [
+      [
+        {
+          "imgSrc_id": 1,
+          "url": "./images/NavImgs/shoes1.jpg",
+          "name": "신상품"
+        },
+        {
+          "imgSrc_id": 2,
+          "url": "./images/NavImgs/shoes2.jpeg",
+          "name": "베스트셀러"
+        }
+      ],
+      [
+        {
+          "imgSrc_id": 3,
+          "url": "./images/NavImgs/shoes3.jpeg",
+          "name": "스테디상품"
+        },
+        {
+          "imgSrc_id": 4,
+          "url": "./images/NavImgs/shoes4.jpeg",
+          "name": "컬렉션"
+        }
+      ]
+    ]
+  },
+  {
+    "id": 2,
+    "genderType": "Man",
+    "category": [
+      { "category_id": 1, "name": "Clog" },
+      { "category_id": 2, "name": "Sandle" },
+      { "category_id": 3, "name": "Wedge" },
+      { "category_id": 4, "name": "Flip" },
+      { "category_id": 5, "name": "Slcategory_ide" },
+      { "category_id": 6, "name": "Flat" },
+      { "category_id": 7, "name": "Ropper" },
+      { "category_id": 8, "name": "Boots" }
+    ],
+    "collection": [
+      { "collection_id": 1, "name": "Classic" },
+      { "collection_id": 2, "name": "Came" },
+      { "collection_id": 3, "name": "Outdoor" },
+      { "collection_id": 4, "name": "Literide" },
+      { "collection_id": 5, "name": "Bayaband" }
+    ],
+    "imgcard": [
+      [
+        {
+          "imgSrc_id": 1,
+          "url": "./images/NavImgs/shoes5.jpg",
+          "name": "신상품"
+        },
+        {
+          "imgSrc_id": 2,
+          "url": "./images/NavImgs/shoes6.jpg",
+          "name": "베스트셀러"
+        }
+      ],
+      [
+        {
+          "imgSrc_id": 3,
+          "url": "./images/NavImgs/shoes7.jpg",
+          "name": "스테디상품"
+        },
+        {
+          "imgSrc_id": 4,
+          "url": "./images/NavImgs/shoes8.jpg",
+          "name": "컬렉션"
+        }
+      ]
+    ]
+  },
+  {
+    "id": 3,
+    "genderType": "Kids",
+    "category": [
+      { "category_id": 1, "name": "Clog" },
+      { "category_id": 2, "name": "Sandle" },
+      { "category_id": 3, "name": "Wedge" },
+      { "category_id": 4, "name": "Flip" },
+      { "category_id": 5, "name": "Slcategory_ide" },
+      { "category_id": 6, "name": "Flat" },
+      { "category_id": 7, "name": "Ropper" },
+      { "category_id": 8, "name": "Boots" }
+    ],
+    "collection": [
+      { "collection_id": 1, "name": "Classic" },
+      { "collection_id": 2, "name": "Came" },
+      { "collection_id": 3, "name": "Outdoor" },
+      { "collection_id": 4, "name": "Literide" },
+      { "collection_id": 5, "name": "Bayaband" }
+    ],
+    "imgcard": [
+      [
+        {
+          "imgSrc_id": 1,
+          "url": "./images/NavImgs/shoes1.jpg",
+          "name": "신상품"
+        },
+        {
+          "imgSrc_id": 2,
+          "url": "./images/NavImgs/shoes2.jpeg",
+          "name": "베스트셀러"
+        }
+      ],
+      [
+        {
+          "imgSrc_id": 3,
+          "url": "./images/NavImgs/shoes3.jpeg",
+          "name": "스테디상품"
+        },
+        {
+          "imgSrc_id": 4,
+          "url": "./images/NavImgs/shoes4.jpeg",
+          "name": "컬렉션"
+        }
+      ]
+    ]
+  }
+]
