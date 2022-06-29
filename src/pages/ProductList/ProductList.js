@@ -2,6 +2,9 @@ import React from "react";
 import { useState, useEffect } from "react";
 import "./ProductList.scss";
 import ProductCard from "./components/ProductCard";
+import ProductCategory from "./components/ProductCategory";
+import ProductColor from "./components/ProductColor";
+import ProductSize from "./components/ProductSize";
 
 const ProductList = () => {
   const [styleState, setStyleState] = useState(false);
@@ -15,9 +18,10 @@ const ProductList = () => {
 
   const [colorHoverState, setColorHoverState] = useState(false);
 
-  const [sizeFilterState, setSizeFilterState] = useState(false);
-
   const [productDataList, setProductDataList] = useState([]);
+  const [productFilteringData, setProductFilteringData] = useState([]);
+
+  const [category, setCategory] = useState("");
 
   const styleMenuOpen = () => {
     setSizeState(false);
@@ -42,6 +46,9 @@ const ProductList = () => {
     modalState ? setModalState(false) : setModalState(true);
   };
 
+  //가격 정렬
+  // const onClickSortPrice = () => {};
+
   const SortModal = () => {
     return (
       <div className="modal" style={{ display: modalState ? "block" : "none" }}>
@@ -60,6 +67,22 @@ const ProductList = () => {
     }
   };
 
+  useEffect(() => {
+    fetch("http://10.58.6.64:8000/products/lists")
+      .then(res => res.json())
+      .then(res => {
+        setProductDataList(res);
+      });
+  }, []);
+
+  useEffect(() => {
+    fetch("http://10.58.6.64:8000/products/catesizes")
+      .then(res => res.json())
+      .then(res => {
+        setProductFilteringData(res);
+      });
+  }, []);
+
   const hoverColor = e => {
     if (e.target.className.includes("black")) {
       e.target.parentNode.parentNode.firstChild.firstChild.src =
@@ -73,19 +96,20 @@ const ProductList = () => {
     }
   };
 
-  const onClickSize = e => {
-    {
-      sizeFilterState ? setSizeFilterState(false) : setSizeFilterState(true);
+  const clickSort = e => {
+    if (e.target.textContent.length === 0 && e.target.checked === true) {
+      setCategory(e.target.parentNode.textContent);
     }
   };
 
-  useEffect(() => {
-    fetch("/datas/ProductData.json")
-      .then(res => res.json())
-      .then(res => {
-        setProductDataList(res);
-      });
-  }, []);
+  const checkOnlyOne = checkThis => {
+    const checkboxes = document.getElementsByName("test");
+    for (let i = 0; i < checkboxes.length; i++) {
+      if (checkboxes[i] !== checkThis) {
+        checkboxes[i].checked = false;
+      }
+    }
+  };
 
   return (
     <div className="wrap">
@@ -129,82 +153,19 @@ const ProductList = () => {
                     display: styleState ? "block" : "none",
                   }}
                 >
-                  <li>
-                    <div>
-                      <i className="fas fa-shoe-prints" />
-                      클로그
-                    </div>
-                    <input type="checkbox" />
-                  </li>
-                  <li>
-                    <div>
-                      <i className="fas fa-shoe-prints" />
-                      샌들
-                    </div>
-                    <input type="checkbox" />
-                  </li>
-                  <li>
-                    <div>
-                      <i className="fas fa-shoe-prints" />
-                      슬라이드
-                    </div>
-                    <input type="checkbox" />
-                  </li>
-                  <li>
-                    <div>
-                      <i className="fas fa-shoe-prints" />
-                      의류
-                    </div>
-                    <input type="checkbox" />
-                  </li>
-                  <li>
-                    <div>
-                      <i className="fas fa-shoe-prints" />
-                      플립
-                    </div>
-                    <input type="checkbox" />
-                  </li>
-                  <li>
-                    <div>
-                      <i className="fas fa-shoe-prints" />
-                      힐과 웨지
-                    </div>
-                    <input type="checkbox" />
-                  </li>
-                  <li>
-                    <div>
-                      <i className="fas fa-shoe-prints" />털 안감
-                    </div>
-                    <input type="checkbox" />
-                  </li>
-                  <li>
-                    <div>
-                      <i className="fas fa-shoe-prints" />
-                      플랫
-                    </div>
-                    <input type="checkbox" />
-                  </li>
-                  <li>
-                    <div>
-                      <i className="fas fa-shoe-prints" />
-                      단화 / 슬립온
-                    </div>
-                    <input type="checkbox" />
-                  </li>
-                  <li>
-                    <div>
-                      <i className="fas fa-shoe-prints" />
-                      스니커즈
-                    </div>
-                    <input type="checkbox" />
-                  </li>
-                  <li>
-                    <div>
-                      <i className="fas fa-shoe-prints" />
-                      슬리퍼
-                    </div>
-                    <input type="checkbox" />
-                  </li>
+                  {productFilteringData.categories_sizes?.categories.map(
+                    ele => {
+                      return (
+                        <ProductCategory
+                          onClick={clickSort}
+                          category={ele.name}
+                          categoryId={ele.id}
+                          key={ele.id}
+                          checkOnlyOne={checkOnlyOne}
+                        />
+                      );
+                    }
+                  )}
                 </ul>
               </li>
               <li className="size">
@@ -216,25 +177,9 @@ const ProductList = () => {
                     display: sizeState ? "grid" : "none",
                   }}
                 >
-                  <li
-                    onClick={onClickSize}
-                    style={{
-                      border: sizeFilterState
-                        ? "1px solid black"
-                        : "1px solid lightgray",
-                    }}
-                  >
-                    210
-                  </li>
-                  <li>220</li>
-                  <li>230</li>
-                  <li>240</li>
-                  <li>250</li>
-                  <li>260</li>
-                  <li>265</li>
-                  <li>270</li>
-                  <li>280</li>
-                  <li>290</li>
+                  {productFilteringData.categories_sizes?.sizes?.map(ele => {
+                    return <ProductSize productSize={ele.sizes} key={ele.id} />;
+                  })}
                 </ul>
               </li>
               <li className="color">
@@ -246,18 +191,15 @@ const ProductList = () => {
                     display: colorState ? "grid" : "none",
                   }}
                 >
-                  <li>
-                    <div className="colorCircle"></div>
-                    <span>블랙</span>
-                  </li>
-                  <li>
-                    <div className="colorCircle"></div>
-                    <span>블랙</span>
-                  </li>
-                  <li>
-                    <div className="colorCircle"></div>
-                    <span>블랙</span>
-                  </li>
+                  {productFilteringData.categories_sizes?.colors.map(ele => {
+                    return (
+                      <ProductColor
+                        productColor={ele.name}
+                        key={ele.id}
+                        hoverColor={hoverColor}
+                      />
+                    );
+                  })}
                 </ul>
               </li>
             </ul>
@@ -281,19 +223,16 @@ const ProductList = () => {
           </div>
           <div>
             <ul className="productInfoList">
-              {productDataList.map(ele => {
-                return (
-                  <ProductCard
-                    key={ele.id}
-                    clickLike={clickLike}
-                    hoverColor={hoverColor}
-                    productImg={ele.productImg}
-                    productTitle={ele.title}
-                    productRate={ele.productRate}
-                    productColor={ele.color[0]}
-                  />
-                );
-              })}
+              {productDataList.result?.map(ele => (
+                <ProductCard
+                  key={ele.product_id}
+                  clickLike={clickLike}
+                  hoverColor={hoverColor}
+                  productImg={ele.img_url}
+                  productTitle={ele.product_name}
+                  productPrice={ele.price}
+                />
+              ))}
             </ul>
           </div>
           <div className="moreProduct">
@@ -314,43 +253,3 @@ const ProductList = () => {
   );
 };
 export default ProductList;
-
-// const ProductInfo = props => {
-//   return (
-//     <li>
-//       <div className="productInfo">
-//         <div className="productInfoTopNav">
-//           <i className="far fa-heart" onClick={props.clickLike}></i>
-//           <span>세일정보</span>
-//         </div>
-//         <div className="productInfoDetail">
-//           <div>
-//             <img
-//               alt="shoes"
-//               src="https://cdn.pixabay.com/photo/2013/07/12/18/20/shoes-153310_960_720.png"
-//               className="productImg"
-//             ></img>
-//           </div>
-//           <p className="productName">클래식 코지 샌들</p>
-//           <p className="productRate">⭑⭑⭑⭑⭑ 5</p>
-//           <div className="productPrice">₩69,000</div>
-//           <div className="productColorNav">
-//             <div
-//               className="colorCircle black"
-//               onMouseOver={props.hoverColor}
-//             ></div>
-//             <div
-//               className="colorCircle white"
-//               onMouseOver={props.hoverColor}
-//             ></div>
-//             <div
-//               className="colorCircle blue"
-//               onMouseOver={props.hoverColor}
-//             ></div>
-//           </div>
-//           <button className="lookClose">둘러보기</button>
-//         </div>
-//       </div>
-//     </li>
-//   );
-// };

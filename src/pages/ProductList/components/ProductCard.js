@@ -1,13 +1,7 @@
 import { useState } from "react";
+import ProductColor from "./ProductColor";
 
-const ProductCard = ({
-  clickLike,
-  hoverColor,
-  productImg,
-  productTitle,
-  productRate,
-  productColor,
-}) => {
+const ProductCard = ({ clickLike, productImg, productTitle, productPrice }) => {
   return (
     <li>
       <div className="productInfo">
@@ -20,13 +14,8 @@ const ProductCard = ({
             <img alt="shoes" src={productImg} className="productImg"></img>
           </div>
           <p className="productName">{productTitle}</p>
-          <p className="productRate">⭑⭑⭑⭑⭑{productRate}</p>
-          <div className="productPrice">₩69,000</div>
-          <div className="productColorNav">
-            <div className="colorCircle black" onMouseOver={hoverColor}></div>
-            <div className="colorCircle white" onMouseOver={hoverColor}></div>
-            <div className="colorCircle blue" onMouseOver={hoverColor}></div>
-          </div>
+          <div className="productPrice">₩ {productPrice}</div>
+          <ul className="productColorNav"></ul>
           <button className="lookClose">둘러보기</button>
         </div>
       </div>
