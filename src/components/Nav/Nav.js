@@ -10,7 +10,7 @@ const Nav = () => {
 
   // < mock data api요청 >
   useEffect(() => {
-    fetch("datas/navbarData.json")
+    fetch("/datas/navbarData.json")
       .then(res => res.json())
       .then(result => setNavData(result));
   }, []);

@@ -2,7 +2,7 @@ import React from "react";
 import "./ProductList.scss";
 
 const ProductList = () => {
-  return <div>ProductList입니다.</div>;
+  return <button>이동</button>;
 };
 
 export default ProductList;

@@ -1,0 +1,50 @@
+.slippersSize {
+  padding: 10px;
+  margin-top: 10px;
+
+  .sizeTitle {
+    display: flex;
+    justify-content: space-between;
+    font-size: 15px;
+
+    span {
+      font-weight: 700;
+    }
+
+    .sizeTable {
+      padding: 3px 10px;
+      border-radius: 5px;
+      font-weight: bold;
+      background-color: #000000;
+      color: #fff;
+      cursor: pointer;
+    }
+  }
+
+  .sizeList {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(70px, 1fr));
+    gap: 10px 5px;
+    width: 100%;
+    height: auto;
+    padding-top: 20px;
+
+    .size {
+      padding: 10px 2px;
+      border-radius: 4px;
+      text-align: center;
+      font-size: 0.875rem;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .black {
+      background-color: rgb(255, 204, 109);
+      color: #fff;
+    }
+
+    .white {
+      color: #000000;
+    }
+  }
+}

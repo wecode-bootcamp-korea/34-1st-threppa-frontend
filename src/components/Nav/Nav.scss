@@ -1,6 +1,7 @@
 .nav {
+  z-index: 15;
   position: fixed;
-  z-index: 10;
+  top: 0;
 
   .navWrapper {
     display: flex;
@@ -11,6 +12,7 @@
     padding: 0px 25px;
     border-bottom: 1px solid black;
     background-color: rgb(195, 171, 217);
+    z-index: 10;
 
     .logo {
       margin-right: 20px;

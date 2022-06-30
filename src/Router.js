@@ -18,13 +18,13 @@ export default function Router() {
     <AppContext.Provider value={{ toastMessage, setToastMessage }}>
       <BrowserRouter>
         <Nav />
-        <div style={{ height: "100px" }} />
+        <div style={{ width: "100vw", height: "150px" }} />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/productlist" element={<ProductList />} />
-          <Route path="/productdesc" element={<ProductDesc />} />
+          <Route path="/product/:id" element={<ProductDesc />} />
           <Route path="/cart" element={<Cart />} />
         </Routes>
         <Footer />
