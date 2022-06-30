@@ -5,7 +5,7 @@ const ProductColor = ({ productColor, hoverColor }) => {
         className={"colorCircle" + " " + productColor}
         onMouseOver={hoverColor}
         style={{ backgroundColor: productColor }}
-      ></div>
+      />
       <span>{productColor}</span>
     </li>
   );

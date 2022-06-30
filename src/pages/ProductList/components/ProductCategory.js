@@ -8,7 +8,7 @@ const ProductCategory = ({ category, categoryId, onClick, checkOnlyOne }) => {
         </div>
 
         <input
-          type="checkbox"
+          type="radio"
           id={"cateInput" + categoryId}
           className="categoryInput"
           name="test"

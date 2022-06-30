@@ -1,49 +1,21 @@
-import React from "react";
-import { useState, useEffect } from "react";
-import "./ProductList.scss";
+import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import ProductCard from "./components/ProductCard";
 import ProductCategory from "./components/ProductCategory";
 import ProductColor from "./components/ProductColor";
 import ProductSize from "./components/ProductSize";
+import "./ProductList.scss";
 
 const ProductList = () => {
-  const [styleState, setStyleState] = useState(false);
-  const [sizeState, setSizeState] = useState(false);
-  const [colorState, setColorState] = useState(false);
-
-  // 백엔드에 좋아요 데이터 전송 시
-  // const [likeState,setLikeState] = useState(false);
-
-  const [modalState, setModalState] = useState(false);
-
-  const [colorHoverState, setColorHoverState] = useState(false);
-
-  const [productDataList, setProductDataList] = useState([]);
-  const [productFilteringData, setProductFilteringData] = useState([]);
-
+  const [filterOption, setFilterOption] = useState("");
+  const [isSortOpen, setIsSortOpen] = useState(false);
+  const [productFilteringData, setProductFilteringData] = useState({});
   const [category, setCategory] = useState("");
-
-  const styleMenuOpen = () => {
-    setSizeState(false);
-    setColorState(false);
-
-    styleState ? setStyleState(false) : setStyleState(true);
-  };
-  const sizeMenuOpen = () => {
-    setStyleState(false);
-    setColorState(false);
-
-    sizeState ? setSizeState(false) : setSizeState(true);
-  };
-  const colorMenuOpen = () => {
-    setStyleState(false);
-    setSizeState(false);
-
-    colorState ? setColorState(false) : setColorState(true);
-  };
+  // const [productDataList, setProductDataList] = useState([]);
+  const navigate = useNavigate();
 
   const onClickSortModal = () => {
-    modalState ? setModalState(false) : setModalState(true);
+    setIsSortOpen(!isSortOpen);
   };
 
   //가격 정렬
@@ -51,7 +23,7 @@ const ProductList = () => {
 
   const SortModal = () => {
     return (
-      <div className="modal" style={{ display: modalState ? "block" : "none" }}>
+      <div className="modal" style={{ display: isSortOpen ? "block" : "none" }}>
         <ul>
           <li>최저가 - 최고가</li>
           <li>최고가 - 최저가</li>
@@ -61,25 +33,23 @@ const ProductList = () => {
   };
 
   const clickLike = e => {
-    {
-      e.target.className =
-        e.target.className === "fas fa-heart" ? "far fa-heart" : "fas fa-heart";
-    }
+    e.target.className =
+      e.target.className === "fas fa-heart" ? "far fa-heart" : "fas fa-heart";
   };
 
-  useEffect(() => {
-    fetch("http://10.58.6.64:8000/products/lists")
-      .then(res => res.json())
-      .then(res => {
-        setProductDataList(res);
-      });
-  }, []);
+  // useEffect(() => {
+  //   fetch("http://10.58.4.136:8000/products/lists")
+  //     .then(res => res.json())
+  //     .then(res => {
+  //       setProductDataList(res);
+  //     });
+  // }, []);
 
   useEffect(() => {
-    fetch("http://10.58.6.64:8000/products/catesizes")
+    fetch("http://10.58.4.136:8000/products/categories")
       .then(res => res.json())
       .then(res => {
-        setProductFilteringData(res);
+        setProductFilteringData(res.categories);
       });
   }, []);
 
@@ -103,12 +73,21 @@ const ProductList = () => {
   };
 
   const checkOnlyOne = checkThis => {
-    const checkboxes = document.getElementsByName("test");
-    for (let i = 0; i < checkboxes.length; i++) {
-      if (checkboxes[i] !== checkThis) {
-        checkboxes[i].checked = false;
-      }
-    }
+    // const checkboxes = document.getElementsByName("test");
+    // for (let i = 0; i < checkboxes.length; i++) {
+    //   if (checkboxes[i] !== checkThis) {
+    //     checkboxes[i].checked = false;
+    //   }
+    // }
+  };
+
+  const pagenation = () => {
+    const limit = 20;
+    const offset = 0;
+
+    const queryString = `?offset=${offset}&limit=${limit}`;
+
+    navigate(`/productlist${queryString}`);
   };
 
   return (
@@ -146,52 +125,65 @@ const ProductList = () => {
             <ul>
               <li className="style">
                 스타일
-                <i className="fas fa-plus stylePlus" onClick={styleMenuOpen} />
+                <i
+                  className="fas fa-plus stylePlus"
+                  onClick={() =>
+                    setFilterOption(filterOption === "style" ? "" : "style")
+                  }
+                />
                 <ul
                   className="styleUl"
                   style={{
-                    display: styleState ? "block" : "none",
+                    display: filterOption === "style" ? "block" : "none",
                   }}
                 >
-                  {productFilteringData.categories_sizes?.categories.map(
-                    ele => {
-                      return (
-                        <ProductCategory
-                          onClick={clickSort}
-                          category={ele.name}
-                          categoryId={ele.id}
-                          key={ele.id}
-                          checkOnlyOne={checkOnlyOne}
-                        />
-                      );
-                    }
-                  )}
+                  {productFilteringData.categories?.map(ele => {
+                    return (
+                      <ProductCategory
+                        onClick={clickSort}
+                        category={ele.name}
+                        categoryId={ele.id}
+                        key={ele.id}
+                        checkOnlyOne={checkOnlyOne}
+                      />
+                    );
+                  })}
                 </ul>
               </li>
               <li className="size">
                 사이즈
-                <i className="fas fa-plus sizePlus" onClick={sizeMenuOpen} />
+                <i
+                  className="fas fa-plus sizePlus"
+                  onClick={() =>
+                    setFilterOption(filterOption === "size" ? "" : "size")
+                  }
+                />
                 <ul
                   className="sizeUl"
                   style={{
-                    display: sizeState ? "grid" : "none",
+                    display: filterOption === "size" ? "grid" : "none",
                   }}
                 >
-                  {productFilteringData.categories_sizes?.sizes?.map(ele => {
+                  {productFilteringData.sizes?.map(ele => {
                     return <ProductSize productSize={ele.sizes} key={ele.id} />;
                   })}
                 </ul>
               </li>
               <li className="color">
                 색상
-                <i className="fas fa-plus colorPlus" onClick={colorMenuOpen} />
+                <i
+                  className="fas fa-plus colorPlus"
+                  onClick={() =>
+                    setFilterOption(filterOption === "color" ? "" : "color")
+                  }
+                />
                 <ul
                   className="colorUl"
                   style={{
-                    display: colorState ? "grid" : "none",
+                    display: filterOption === "color" ? "grid" : "none",
                   }}
                 >
-                  {productFilteringData.categories_sizes?.colors.map(ele => {
+                  {productFilteringData.colors?.map(ele => {
                     return (
                       <ProductColor
                         productColor={ele.name}
@@ -218,26 +210,17 @@ const ProductList = () => {
             <button className="sortBtn" onClick={onClickSortModal}>
               정렬 방법
               <i className="fas fa-angle-down arrowBtn" />
-              <SortModal></SortModal>
+              <SortModal />
             </button>
           </div>
           <div>
             <ul className="productInfoList">
-              {productDataList.result?.map(ele => (
-                <ProductCard
-                  key={ele.product_id}
-                  clickLike={clickLike}
-                  hoverColor={hoverColor}
-                  productImg={ele.img_url}
-                  productTitle={ele.product_name}
-                  productPrice={ele.price}
-                />
-              ))}
+              {<ProductCard clickLike={clickLike} hoverColor={hoverColor} />}
             </ul>
           </div>
           <div className="moreProduct">
             <div className="showMoreBtn">
-              <a href="/">더보기</a>
+              <button onClick={pagenation}>더보기</button>
             </div>
             <div className="showAllBtn">
               <a href="/">모두보기(127)</a>
