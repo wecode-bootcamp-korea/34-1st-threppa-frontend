@@ -4,6 +4,7 @@ import "./CartItem.scss";
 // item 하나의 객체에 대한 처리
 const CartItem = ({
   product_id,
+  cart_id,
   product_name,
   color,
   image_url,
@@ -15,15 +16,15 @@ const CartItem = ({
 }) => {
   const _onClickQuantity = e => {
     const { value } = e.target;
-    onClickQuantity(product_id, quantity, value);
+    onClickQuantity(cart_id, quantity, value);
   };
 
   const _onClickDelete = () => {
-    onClickDelete(product_id);
+    onClickDelete(cart_id);
   };
 
   return (
-    <li className="itemContainer" id={product_id}>
+    <li className="itemContainer" id={cart_id}>
       <div className="itemWrapper">
         <img src={image_url} alt="shoe1" className="itemImg" />
         <div className="itemInfo">

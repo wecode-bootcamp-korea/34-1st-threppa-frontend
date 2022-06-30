@@ -48,20 +48,22 @@ const ProductDesc = () => {
   if (Object.keys(productSeverData).length === 0) return <>loading...</>;
 
   return (
-    <div className="productDescPage">
+    <>
       {isSizeModal && <SizeTableModal setIsSizeModal={setIsSizeModal} />}
-      <ProductPurchase
-        handleSizeModal={handleSizeModal}
-        sizeSeverData={sizeSeverData}
-        productSeverData={productSeverData}
-      />
-      <footer className="bottomContainer">
-        <RecommendProducts
-          recommend={recommendAndNew}
-          newproduct={recommendAndNew}
+      <div className="productDescPage">
+        <ProductPurchase
+          handleSizeModal={handleSizeModal}
+          sizeSeverData={sizeSeverData}
+          productSeverData={productSeverData}
         />
-      </footer>
-    </div>
+        <footer className="bottomContainer">
+          <RecommendProducts
+            recommend={recommendAndNew}
+            newproduct={recommendAndNew}
+          />
+        </footer>
+      </div>
+    </>
   );
 };
 
