@@ -11,6 +11,8 @@ const Cart = () => {
   const [couponValue, setCoupon] = useState("");
   const [discountPercent, setDiscountPercent] = useState(0);
 
+  const [test, setTest] = useState({}); // 추가
+
   const couponInput = e => {
     setCoupon(e.target.value);
   };
@@ -28,41 +30,44 @@ const Cart = () => {
     totalPrice - discountPrice + (deliveryFee === "무료" ? 0 : deliveryFee);
 
   const getUserToken = localStorage.getItem("ACCESS_TOKEN");
-
+  console.log("토큰", getUserToken);
   // < get api >
   useEffect(() => {
-    fetch("datas/cart.json")
-      // fetch("http://10.58.6.64:8000/products/carts", {
-      //   method: "GET",
-      //   headers: {
-      //     Authorization: getUserToken,
-      //   },
-      // })
+    // fetch("datas/cart.json")
+    fetch("http://10.58.4.136:8000/products/carts", {
+      method: "GET",
+      headers: {
+        Authorization: getUserToken,
+      },
+    })
       .then(res => res.json())
       .then(result => {
-        // console.log(result); // 테스트용
-        setCartData(result);
+        setCartData(result.carts);
       });
   }, []);
+
+  console.log("카트데이터", cartData);
 
   // < post api >
   useEffect(() => {
     clearTimeout(timerRef.current);
 
     timerRef.current = setTimeout(() => {
-      const postData = cartData.map(({ product_id, color, quantity, size }) => {
-        return { product_id, color, quantity, size };
+      const postData = cartData.map(({ cart_id, quantity }) => {
+        return { cart_id, quantity };
       });
 
-      fetch("http://10.58.6.64:8000/products/carts", {
+      console.log(postData);
+
+      fetch("http://10.58.4.136:8000/products/cartsupdate", {
         method: "POST",
         headers: {
-          Authorization: "token",
+          Authorization: getUserToken,
         },
-        body: postData,
+        body: JSON.stringify(test), // 수정
       })
-        .then()
-        .then(result => console.log(result));
+        .then(res => res.json())
+        .then(result => console.log("포스트응답", result));
     }, 2000);
   }, [cartData]);
 
@@ -72,7 +77,7 @@ const Cart = () => {
       return;
     }
 
-    const foundIdx = cartData.findIndex(data => data.product_id === itemId);
+    const foundIdx = cartData.findIndex(data => data.cart_id === itemId);
 
     if (foundIdx === -1) {
       return;
@@ -86,6 +91,8 @@ const Cart = () => {
       newItem.quantity += 1;
     }
 
+    setTest(newItem); // 추가
+
     setCartData(prev => {
       const updataData = [...prev];
       updataData[foundIdx] = newItem;
@@ -94,8 +101,8 @@ const Cart = () => {
   };
 
   // <삭제 함수>
-  const onClickDelete = product_id => {
-    const updataData = cartData.filter(data => data.product_id !== product_id);
+  const onClickDelete = cart_id => {
+    const updataData = cartData.filter(data => data.cart_id !== cart_id);
     setCartData(updataData);
   };
 
@@ -133,8 +140,9 @@ const Cart = () => {
           <ul>
             {cartData.map(data => (
               <CartItem
-                key={data.product_id}
+                key={data.cart_id}
                 product_id={data.product_id}
+                cart_id={data.cart_id}
                 product_name={data.product_name}
                 color={data.color}
                 image_url={data.image_url}
