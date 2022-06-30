@@ -25,7 +25,7 @@ const Footer = () => {
         </ul>
       </div>
       <div className="footerBottom">
-        <div className="infomation">
+        <div className="information">
           <h4 className="benefit">
             크록스 혜택
             <ul>

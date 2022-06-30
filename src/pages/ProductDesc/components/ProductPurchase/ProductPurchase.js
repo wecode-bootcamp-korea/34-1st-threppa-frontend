@@ -34,7 +34,6 @@ const ProductPurchase = ({
       .then(response => response.json())
       .then(result => {
         alert("장바구니에 추가 하였습니다");
-        console.log("result", result);
       });
   };
 
