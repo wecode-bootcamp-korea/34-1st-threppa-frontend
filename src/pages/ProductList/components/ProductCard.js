@@ -1,39 +1,47 @@
-import { useState, useEffect } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import ProductColor from "./ProductColor";
 
-const ProductCard = ({ clickLike, hoverColor }) => {
-  const [productDataList, setProductDataList] = useState([]);
-  const location = useLocation();
+const ProductCard = ({
+  clickLike,
+  product_id,
+  product_name,
+  product_price,
+  colors,
+}) => {
   const navigate = useNavigate();
 
   const goToDetail = id => {
-    navigate(`/monsters/detail/${id}`);
+    navigate(`/product/${id}`);
   };
 
-  useEffect(() => {
-    fetch(`http://10.58.4.136:8000/products${location.search}`)
-      .then(res => res.json())
-      .then(res => {
-        setProductDataList(res.products);
-      });
-  }, [location.search]);
+  const hoverColor = e => {
+    if (e.target.className.includes("Black")) {
+      e.target.parentNode.parentNode.parentNode.firstChild.firstChild.src =
+        colors[0].image_url;
+    } else if (e.target.className.includes("White")) {
+      e.target.parentNode.parentNode.parentNode.firstChild.firstChild.src =
+        colors[1].image_url;
+    } else if (e.target.className.includes("Blue")) {
+      e.target.parentNode.parentNode.parentNode.firstChild.firstChild.src =
+        colors[2].image_url;
+    }
+  };
 
-  return productDataList.map(product => (
-    <li key={product.product_id} onClick={() => goToDetail(product.product_id)}>
+  return (
+    <li key={product_id}>
       <div className="productInfo">
         <div className="productInfoTopNav">
-          <i className="far fa-heart" onClick={clickLike}></i>
+          <i className="far fa-heart" onClick={clickLike} />
           <span>세일정보</span>
         </div>
         <div className="productInfoDetail">
           <div>
-            <img alt="shoes" src={product.img_url} className="productImg"></img>
+            <img alt="shoes" src={colors[0].image_url} className="productImg" />
           </div>
-          <p className="productName">{product.product_name}</p>
-          <div className="productPrice">₩ {product.price}</div>
+          <p className="productName">{product_name}</p>
+          <div className="productPrice">₩ {product_price}</div>
           <ul className="productColorNav">
-            {product.colors.map(color => {
+            {colors.map(color => {
               return (
                 <ProductColor
                   key={color.id}
@@ -43,11 +51,13 @@ const ProductCard = ({ clickLike, hoverColor }) => {
               );
             })}
           </ul>
-          <button className="lookClose">둘러보기</button>
+          <button className="lookClose" onClick={() => goToDetail(product_id)}>
+            둘러보기
+          </button>
         </div>
       </div>
     </li>
-  ));
+  );
 };
 
 export default ProductCard;

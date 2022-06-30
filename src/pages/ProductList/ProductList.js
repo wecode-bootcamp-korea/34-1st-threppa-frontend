@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import ProductCard from "./components/ProductCard";
 import ProductCategory from "./components/ProductCategory";
 import ProductColor from "./components/ProductColor";
@@ -11,22 +11,27 @@ const ProductList = () => {
   const [isSortOpen, setIsSortOpen] = useState(false);
   const [productFilteringData, setProductFilteringData] = useState({});
   const [category, setCategory] = useState("");
+  const [productDataList, setProductDataList] = useState([]);
+  const location = useLocation();
   // const [productDataList, setProductDataList] = useState([]);
   const navigate = useNavigate();
 
+  let offset = 0;
   const onClickSortModal = () => {
     setIsSortOpen(!isSortOpen);
   };
 
-  //가격 정렬
-  // const onClickSortPrice = () => {};
-
   const SortModal = () => {
+    const onClickSort = e => {
+      console.log(
+        e.target.textContent === "최저가 - 최고가" ? "최저가순" : "최고가순"
+      );
+    };
     return (
       <div className="modal" style={{ display: isSortOpen ? "block" : "none" }}>
         <ul>
-          <li>최저가 - 최고가</li>
-          <li>최고가 - 최저가</li>
+          <li onClick={onClickSort}>최저가 - 최고가</li>
+          <li onClick={onClickSort}>최고가 - 최저가</li>
         </ul>
       </div>
     );
@@ -37,14 +42,6 @@ const ProductList = () => {
       e.target.className === "fas fa-heart" ? "far fa-heart" : "fas fa-heart";
   };
 
-  // useEffect(() => {
-  //   fetch("http://10.58.4.136:8000/products/lists")
-  //     .then(res => res.json())
-  //     .then(res => {
-  //       setProductDataList(res);
-  //     });
-  // }, []);
-
   useEffect(() => {
     fetch("http://10.58.4.136:8000/products/categories")
       .then(res => res.json())
@@ -53,41 +50,28 @@ const ProductList = () => {
       });
   }, []);
 
-  const hoverColor = e => {
-    if (e.target.className.includes("black")) {
-      e.target.parentNode.parentNode.firstChild.firstChild.src =
-        "https://cdn.pixabay.com/photo/2016/06/03/17/35/shoes-1433925_960_720.jpg";
-    } else if (e.target.className.includes("white")) {
-      e.target.parentNode.parentNode.firstChild.firstChild.src =
-        "https://cdn.pixabay.com/photo/2016/09/02/11/10/boots-1638873_960_720.jpg";
-    } else if (e.target.className.includes("blue")) {
-      e.target.parentNode.parentNode.firstChild.firstChild.src =
-        "https://cdn.pixabay.com/photo/2014/01/22/19/38/boot-250012_960_720.jpg";
-    }
-  };
+  useEffect(() => {
+    fetch(`http://10.58.4.136:8000/products/list${location.search}`)
+      .then(res => res.json())
+      .then(res => {
+        setProductDataList(res.products);
+      });
+  }, [location.search]);
 
   const clickSort = e => {
     if (e.target.textContent.length === 0 && e.target.checked === true) {
       setCategory(e.target.parentNode.textContent);
     }
   };
-
-  const checkOnlyOne = checkThis => {
-    // const checkboxes = document.getElementsByName("test");
-    // for (let i = 0; i < checkboxes.length; i++) {
-    //   if (checkboxes[i] !== checkThis) {
-    //     checkboxes[i].checked = false;
-    //   }
-    // }
-  };
+  console.log(category);
 
   const pagenation = () => {
     const limit = 20;
-    const offset = 0;
+    offset = offset + 5;
 
     const queryString = `?offset=${offset}&limit=${limit}`;
 
-    navigate(`/productlist${queryString}`);
+    navigate(`/list${queryString}`);
   };
 
   return (
@@ -104,7 +88,7 @@ const ProductList = () => {
           <a className="showAll" href="/">
             모두보기
           </a>
-          <span>127개의 상품</span>
+          <span>{productDataList.length}개의 상품</span>
         </div>
       </div>
 
@@ -144,7 +128,6 @@ const ProductList = () => {
                         category={ele.name}
                         categoryId={ele.id}
                         key={ele.id}
-                        checkOnlyOne={checkOnlyOne}
                       />
                     );
                   })}
@@ -185,11 +168,7 @@ const ProductList = () => {
                 >
                   {productFilteringData.colors?.map(ele => {
                     return (
-                      <ProductColor
-                        productColor={ele.name}
-                        key={ele.id}
-                        hoverColor={hoverColor}
-                      />
+                      <ProductColor productColor={ele.name} key={ele.id} />
                     );
                   })}
                 </ul>
@@ -215,7 +194,19 @@ const ProductList = () => {
           </div>
           <div>
             <ul className="productInfoList">
-              {<ProductCard clickLike={clickLike} hoverColor={hoverColor} />}
+              {productDataList?.map(product => {
+                return (
+                  <ProductCard
+                    key={product.product_id}
+                    clickLike={clickLike}
+                    product_id={product.product_id}
+                    img_url={product.colors}
+                    product_name={product.product_name}
+                    product_price={product.price}
+                    colors={product.colors}
+                  />
+                );
+              })}
             </ul>
           </div>
           <div className="moreProduct">
@@ -223,7 +214,7 @@ const ProductList = () => {
               <button onClick={pagenation}>더보기</button>
             </div>
             <div className="showAllBtn">
-              <a href="/">모두보기(127)</a>
+              <a href="/">모두보기({productDataList.length})</a>
             </div>
           </div>
           <p className="categoryComment">

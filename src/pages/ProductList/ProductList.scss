@@ -31,25 +31,29 @@
     font-size: 15px;
   }
 }
+
 .wrap {
   margin: auto;
-  padding: 3vw 13vw;
+  padding: 10vw 13vw;
   width: 100vw;
   align-items: center;
+
   .listTitle {
     font-size: 28px;
     font-weight: bold;
     margin-top: 30px;
     margin-bottom: 50px;
   }
+
   .listNav {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     margin: 20px 0px;
+
     .listNavSmallLeft {
       display: flex;
-      flex-direction: row;
+
       .leftSmallBtn {
         background-color: #d3d3d3;
         border-radius: 5px;
@@ -57,6 +61,7 @@
         padding: 5px;
         margin-right: 5px;
       }
+
       .leftSmallCategory {
         background-color: #d3d3d3;
         border-radius: 5px;
@@ -64,49 +69,60 @@
         padding: 5px;
       }
     }
+
     .listNavSmallRight {
       font-size: 18px;
     }
+
     .showAll {
       padding: 30px;
     }
   }
+
   .sectionWrap {
     display: flex;
-    flex-direction: row;
+
     .leftSection {
       width: 23%;
+
       .recommendProductTitle {
         border-bottom: 1px solid black;
         font-weight: 900;
         padding: 20px;
         padding-left: 0px;
       }
+
       .reccomendProduct > ul > li {
         padding: 20px;
       }
+
       .filteringProduct {
         margin-top: 35px;
+
         .filteringProductTitle {
           border-bottom: 1px solid black;
           font-weight: 900;
           padding: 20px;
           padding-left: 0px;
         }
+
         .style {
           position: relative;
           padding: 20px;
           border-bottom: 1px solid black;
           align-items: center;
+
           .stylePlus {
             position: absolute;
             right: 0;
             bottom: 30;
             margin-right: 10px;
           }
+
           .styleUl {
             display: none;
             margin: 20px 0px;
+
             li {
               display: flex;
               justify-content: space-between;
@@ -116,20 +132,24 @@
             }
           }
         }
+
         .size {
           position: relative;
           padding: 20px;
           border-bottom: 1px solid black;
+
           .sizePlus {
             position: absolute;
             right: 0;
             bottom: 30;
             margin-right: 10px;
           }
+
           .sizeUl {
             display: none;
             grid-template-columns: repeat(auto-fill, minmax(7ch, 1fr));
             margin-top: 20px;
+
             li {
               font-size: 11px;
               border: 1px solid lightgray;
@@ -140,20 +160,24 @@
             }
           }
         }
+
         .color {
           position: relative;
           padding: 20px;
+
           .colorPlus {
             position: absolute;
             right: 0;
             bottom: 30;
             margin-right: 10px;
           }
+
           .colorUl {
             display: none;
             grid-template-columns: repeat(auto-fill, minmax(9ch, 1fr));
             place-items: center;
             margin-top: 20px;
+
             li {
               margin: 5px;
               padding: 10px;

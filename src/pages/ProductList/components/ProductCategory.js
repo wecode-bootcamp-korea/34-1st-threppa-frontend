@@ -12,7 +12,6 @@ const ProductCategory = ({ category, categoryId, onClick, checkOnlyOne }) => {
           id={"cateInput" + categoryId}
           className="categoryInput"
           name="test"
-          onChange={e => checkOnlyOne(e.target)}
         />
       </li>
     </label>
