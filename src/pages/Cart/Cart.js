@@ -31,17 +31,17 @@ const Cart = () => {
 
   // < get api >
   useEffect(() => {
-    fetch("datas/cart.json")
-      // fetch("http://10.58.6.64:8000/products/carts", {
-      //   method: "GET",
-      //   headers: {
-      //     Authorization: getUserToken,
-      //   },
-      // })
+    // fetch("datas/cart.json")
+    fetch("http://10.58.4.136:8000/products/carts", {
+      method: "GET",
+      headers: {
+        Authorization: getUserToken,
+      },
+    })
       .then(res => res.json())
       .then(result => {
         // console.log(result); // 테스트용
-        setCartData(result);
+        setCartData(result.carts); // 데이터 형식 확인
       });
   }, []);
 

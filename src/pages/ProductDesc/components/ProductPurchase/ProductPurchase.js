@@ -10,7 +10,7 @@ const ProductPurchase = ({
 }) => {
   const params = useParams();
   const [colorChangeImage, setColorChangeImage] = useState(
-    productSeverData.results.colors[0].image_url
+    productSeverData.products.colors[0].image_url
   );
   const [color, setColor] = useState("");
   const [sizeSelect, setSizeSelect] = useState("");
@@ -19,7 +19,7 @@ const ProductPurchase = ({
 
   const sendToCart = e => {
     e.preventDefault();
-    fetch("http://10.58.6.64:8000/products/carts", {
+    fetch("http://10.58.4.136:8000/products/carts", {
       method: "POST",
       headers: {
         Authorization: getUserToken,
@@ -53,9 +53,9 @@ const ProductPurchase = ({
       <div className="asideRight">
         <div className="stickyBox">
           <div className="slippersInfo">
-            <h1 className="infoTitle">{productSeverData.results.name}</h1>
+            <h1 className="infoTitle">{productSeverData.products.name}</h1>
             <p className="infoGender">여성</p>
-            <div className="infoPrice">{productSeverData.results.price} ₩</div>
+            <div className="infoPrice">{productSeverData.products.price} ₩</div>
           </div>
           <div className="slippersColor">
             <div className="colorTitle">
@@ -63,7 +63,7 @@ const ProductPurchase = ({
             </div>
             <div className="colorList">
               <ul>
-                {productSeverData.results.colors.map(colors => {
+                {productSeverData.products.colors.map(colors => {
                   return (
                     <li
                       key={colors.id}
