@@ -10,13 +10,15 @@ const ProductList = () => {
   const [filterOption, setFilterOption] = useState("");
   const [isSortOpen, setIsSortOpen] = useState(false);
   const [productFilteringData, setProductFilteringData] = useState({});
-  const [category, setCategory] = useState("");
+  const [category, setCategory] = useState();
   const [productDataList, setProductDataList] = useState([]);
   const location = useLocation();
   // const [productDataList, setProductDataList] = useState([]);
   const navigate = useNavigate();
 
-  let offset = 0;
+  const [queryString, setQueryString] = useState(`?offset=18&limit=5`);
+
+  let limit = 0;
   const onClickSortModal = () => {
     setIsSortOpen(!isSortOpen);
   };
@@ -58,22 +60,24 @@ const ProductList = () => {
       });
   }, [location.search]);
 
-  const clickSort = e => {
-    if (e.target.textContent.length === 0 && e.target.checked === true) {
-      setCategory(e.target.parentNode.textContent);
-    }
-  };
-  console.log(category);
+  useEffect(() => {
+    category
+      ? navigate(`/list?${queryString}&category_id=${category}`)
+      : navigate(`/list?${queryString}`);
+  }, [queryString, category]);
 
   const pagenation = () => {
-    const limit = 20;
-    offset = offset + 5;
+    limit = limit + 5;
+    const offset = productDataList.length;
 
-    const queryString = `?offset=${offset}&limit=${limit}`;
-
-    navigate(`/list${queryString}`);
+    setQueryString(`?offset=${offset}&limit=${limit}`);
   };
 
+  const clickSort = id => {
+    setCategory(id);
+  };
+
+  console.log(category);
   return (
     <div className="wrap">
       <p className="listTitle">크록스 여성 슈즈</p>
@@ -124,7 +128,7 @@ const ProductList = () => {
                   {productFilteringData.categories?.map(ele => {
                     return (
                       <ProductCategory
-                        onClick={clickSort}
+                        onClick={() => clickSort(ele.id)}
                         category={ele.name}
                         categoryId={ele.id}
                         key={ele.id}

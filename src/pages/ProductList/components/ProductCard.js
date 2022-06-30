@@ -32,14 +32,13 @@ const ProductCard = ({
       <div className="productInfo">
         <div className="productInfoTopNav">
           <i className="far fa-heart" onClick={clickLike} />
-          <span>세일정보</span>
         </div>
         <div className="productInfoDetail">
           <div>
             <img alt="shoes" src={colors[0].image_url} className="productImg" />
           </div>
           <p className="productName">{product_name}</p>
-          <div className="productPrice">₩ {product_price}</div>
+          <div className="productPrice">{Math.floor(product_price)} 원</div>
           <ul className="productColorNav">
             {colors.map(color => {
               return (

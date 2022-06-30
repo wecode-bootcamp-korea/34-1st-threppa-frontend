@@ -1,4 +1,4 @@
-const ProductCategory = ({ category, categoryId, onClick, checkOnlyOne }) => {
+const ProductCategory = ({ category, categoryId, onClick, setCategoryId }) => {
   return (
     <label htmlFor={"cateInput" + categoryId}>
       <li onClick={onClick}>
