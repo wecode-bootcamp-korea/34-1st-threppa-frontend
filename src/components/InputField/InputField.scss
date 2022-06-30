@@ -1,0 +1,53 @@
+.filed {
+  position: relative;
+  width: 100%;
+  height: 40px;
+  margin-bottom: 16px;
+
+  .placeHolder {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 0 6px;
+    line-height: 40px;
+    color: gray;
+    font-size: 14px;
+    pointer-events: none;
+    transition: all 0.1s linear;
+  }
+
+  .placeHolderHasValue {
+    color: gray;
+    transform: translateY(-10px);
+    font-size: 8px;
+  }
+
+  input {
+    padding: 8px 9px;
+    width: 100%;
+    height: 100%;
+    border: 1px solid gray;
+    border-radius: 5px;
+    font-size: 18px;
+  }
+
+  .inputHasValue {
+    padding-top: 14px;
+    padding-bottom: 2px;
+  }
+}
+
+.fullName {
+  display: flex;
+  justify-content: left;
+  width: 100%;
+
+  .lastName {
+    margin-right: 12px;
+    width: 90px;
+  }
+
+  .firstName {
+    width: 180px;
+  }
+}

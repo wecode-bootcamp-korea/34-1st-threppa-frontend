@@ -1,0 +1,75 @@
+[
+  {
+    "id": 1,
+    "title": "1ejfieaj",
+    "color": "블랙",
+    "price": "60000",
+    "imageId": 1,
+    "imageURL": "/images/crocs_03.jpg"
+  },
+  {
+    "id": 2,
+    "title": "2bjfieaj",
+    "color": "화이트",
+    "price": "60000",
+    "imageId": 2,
+    "imageURL": "/images/crocs_04.jpg"
+  },
+  {
+    "id": 3,
+    "title": "3yughfhh",
+    "color": "블루",
+    "price": "12200",
+    "imageId": 3,
+    "imageURL": "/images/crocs_05.jpg"
+  },
+  {
+    "id": 4,
+    "title": "4tuthgh",
+    "color": "white",
+    "price": "52000",
+    "imageId": 4
+  },
+  {
+    "id": 5,
+    "title": "5ziejfj",
+    "color": "red",
+    "price": "60000",
+    "imageId": 5
+  },
+  {
+    "id": 6,
+    "title": "6hhehwa",
+    "color": "red",
+    "price": "60000",
+    "imageId": 6
+  },
+  {
+    "id": 7,
+    "title": "7ttthg",
+    "color": "red",
+    "price": "60000",
+    "imageId": 7
+  },
+  {
+    "id": 8,
+    "title": "8tuyii",
+    "color": "red",
+    "price": "60000",
+    "imageId": 8
+  },
+  {
+    "id": 9,
+    "title": "9gjajfjf",
+    "color": "red",
+    "price": "60000",
+    "imageId": 9
+  },
+  {
+    "id": 10,
+    "title": "10vmbmmejwi",
+    "color": "red",
+    "price": "60000",
+    "imageId": 10
+  }
+]

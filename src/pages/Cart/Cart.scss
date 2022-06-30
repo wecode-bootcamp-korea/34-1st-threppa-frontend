@@ -1,0 +1,129 @@
+.CartContainer {
+  padding: 0 12%;
+  height: 100%;
+  margin-top: 50px;
+
+  .cartTitle {
+    display: inline-block;
+    margin-top: 20px;
+    font-size: 18px;
+
+    .bolder {
+      font-size: 22px;
+      font-weight: bold;
+      padding-right: 10px;
+    }
+  }
+
+  .columnWrapper {
+    display: flex;
+    justify-content: center;
+
+    .column:first-child {
+      width: 570px;
+      margin-right: 100px;
+    }
+
+    .column:last-child {
+      width: 440px;
+
+      .fixedCol {
+        position: fixed;
+        width: inherit;
+      }
+    }
+
+    .column {
+      .totalTitle {
+        padding: 30px 0 20px 0;
+        font-weight: bold;
+        font-size: 18px;
+      }
+
+      .orderFormTitle {
+        margin: 20px 0;
+        font-weight: bold;
+        font-size: 22px;
+      }
+
+      .orderLists {
+        padding: 0 20px;
+        height: 400px;
+
+        .orderList {
+          height: 80px;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          border-bottom: 1.5px solid lightgray;
+
+          li {
+            font-size: 18px;
+            font-weight: bold;
+
+            .coupon {
+              padding: 7px;
+              width: 140px;
+              border-radius: 10px;
+              border: 1px solid gray;
+            }
+          }
+
+          .deliveryLi {
+            display: grid;
+            grid-template-rows: 2fr 1fr;
+            height: 100%;
+
+            p {
+              display: flex;
+              justify-content: right;
+              align-items: flex-end;
+            }
+
+            .three {
+              padding-bottom: 5px;
+              color: gray;
+              font-size: 12px;
+            }
+          }
+        }
+      }
+
+      .orderBtn {
+        width: 100%;
+        height: 50px;
+        background-color: rgb(81, 163, 213);
+        color: white;
+        font-size: 18px;
+        border: none;
+        border-radius: 10px;
+
+        .calculator {
+          padding-right: 12px;
+        }
+      }
+
+      .emptyCart {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 50px;
+        width: 600px;
+        height: 200px;
+
+        .basket {
+          padding-right: 20px;
+        }
+      }
+
+      .isShowemptyCart {
+        display: none;
+      }
+    }
+
+    .totalPrice {
+      color: rgb(194, 50, 50);
+      font-weight: bolder;
+    }
+  }
+}
