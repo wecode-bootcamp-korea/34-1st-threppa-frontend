@@ -32,6 +32,7 @@ const ProductDesc = () => {
       .then(res => res.json())
       .then(productData => {
         setProductSeverData(productData);
+        console.log(productData);
       });
   }, [params.id]);
 
