@@ -12,6 +12,9 @@ const ProductList = () => {
   const [productFilteringData, setProductFilteringData] = useState({});
   const [category, setCategory] = useState();
   const [productDataList, setProductDataList] = useState([]);
+  const [gender_type_id, setgender_type_id] = useState("1");
+  const [offset, setOffset] = useState(0);
+
   const location = useLocation();
   // const [productDataList, setProductDataList] = useState([]);
   const navigate = useNavigate();
@@ -24,16 +27,11 @@ const ProductList = () => {
   };
 
   const SortModal = () => {
-    const onClickSort = e => {
-      console.log(
-        e.target.textContent === "최저가 - 최고가" ? "최저가순" : "최고가순"
-      );
-    };
     return (
       <div className="modal" style={{ display: isSortOpen ? "block" : "none" }}>
         <ul>
-          <li onClick={onClickSort}>최저가 - 최고가</li>
-          <li onClick={onClickSort}>최고가 - 최저가</li>
+          <li>모달을 연습했답니다.</li>
+          <li>짜잔!</li>
         </ul>
       </div>
     );
@@ -62,14 +60,18 @@ const ProductList = () => {
 
   useEffect(() => {
     category
-      ? navigate(`/list?${queryString}&category_id=${category}`)
-      : navigate(`/list?${queryString}`);
+      ? navigate(
+          `/list?${queryString}&${gender_type_id}&category_id=${category}`
+        )
+      : navigate(`/list?${queryString}&${gender_type_id}`);
   }, [queryString, category]);
 
-  const pagenation = () => {
-    limit = limit + 5;
-    const offset = productDataList.length;
+  useEffect(() => {
+    setOffset(offset + 5);
+  }, [offset]);
 
+  const pagenation = () => {
+    limit = 18;
     setQueryString(`?offset=${offset}&limit=${limit}`);
   };
 
@@ -77,7 +79,6 @@ const ProductList = () => {
     setCategory(id);
   };
 
-  console.log(category);
   return (
     <div className="wrap">
       <p className="listTitle">크록스 여성 슈즈</p>
@@ -215,7 +216,9 @@ const ProductList = () => {
           </div>
           <div className="moreProduct">
             <div className="showMoreBtn">
-              <button onClick={pagenation}>더보기</button>
+              <button className="moreBtn" onClick={pagenation}>
+                더보기
+              </button>
             </div>
             <div className="showAllBtn">
               <a href="/">모두보기({productDataList.length})</a>

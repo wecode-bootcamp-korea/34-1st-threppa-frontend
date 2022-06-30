@@ -219,6 +219,7 @@
       .productInfoList {
         display: grid;
         grid-template-columns: repeat(auto-fill, minmax(13vw, 1fr));
+        grid-auto-rows: 1fr;
       }
       .productInfo {
         border: 1px solid #d3d3d3;
@@ -281,14 +282,20 @@
         display: flex;
         flex-direction: row;
         justify-content: center;
+        .showMoreBtn {
+          background-color: black;
+          color: white;
+          width: 6.4vw;
+          padding: 20px;
+          margin: 20px;
+          .moreBtn {
+            background-color: black;
+            border-style: none;
+            color: white;
+          }
+        }
       }
-      .showMoreBtn {
-        background-color: black;
-        color: white;
-        width: 5vw;
-        padding: 20px;
-        margin: 20px;
-      }
+
       .showAllBtn {
         align-items: center;
         justify-content: center;
