@@ -184,7 +184,11 @@ const Cart = () => {
                       placeholder="쿠폰 번호를 입력하세요"
                       onInput={couponInput}
                     />
-                    <button type="button" onClick={couponBtn}>
+                    <button
+                      className="couponBtn"
+                      type="button"
+                      onClick={couponBtn}
+                    >
                       확인
                     </button>
                   </label>

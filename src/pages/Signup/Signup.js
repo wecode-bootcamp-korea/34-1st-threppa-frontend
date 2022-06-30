@@ -65,7 +65,7 @@ const Signup = () => {
         }
 
         appContext.setToastMessage(["회원가입 성공!", "😆"]);
-        location("/productlist");
+        location("/");
       });
   };
 

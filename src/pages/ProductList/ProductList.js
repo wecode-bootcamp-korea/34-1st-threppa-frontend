@@ -12,6 +12,7 @@ const ProductList = () => {
   const [productFilteringData, setProductFilteringData] = useState({});
   const [category, setCategory] = useState();
   const [productDataList, setProductDataList] = useState([]);
+  const [offset, setOffset] = useState(0);
   const location = useLocation();
   // const [productDataList, setProductDataList] = useState([]);
   const navigate = useNavigate();
@@ -32,8 +33,8 @@ const ProductList = () => {
     return (
       <div className="modal" style={{ display: isSortOpen ? "block" : "none" }}>
         <ul>
-          <li onClick={onClickSort}>최저가 - 최고가</li>
-          <li onClick={onClickSort}>최고가 - 최저가</li>
+          <li onClick={onClickSort}>모달해쪄염</li>
+          <li onClick={onClickSort}>뿌잉뿌잉</li>
         </ul>
       </div>
     );
@@ -66,9 +67,12 @@ const ProductList = () => {
       : navigate(`/list?${queryString}`);
   }, [queryString, category]);
 
+  useEffect(() => {
+    setOffset(offset + 5);
+  }, [offset]);
+
   const pagenation = () => {
-    limit = limit + 5;
-    const offset = productDataList.length;
+    limit = 18;
 
     setQueryString(`?offset=${offset}&limit=${limit}`);
   };
@@ -89,9 +93,6 @@ const ProductList = () => {
           </div>
         </div>
         <div className="listNavSmallRight">
-          <a className="showAll" href="/">
-            모두보기
-          </a>
           <span>{productDataList.length}개의 상품</span>
         </div>
       </div>
@@ -184,7 +185,7 @@ const ProductList = () => {
               className="adImg"
               alt="광고이미지"
               src="https://www.street.co.kr/wp-content/uploads/2020/07/street.co_.kr_2020_07_casestudy-crocs-classic-clog_1-1.jpg"
-            ></img>
+            />
           </div>
         </section>
 
@@ -215,10 +216,9 @@ const ProductList = () => {
           </div>
           <div className="moreProduct">
             <div className="showMoreBtn">
-              <button onClick={pagenation}>더보기</button>
-            </div>
-            <div className="showAllBtn">
-              <a href="/">모두보기({productDataList.length})</a>
+              <button onClick={pagenation} className="moreBtn">
+                모두보기
+              </button>
             </div>
           </div>
           <p className="categoryComment">

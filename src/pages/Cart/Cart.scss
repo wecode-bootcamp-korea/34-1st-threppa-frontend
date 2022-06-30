@@ -1,6 +1,5 @@
 .CartContainer {
   padding: 0 12%;
-  height: max-content;
   margin-top: 50px;
 
   .cartTitle {
@@ -62,10 +61,23 @@
             font-weight: bold;
 
             .coupon {
-              padding: 7px;
-              width: 140px;
+              padding: 3px;
+              width: 150px;
+              margin-right: 10px;
               border-radius: 10px;
               border: 1px solid gray;
+              &::placeholder {
+                font-size: 11px;
+                padding-left: 15px;
+              }
+            }
+            .couponBtn {
+              padding: 4px 10px;
+              border: none;
+              border-radius: 10px;
+              background-color: rgb(81, 163, 213);
+              color: #fff;
+              cursor: pointer;
             }
           }
 

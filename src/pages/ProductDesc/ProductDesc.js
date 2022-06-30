@@ -16,7 +16,7 @@ const ProductDesc = () => {
   };
 
   useEffect(() => {
-    fetch("/datas/productData.json", {
+    fetch("/datas/Product.json", {
       method: "GET",
     })
       .then(res => res.json())

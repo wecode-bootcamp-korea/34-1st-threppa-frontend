@@ -6,7 +6,6 @@ const ProductColor = ({ productColor, hoverColor }) => {
         onMouseOver={hoverColor}
         style={{ backgroundColor: productColor }}
       />
-      <span>{productColor}</span>
     </li>
   );
 };

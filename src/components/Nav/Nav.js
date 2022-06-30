@@ -17,7 +17,7 @@ const Nav = () => {
 
   // < 유저정보 요청 >
   useEffect(() => {
-    fetch("http://10.58.6.64:8000/products/user_nav", {
+    fetch("http://10.58.4.136:8000/products/user_nav", {
       method: "GET",
       headers: {
         Authorization: getUserToken,
@@ -42,13 +42,14 @@ const Nav = () => {
     <nav className="nav">
       <div className="navWrapper">
         <h1 className="logo">
-          <Link to="/productlist">Threppa</Link>
+          <Link to="/">Threppa</Link>
         </h1>
 
         <ul className="menuMain">
           {navData.map(obj => (
             <li key={obj.id} className="menuTap">
-              <Link to={obj.genderType} className="menuColor">
+              {/* <Link to={obj.genderType} className="menuColor"> */}
+              <Link to="list" className="menuColor">
                 {obj.genderType}
               </Link>
               <div className="menuSubWrapper">
@@ -58,9 +59,7 @@ const Nav = () => {
                     <ul>
                       {obj.category.map(el => (
                         <li id={el.category_id} key={el.category_id}>
-                          <Link to={`${obj.genderType}/${el.name}`}>
-                            {el.name}
-                          </Link>
+                          <Link to="list">{el.name}</Link>
                         </li>
                       ))}
                     </ul>
@@ -70,9 +69,7 @@ const Nav = () => {
                     <ul>
                       {obj.collection.map(el => (
                         <li key={el.collection_id}>
-                          <Link to={`${obj.genderType}/${el.name}`}>
-                            {el.name}
-                          </Link>
+                          <Link to="list">{el.name}</Link>
                         </li>
                       ))}
                     </ul>
@@ -113,16 +110,16 @@ const Nav = () => {
           <p className="hello">{userName && `안녕하세요 ${userName}님 🙂`}</p>
           <div className="navRightTap">
             <i className="fas fa-heart heart">
-              <p>
+              {/* <p>
                 <span>0</span>
-              </p>
+              </p> */}
             </i>
           </div>
           <div className="navRightTap">
             <Link to="/cart">
               <p>
                 <i className="fas fa-shopping-cart cart">
-                  <span className="cartNum">0</span>
+                  {/* <span className="cartNum">0</span> */}
                 </i>
               </p>
             </Link>
