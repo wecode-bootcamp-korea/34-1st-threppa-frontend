@@ -1,0 +1,102 @@
+[
+  {
+    "id": 1,
+    "productImg": "https://cdn.pixabay.com/photo/2016/06/03/17/35/shoes-1433925_1280.jpg",
+    "productRate": 3,
+    "title": "crocs1",
+    "color": "red",
+    "price": "60000",
+    "imageId": 1,
+    "productColor": ["black", "white", "blue"]
+  },
+  {
+    "id": 2,
+    "productImg": "https://cdn.pixabay.com/photo/2016/06/03/17/35/shoes-1433925_1280.jpg",
+    "productRate": 3,
+    "title": "crocs2",
+    "color": "red",
+    "price": "60000",
+    "imageId": 2,
+    "productColor": ["black", "white", "blue"]
+  },
+  {
+    "id": 3,
+    "productImg": "https://cdn.pixabay.com/photo/2016/06/03/17/35/shoes-1433925_1280.jpg",
+    "productRate": 3,
+    "title": "crocs3",
+    "color": "red",
+    "price": "60000",
+    "imageId": 3,
+    "productColor": ["black", "white", "blue"]
+  },
+  {
+    "id": 4,
+    "productImg": "https://cdn.pixabay.com/photo/2016/06/03/17/35/shoes-1433925_1280.jpg",
+    "productRate": 3,
+    "title": "crocs4",
+    "color": "red",
+    "price": "60000",
+    "imageId": 4,
+    "productColor": ["black", "white", "blue"]
+  },
+  {
+    "id": 5,
+    "productImg": "https://cdn.pixabay.com/photo/2016/06/03/17/35/shoes-1433925_1280.jpg",
+    "productRate": 3,
+    "title": "crocs5",
+    "color": "red",
+    "price": "60000",
+    "imageId": 5,
+    "productColor": ["black", "white", "blue"]
+  },
+  {
+    "id": 6,
+    "productImg": "https://cdn.pixabay.com/photo/2016/06/03/17/35/shoes-1433925_1280.jpg",
+    "productRate": 3,
+    "title": "crocs6",
+    "color": "red",
+    "price": "60000",
+    "imageId": 6,
+    "productColor": ["black", "white", "blue"]
+  },
+  {
+    "id": 7,
+    "productImg": "https://cdn.pixabay.com/photo/2016/06/03/17/35/shoes-1433925_1280.jpg",
+    "productRate": 3,
+    "title": "crocs7",
+    "color": "red",
+    "price": "60000",
+    "imageId": 7,
+    "productColor": ["black", "white", "blue"]
+  },
+  {
+    "id": 8,
+    "productImg": "https://cdn.pixabay.com/photo/2016/06/03/17/35/shoes-1433925_1280.jpg",
+    "productRate": 3,
+    "title": "crocs8",
+    "color": "red",
+    "price": "60000",
+    "imageId": 8,
+    "productColor": ["black", "white", "blue"]
+  },
+  {
+    "id": 9,
+    "productImg": "https://cdn.pixabay.com/photo/2016/06/03/17/35/shoes-1433925_1280.jpg",
+    "productRate": 3,
+    "title": "crocs9",
+    "color": "red",
+    "price": "60000",
+    "imageId": 9,
+    "productColor": ["black", "white", "blue"]
+  },
+  {
+    "id": 10,
+    "productImg": "https://cdn.pixabay.com/photo/2016/06/03/17/35/shoes-1433925_1280.jpg",
+    "productRate": 3,
+    "title": "crocs10",
+    "color": "red",
+    "price": "60000",
+    "imageId": 10,
+    "productColor": ["black", "white", "blue"]
+  }
+]
