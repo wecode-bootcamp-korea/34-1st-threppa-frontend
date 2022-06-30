@@ -1,0 +1,105 @@
+.footer {
+  width: 100vw;
+  height: 300px;
+  margin-top: 50px;
+  background-color: black;
+
+  .footerTop {
+    width: 100vw;
+    height: 60px;
+    padding-top: 20px;
+    border: 2px solid#fff;
+    border-left: 0px;
+    border-right: 0px;
+
+    .profile {
+      display: flex;
+      justify-content: space-between;
+      padding: 0px 150px;
+
+      .user {
+        width: 300px;
+        color: #fff;
+        font-weight: 700;
+
+        i {
+          padding-right: 10px;
+        }
+      }
+
+      .place {
+        width: 300px;
+        color: #fff;
+        font-weight: 700;
+
+        i {
+          padding-right: 10px;
+        }
+      }
+
+      .country {
+        width: 300px;
+        color: #fff;
+        font-weight: 700;
+
+        i {
+          padding-right: 10px;
+        }
+      }
+
+      .socalnetwork {
+        width: 300px;
+
+        .icon {
+          display: flex;
+          gap: 10px;
+          color: #fff;
+          font-size: 20px;
+          font-weight: 700;
+        }
+      }
+    }
+  }
+
+  .footerBottom {
+    .infomation {
+      display: flex;
+      justify-content: space-between;
+      padding: 0px 150px;
+      color: #fff;
+
+      h4 {
+        padding-top: 30px;
+        font-size: 20px;
+        font-weight: 700;
+
+        ul {
+          padding-top: 30px;
+
+          li {
+            padding-top: 13px;
+            font-size: 15px;
+            font-weight: 400;
+            list-style: none;
+          }
+        }
+      }
+
+      .benefit {
+        width: 300px;
+      }
+
+      .company {
+        width: 300px;
+      }
+
+      .customer {
+        width: 300px;
+      }
+
+      .customerTime {
+        width: 300px;
+      }
+    }
+  }
+}

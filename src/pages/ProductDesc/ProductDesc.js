@@ -26,7 +26,7 @@ const ProductDesc = () => {
   }, []);
 
   useEffect(() => {
-    fetch(`http://10.58.6.64:8000/products/${params.id}`, {
+    fetch(`http://10.58.4.136:8000/products/${params.id}`, {
       method: "GET",
     })
       .then(res => res.json())
@@ -36,7 +36,7 @@ const ProductDesc = () => {
   }, [params.id]);
 
   useEffect(() => {
-    fetch("http://10.58.6.64:8000/products/sizes", {
+    fetch("http://10.58.4.136:8000/products/sizes", {
       method: "GET",
     })
       .then(res => res.json())
