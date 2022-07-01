@@ -8,7 +8,7 @@ const Footer = () => {
         <ul className="profile">
           <li className="user">
             <i class="fa-solid fa-user" />
-            로그인
+            로그인!
           </li>
           <li class="place">
             <i class="fa-solid fa-location-dot" />
