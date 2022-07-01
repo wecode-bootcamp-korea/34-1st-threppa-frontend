@@ -30,7 +30,7 @@ const Cart = () => {
     totalPrice - discountPrice + (deliveryFee === "무료" ? 0 : deliveryFee);
 
   const getUserToken = localStorage.getItem("ACCESS_TOKEN");
-  console.log("토큰", getUserToken);
+
   // < get api >
   useEffect(() => {
     // fetch("datas/cart.json")
@@ -46,8 +46,6 @@ const Cart = () => {
       });
   }, []);
 
-  console.log("카트데이터", cartData);
-
   // < post api >
   useEffect(() => {
     clearTimeout(timerRef.current);
@@ -56,8 +54,6 @@ const Cart = () => {
       const postData = cartData.map(({ cart_id, quantity }) => {
         return { cart_id, quantity };
       });
-
-      console.log(postData);
 
       fetch("http://10.58.4.136:8000/products/cartsupdate", {
         method: "POST",

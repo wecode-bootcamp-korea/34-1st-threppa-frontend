@@ -7,7 +7,6 @@ const PopupWrapper = props => {
       <div className="test" />
       <div className="popupContainer">
         <div className="backDrop" />
-
         <div className="popupWrapper">
           <h1 className="popuplogo">Threppa</h1>
           <p className="popupTitle">{props.title}</p>
