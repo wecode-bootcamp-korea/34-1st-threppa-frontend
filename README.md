@@ -8,8 +8,11 @@
 Front : 전지현, 장류광, 신지훈
 Back : 김우식
 
-# 프로젝트 기간
+# Demo
 
-22.06.20 ~ 22.07.01
+# DB modeling
 
-# 
+# Techonolgies
+- HTML, SCSS, Javascript
+- React
+- 우식님 스택
