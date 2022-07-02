@@ -2,7 +2,7 @@
 
 ## **1. 데모 영상**
 
-![업로드중..](blob:https://velog.io/87ec8e7c-5a5a-4f9c-a8c4-836cbae3eddb)
+![](blob:https://velog.io/87ec8e7c-5a5a-4f9c-a8c4-836cbae3eddb)
 
 ## **2. 프로젝트 소개**
 
