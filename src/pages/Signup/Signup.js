@@ -14,6 +14,7 @@ const Signup = () => {
     email: "",
     password: "",
   });
+
   const [pwOverlap, setPwOverlap] = useState(false);
   const [emailOverlap, setEmailOverlap] = useState(false);
   const [nickNameOverlap, setNickNameOverlap] = useState(false);

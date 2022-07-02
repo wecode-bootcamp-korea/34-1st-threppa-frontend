@@ -5,7 +5,7 @@ import "./Nav.scss";
 const Nav = () => {
   const navigate = useNavigate();
   const [navData, setNavData] = useState([]);
-  const [userName, setUserName] = useState("");
+  const [userName, setUserName] = useState("져니");
   const getUserToken = localStorage.getItem("ACCESS_TOKEN");
 
   // < mock data api요청 >
