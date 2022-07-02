@@ -9,8 +9,10 @@ Front : 전지현, 장류광, 신지훈
 Back : 김우식
 
 # Demo
+![image](https://user-images.githubusercontent.com/88140865/176993296-751354f7-038d-43e6-b499-8e5e4716735a.png)
 
 # DB modeling
+
 
 # Techonolgies
 - HTML, SCSS, Javascript
